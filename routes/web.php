@@ -10,7 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=>'/ad'],function(){
+    Route::group(['prefix'=>'/post'],function(){
+        Route::get('/list','postsController@get_list');
+
+        Route::get('/add','postsController@get_add');
+        Route::post('/add','postsController@post_add');
+
+        Route::get('/edit/{id}','postsController@get_edit');
+        Route::post('/edit','postsController@post_edit');
+
+        Route::get('/del/{id}','postsController@get_del');
+    });
+});
+Route::post('test','postsController@test');
+Route::get('test',function(){
+    return view("ad.posts.list");
 });
