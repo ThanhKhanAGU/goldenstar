@@ -14,9 +14,9 @@ class ImageTable extends Migration
     public function up()
     {
         Schema::create('images', function(Blueprint $table){
-            $table->increments('id');
+            $table->bigIncrements('id');
 
-            $table->integer('id_blog');
+            $table->integer('id_post');
             $table->string('img');
             $table->timestamps();
         });

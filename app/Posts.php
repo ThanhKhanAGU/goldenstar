@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
-    protected $table = 'posts';
+    protected $table = 'Posts';
 
     public function trademark(){
         return $this->belongsTo('App\Posts', 'id_trademark', 'id');
@@ -23,6 +23,9 @@ class Posts extends Model
         if($table->type == 'ds'){
             return $this->hasMany('App\Posts', 'id_distributor', 'id');
         }
+    }
+    public function images(){
+        return $this->hasMany("App\Images","id_post","id");
     }
 }
 

@@ -25,7 +25,3 @@ Route::group(['prefix'=>'/ad'],function(){
         Route::get('/del/{id}','postsController@get_del');
     });
 });
-Route::post('test','postsController@test');
-Route::get('test',function(){
-    return view("ad.posts.list");
-});

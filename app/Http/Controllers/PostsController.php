@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Posts;
+use App\Images;
 
 class PostsController extends Controller
 {
@@ -27,6 +28,11 @@ class PostsController extends Controller
         if($request->name){
             $post->name = $request->name;
         }
+
+            if($request->show=="show");
+            {
+                $post->show = 1;
+            }
 
         if($request->summary){
             $post->summary = $request->summary;
@@ -72,38 +78,39 @@ class PostsController extends Controller
         {
             $post->image = "default.jpg";
         }
-
         $post->save();
-        //return back();
+
+        if($request->hasFile('img')){
+            foreach($request->file("img") as $file)
+            {
+                //upload images to server
+                $name = $file->getClientOriginalName();
+                $image = time()."_".$name;
+                $file->move('post',$image);
+                //create row of table Images
+                $images = new Images();
+                $images->id_post = $post->id;
+                $images->img = $image;
+                $images->save();
+            }
+        }
+        
+        return back();
        
     }
 
-    public function get_edit($id)
-    {
-        $post = Tintuc::find($id);
-        return view('ad.posts.edit',['post'=>$post]);
-    }
-
-    public function get_del($id)
-    {
-        $post = Posts::find($id);
-        $post->delete();
-        foreach($post->comment as $cmt){
-            $cmt->delete();
-        }
-        return redirect('ad/posts/list')->with('thongbao','Xóa Thành Công');
-    }
-    
-   
-
-    
-    
     public function post_edit(Request $request)
     {
-        $post = Tintuc::find($request->id);
+
+        $post = Posts::find($request->id);
 
         if($request->name){
             $post->name = $request->name;
+        }
+
+        if($request->show=="show");
+        {
+            $post->show = 1;
         }
 
         if($request->summary){
@@ -140,31 +147,56 @@ class PostsController extends Controller
             $post->type = $request->type;
         }
 
-
-        if($request->hasFile('image')){
+        if($request->image){
             $file = $request->file('image');
             $name = $file->getClientOriginalName();
             $image = time()."_".$name;
             $file->move('post',$image);
+            unlink("post/".$post->image);
             $post->image = $image;
         }
         else
         {
             $post->image = "default.jpg";
         }
+        
         $post->save();
-        return redirect('ad/posts/list')->with('thongbao','Cập nhật Thành Công');
-    }
-    public function test(Request $request)
-    {
-        if($request->file("image")){
-            $file = $request->file('image');
-            $name = $file->getClientOriginalName();
-            $image = time()."_".$name;
-            $file->move('post',$image);
-            $post->image = $image;
-        }
-        var_dump($request->image);
+
+        if($request->hasFile('img')){
+            foreach ($post->images as $value){
+                unlink('post/'.$value);
+            } 
+
+            foreach($request->file("img") as $file)
+            {
+                //upload images to server
+                $name = $file->getClientOriginalName();
+                $image = time()."_".$name;
+                $file->move('post',$image);
+
+                //create row of table Images
+                $images = new Images();
+                $images->id_post = $post->id;
+                $images->img = $image;
+                $images->save();              
+            }
+        }    
+        return back();      
     }
 
+    public function get_edit($id)
+    {
+        $post = Tintuc::find($id);
+        return view('ad.posts.edit',['post'=>$post]);
+    }
+
+    public function get_del($id)
+    {
+        $post = Posts::find($id);
+        $post->delete();
+        foreach($post->comment as $cmt){
+            $cmt->delete();
+        }
+        return redirect('ad/posts/list')->with('thongbao','Xóa Thành Công');
+    }
 }

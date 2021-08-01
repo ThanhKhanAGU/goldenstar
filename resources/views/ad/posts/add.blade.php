@@ -2,7 +2,7 @@
 @section('content')
 <h4 class="header-title mb-4">THÊM BÀI VIẾT</h4>
 
-<form action="ad/post/add" method="POST" class="parsley-examples">
+<form action="ad/post/add" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="type" value="ps">
     <div class="form-group row">
@@ -56,7 +56,7 @@
     <div class="form-group row">
         <label class="col-2 col-form-label" for="example-fileinput">Nổi bật</label>
         <div class="col-10 switchery-demo">
-            <input id="show" name="show[]" value="show" type="checkbox" data-plugin="switchery" data-color="#1bb99a" data-size="small">
+            <input id="show" name="show" value="show" type="checkbox" data-plugin="switchery" data-color="#1bb99a" data-size="small">
         </div>
     </div>
     <!-- Prouct -->
@@ -87,7 +87,7 @@
             Thương hiệu
         </label>
         <div class="col-lg-10">
-            <select id="id_trademake" name="id_trademake" class="form-control" >
+            <select id="id_trademark" name="id_trademark" class="form-control" >
                 <option>123</option>
             </select>
         </div>
