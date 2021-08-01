@@ -44,15 +44,15 @@ class listpagesController extends Controller
     public function products()
     {
         // $sanpham = SanPham::all();
-        $sanpham = DB::table('SanPham')->paginate(20);
+        // $sanpham = DB::table('SanPham')->paginate(20);
         // $noibat = DB::table('SanPham')->where("NoiBat",1)->get()->take(4);
-        $moi = TinTuc::all()->sortByDesc('created_at')->take(3);
-        return view('pages.products',['sanpham'=>$sanpham,'moi'=>$moi]);
+        // $moi = TinTuc::all()->sortByDesc('created_at')->take(3);
+        return view('pages.products');
     }
 
-    public function chitietsanpham($id, $ten){
-        $sanpham = SanPham::find($id);
-        return view('pages.chitietsanpham',['sanpham'=>$sanpham]);
+    public function inforProduct($id){
+        // $sanpham = SanPham::find($id);
+        return view('pages.inforproduct');
     }
 
     public function hoatdong()

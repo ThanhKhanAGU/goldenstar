@@ -1,0 +1,52 @@
+.card .img-fluid{
+  height: 130px;
+  background: black;
+
+}
+
+.card{
+  color: #000;
+  border: #000;
+}
+
+.main-container .container .row .col-lg-8 .post{
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.card-w{
+  display: flex;
+}
+
+.card-w img{
+  flex: 1;
+}
+
+.card-w .content{
+  flex: 3;
+}
+
+.background-menu-p{
+  height: 67px;
+  background: #515151;
+}
+
+@media only screen and (max-width: 967px) {
+  .card .col-md-4 .img-card{
+    color: #000 !important;
+
+  }
+}
+
+.card .col-md-4 .img-card{
+  color: #000 !important;
+  background: #000;
+}
+
+
+@media (max-width: 767px) {
+  .main-container .container .row .post .post-image-wrapper .img-card{
+    width: 10px;
+  }
+}
+

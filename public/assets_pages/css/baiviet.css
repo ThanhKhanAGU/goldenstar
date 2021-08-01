@@ -1,0 +1,170 @@
+/* My CSS */
+.baiviet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .baiviet .background{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    max-height: 400px;
+  }
+  .baiviet .background img{
+    width: 100%;
+  }
+  .baiviet .background .filter
+  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image:url('../images/overaly.png') ;
+  }
+  .baiviet .content{
+    background: white;
+    padding: 10px;
+    margin: auto;
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .baiviet .content h3{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+  }
+  .baiviet .content p{
+    text-align: justify;
+    text-indent: 4rem;
+    font-size: 16px;
+  }
+  .baiviet .content .img{
+    width: 100%;
+    padding: 10px;
+    display: block;
+  }
+  
+  .baiviet .content .img img{
+    width: 100%;
+  }
+  .baiviet .content .img div
+  {
+    margin-top: 20px;
+    font-weight: thin;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+  }
+  .baiviet .content  hr{
+    width: 100%;
+    margin: auto;
+    background: orangered;
+    border-radius: none;
+    height: 1px;
+    border-radius: 1px;
+    margin-bottom: 15px;
+  }
+  .comment{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .title-cmt{
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .comment .comment-item{
+    display: flex;
+    margin-left: 3rem;
+    margin-top: 10px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+  .comment-item .comment-item{
+    margin: 20px 0;
+    padding:10px ;
+    border-bottom: none;
+  }
+  .comment .comment-item .avata{
+    height: 64px;
+    width: 64px;
+    font-size: 50px;
+    color: rgb(98, 98, 98);
+    text-align: center;
+    border-radius: 50%;
+  }
+  .comment .comment-item .cmt{
+    margin-left: 10px;
+    padding: 3px;
+  }
+   .comment-item .cmt .name
+  {
+    font-weight: 700;
+    padding: 3px;
+  }
+   .comment-item .cmt .time{
+    font-size: 13px;
+    color: #c5c5c5;
+  }
+   .comment-item .cmt .button
+  {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .comment-item .cmt .button a{
+    margin-right: 20px;
+    color: orangered;
+  }
+  .create-comment form
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .create-comment form
+  {
+    background: #f8f8f8;
+    box-shadow: 2px 2px 10px #ebebeb;
+    padding: 20px;
+    padding-bottom:0px ;
+    margin: 20px 0;
+    border-radius: 10px;
+  }
+  .create-comment form input,.create-comment form textarea{
+    margin: 5px;
+    border: none;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    outline: none;
+    padding: 2px 2px 2px 7px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+  }
+  
+  .create-comment form input{
+    font-weight: 600;
+  }
+  #getcmt{
+    margin:30px 0;
+    width: 200px;
+    border-radius: 1.5em;
+    outline: none;
+    border: orangered 1px solid;
+    background: #ffffff;
+    color: #222;
+    font-weight: 500;
+    height: 3em;
+    line-height: 3em;
+    transition: all 100ms linear;
+    text-transform: uppercase;
+  }
+  #getcmt:hover
+  {
+    background: orangered;
+    color: white;
+  }
+  
