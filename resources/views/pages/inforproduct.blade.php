@@ -24,11 +24,11 @@
             <!-- Portfolio item slider start -->
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="portfolio-slider">
-                    <div class="flexportfolio flexslider">
+                    <div class="flexportfolio flexslider img-6-9">
                         <ul class="slides">
-                            <li><img src="assets_pages/images/img/10tyCovid(1).jpg" alt=""></li>
-                            <li><img src="assets_pages/images/portfolio/portfolio-bg2.jpg" alt=""/></li>
-                            <li><img src="assets_pages/images/portfolio/portfolio-bg3.jpg" alt=""/></li>
+                            <li><img src="assets_pages/images/img/boss.png" alt=""></li>
+                            <li><img src="assets_pages/images/img/expo.png" alt=""/></li>
+                            <li><img src="assets_pages/images/img/spec.png" alt=""/></li>
                         </ul>
                     </div>
                 </div>
@@ -43,11 +43,10 @@
                         <p>Oat cake oat cake dessert brownie. Gummies tiramisu tart jujubes jelly beans macaroon danish pie muffin. Soufflé pudding brownie pudding fruitcake marshmallow.
                         </p>
                         <br/>
-                        <h3 class="widget-title">Used Skills</h3>
+                        <h3 class="widget-title">Mô tả chi tiết:</h3>
                         <p>HTML5, CSS3, jQuery, Ruby &amp; Rails</p>
                         <br/>
-                        <h3 class="widget-title">Clients</h3>
-                        <p>BizCraft Incorporatin Ltd.</p>
+                        <p class="price">450.000 VND</p>
                         <p><a href="#" class="project-btn btn btn-primary">Project Link</a></p>
                     </div>
                 </div>
@@ -60,5 +59,12 @@
 <div class="gap-40"></div>
 
 @endsection
+
+<style>
+    .price{
+        font-size: 2rem;
+        color: #f71b10;
+    }
+</style>
 
 

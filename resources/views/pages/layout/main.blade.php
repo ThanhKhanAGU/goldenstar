@@ -50,7 +50,7 @@
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		}
 		
-		.img-6-9 > img,.img-3-9 > img,.img-8-9 >img, .img-9-9 >img{
+		.img-6-9 > img,.img-3-9 > img, .img-9-9 >img{
 			width: 100%;
 			background-size: cover; 
 			overflow: hidden;

@@ -19,264 +19,58 @@
 <!-- Portfolio start -->
 <section id="main-container" class="portfolio-static portfolio portfolio-box">
     <div class="container">
-        <!--Isotope filter start -->
-			<div class="row text-center">
-				<div class="isotope-nav" data-isotope-nav="isotope">
-					<ul>
-						<li><a href="#" class="active" data-filter="*">All</a></li>
-						<li><a href="#" data-filter=".web-design">Web Design</a></li>
-						<li><a href="#" data-filter=".development">Development</a></li>
-						<li><a href="#" data-filter=".joomla">Joomla</a></li>
-						<li><a href="#" data-filter=".wordpress">Wordpress</a></li>
-					</ul>
-				</div>
-			</div><!-- Isotope filter end -->
         <div class="row">
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <div class="img-9-9">
-                            <img src="assets_pages/images/img/boss.png" alt="">
-                        </div>
-                        
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Startup Business</h3>
-                        <span><a href="#">Illustrations</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 1 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar ">
-                        <div class="img-8-9">
-                            <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Easy to Lanunch</h3>
-                        <span><a href="#">Webdesign</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 2 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio3.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg3.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Your Business</h3>
-                        <span><a href="#">Ui Elements</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 3 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio4.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Prego Match</h3>
-                        <span><a href="#">Media Elements</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 4 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio5.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Fashion Brand</h3>
-                        <span><a href="#">Graphics Media</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 5 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio6.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg3.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>The Insidage</h3>
-                        <span><a href="#">Material Design</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 6 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio7.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Light Carpet</h3>
-                        <span><a href="#">Mockup</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 7 end -->
-
-            <div class="col-sm-3 portfolio-static-item">
-                <div class="grid">
-                    <figure class="effect-oscar">
-                        <img src="assets_pages/images/portfolio/portfolio8.jpg" alt="">
-                        <figcaption>
-                            <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                            <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>            
-                        </figcaption>			
-                    </figure>
-                    <div class="portfolio-static-desc">
-                        <h3>Amazing Keyboard</h3>
-                        <span><a href="#">Photography</a></span>
-                    </div>					
-                </div><!--/ grid end -->
-            </div><!--/ item 8 end -->
-                
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                @for ($i = 0;$i  < 30; $i++)
+                <div class="col-lg-3 col-sm-4 portfolio-static-item">
+                    <div class="grid ">
+                        <figure class="effect-oscar img-9-9">
+                                <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
+                            <figcaption>
+                                <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                                <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>            
+                            </figcaption>			
+                        </figure>
+                        <div class="portfolio-static-desc">
+                            <h3>Startup Business</h3>
+                            <span><a href="#">Illustrations</a></span>
+                            <p class="price">450.000 VND</p>
+                        </div>					
+                    </div><!--/ grid end -->
+                </div><!--/ item 1 end -->
+                @endfor
+            </div>
+            
+            
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="sidebar sidebar-right">
+                    <!-- category start -->
+                    <div class="widget widget-categories">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="category-list clearfix">
+                          <li><a href="#">Objects</a><span class="posts-count"> (19)</span></li>
+                          <li><a href="#">Technology</a><span class="posts-count"> (09)</span></li>
+                          <li><a href="#">Photography</a><span class="posts-count"> (13)</span></li>
+                          <li><a href="#">Fashion</a><span class="posts-count"> (10)</span></li>
+                          <li><a href="#">Realtough</a><span class="posts-count"> (14)</span></li>
+                          <li><a href="#">Architecture</a><span class="posts-count"> (11)</span></li>
+                        </ul>
+                    </div><!-- category end -->
+                </div><!--/ Sidebar end -->
+            </div><!--/ Sidebar col end -->
         </div><!-- Content row end -->
+        
     </div><!-- Container end -->
 </section><!-- Portfolio end -->
 
 <div class="gap-40"></div>
 
-
+<style>
+    .price{
+        font-size: 1.6rem;
+        color: #f71b10;
+    }
+</style>
 
 
 @endsection
