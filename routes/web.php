@@ -73,12 +73,11 @@ Route::group(['prefix'=>'/ad'],function(){
     });
 });
 
-Route::post('test','postsController@test');
-Route::get('test',function(){
-    return view("ad.posts.list");
-});
-
 Route::post('/uploads-cheditor','mainController@up_img');
 Route::get('/file-cheditor','mainController@file_img');
-Route::get('/product','listpagesController@products');
-Route::get('/product/{id}','listpagesController@inforProduct');
+
+/*
+ * Route cho người dùng
+ */
+
+Route::get('/','listpagesController@products');
