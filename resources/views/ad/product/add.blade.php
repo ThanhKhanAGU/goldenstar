@@ -23,7 +23,6 @@
         <div class="col-lg-10">
             <input name="price" id="price"
             placeholder="Giá bán sản phẩm..."
-            value=""
             type="number" class="form-control" required="">
         </div>
     </div>
@@ -34,8 +33,7 @@
         <div class="col-lg-10">
             <input name="promotion_price" id="promotion_price"
             placeholder="Giá khuyến mãi sản phẩm..."
-            value=""
-            type="number" class="form-control" required="">
+            type="number" class="form-control">
         </div>
     </div>
     <div class="form-group row">

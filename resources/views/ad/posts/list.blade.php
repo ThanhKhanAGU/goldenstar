@@ -8,7 +8,7 @@
               <div class="card-body ">
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                           <th >Tên</th>
                           <th >L.Xem</th>
                           <th >N.Bật</th>
@@ -21,9 +21,9 @@
                       @foreach ($p as $i)
                       <tr id='{{$i->id}}' class="text-center">
                         <td>
-                          <h6 style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
+                          <h6 style="white-space: nowrap; width: 15em; margin: auto;  overflow: hidden; text-overflow: ellipsis">
                             {{$i->name}}</h6>
-                          <p style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
+                          <p style="white-space: nowrap; width: 15em;margin: auto; overflow: hidden; text-overflow: ellipsis">
                             {{$i->summary}}</p>
                         </td>
                         <td>{{$i->view}}</td>
