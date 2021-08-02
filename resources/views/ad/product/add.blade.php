@@ -1,65 +1,21 @@
 @extends('ad.layout.index')
 @section('content')
-<h4 class="header-title mb-4">THÊM BÀI VIẾT</h4>
+<h4 class="header-title mb-4">THÊM SẢN PHẨM</h4>
 
-<form action="ad/post/add" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<form action="ad/product/add" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="type" value="ps">
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
-            Tiêu đề
+            Tên
         </label>
         <div class="col-lg-10">
             <input name="name" id="name" 
             data-parsley-length="[5,255]" 
-            placeholder="Tiêu đề bài viết..."
+            placeholder="Tên Sản Phẩm..."
             value=""
             type="text" class="form-control" required="">
         </div>
     </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Tóm tắt
-        </label>
-        <div class="col-lg-10">
-            <input name="summary" id="summary"
-            placeholder="Tóm tắt bài viết..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label" for="example-fileinput">
-            Hình ảnh
-        </label>
-        <div class="col-lg-10 ">
-            <input name="image" id="image"
-            onchange="loadimg()" type="file" 
-            class="form-control" accept="image/*">        
-            <div class="col-lg-8" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px">
-                <div id="viewimg" class="img-3-9" style="padding: 0; border-radius: 3px">
-                    <img id="viewimg-img" src="{{ asset('/post/default.jpg') }}" >
-                </div>
-            </div>
-        </div>
-    </div> 
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Nội dung
-        </label>
-        <div class="col-12">          
-            <textarea name="content" id="content" 
-            class="form-control" required="">
-            </textarea>
-        </div>
-    </div> 
-    <div class="form-group row">
-        <label class="col-2 col-form-label" for="example-fileinput">Nổi bật</label>
-        <div class="col-10 switchery-demo">
-            <input id="show" name="show" value="show" type="checkbox" data-plugin="switchery" data-color="#1bb99a" data-size="small">
-        </div>
-    </div>
-    <!-- Prouct -->
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
             Giá Bán
@@ -73,11 +29,11 @@
     </div>
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
-            Khuyễn mãi
+            Giá K.Mãi
         </label>
         <div class="col-lg-10">
             <input name="promotion_price" id="promotion_price"
-            placeholder="Khuyễn mãi sản phẩm..."
+            placeholder="Giá khuyến mãi sản phẩm..."
             value=""
             type="number" class="form-control" required="">
         </div>
@@ -87,8 +43,11 @@
             Thương hiệu
         </label>
         <div class="col-lg-10">
-            <select id="id_trademark" name="id_trademark" class="form-control" >
-                <option>123</option>
+            <select id="id_trademark" name="id_trademark" 
+            class="form-control">        
+            @foreach ($tr as $i)
+                <option value="{{$i->id}}">{{$i->name}}</option>
+            @endforeach 
             </select>
         </div>
     </div>
@@ -97,84 +56,34 @@
             Phân phối bởi
         </label>
         <div class="col-lg-10">
-            <select id="id_distributor" name="id_distributor" class="form-control" >
-                <option>123</option>
+            <select id="id_distributor" name="id_distributor" 
+            class="form-control">
+            @foreach ($di as $i)
+                <option value="{{$i->id}}">{{$i->name}}</option>
+            @endforeach 
             </select>
         </div>
     </div>
-
-<!--  Action  -->
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
-            Đại điểm
-        </label>
-        <div class="col-lg-10">
-            <input name="place" id="place" 
-            data-parsley-length="[5,255]" 
-            placeholder="Địa điểm hoạt động..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Đại điểm
-        </label>
-        <div class="col-lg-10">
-            <input name="place" id="place" 
-            data-parsley-length="[5,255]" 
-            placeholder="Địa điểm hoạt động..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Thời gian
-        </label>
-        <div class="col-lg-10">
-            <input name="timetake" id="timetake"
-            placeholder="Tóm tắt bài viết..."
-            value=""
-            type="date" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Sdt
-        </label>
-        <div class="col-lg-10">
-            <input name="telephone" id="telephone" 
-            data-parsley-length="[6,12]" 
-            placeholder="Số điện thoại..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Email
-        </label>
-        <div class="col-lg-10">
-            <input name="email" id="email" 
-            data-parsley-length="[5,255]" 
-            placeholder="Email ..."
-            value=""
-            type="email" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Hình ảnh liên quan
+            Ảnh sản phẩm
         </label>
         <div class="col-lg-10">
             <input name="img[]" id="img" 
             type="file" onchange="imgs()" accept="image/*" multiple class="form-control">
             <div id="viewimg_2" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px"></div>
         </div>
-
     </div>
-
+    <div class="form-group row">
+        <label class="col-lg-2 col-form-label">
+            Giới Thiệu
+        </label>
+        <div class="col-12">          
+            <textarea name="content" id="content" 
+            class="form-control" required="">
+            </textarea>
+        </div>
+    </div> 
     
 <!-- end Action  -->
     <div class="form-group mb-0">
@@ -267,7 +176,9 @@
        border-radius:5px;
        box-shadow: 2px 3px 5px #333;  
     }
-
+    #cke_75{
+        visibility: hidden;
+    }
 </style>   
 <link href="assets\libs\switchery\switchery.min.css" rel="stylesheet" type="text/css">
 @endsection

@@ -26,7 +26,7 @@
                           <p style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
                             {{$i->summary}}</p>
                         </td>
-                        <td>0</td>
+                        <td>{{$i->view}}</td>
                         <td>
                           <iframe hidden name="hidden"></iframe>
                           <a href="ad/post/change/{{$i->id}}" target="hidden">

@@ -12,11 +12,11 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="ad/post/list">Quản lý Slide</a></li>
-                        <li><a href="ad/post/add">Công Nghệ Mới</a></li>
-                        <li><a href="ad/post/add">Thương Hiệu Nổi Bật</a></li>
-                        <li><a href="ad/post/add">Bài viết giới thiệu</a></li>
-                        <li><a href="ad/post/add">Chính Sách công ty</a></li>
+                        <li><a href="">Quản lý Slide</a></li>
+                        <li><a href="">Công Nghệ Mới</a></li>
+                        <li><a href="">Thương Hiệu Nổi Bật</a></li>
+                        <li><a href="">Bài viết giới thiệu</a></li>
+                        <li><a href="">Chính Sách công ty</a></li>
                     </ul>
                 </li>
 

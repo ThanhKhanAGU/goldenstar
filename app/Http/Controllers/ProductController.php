@@ -10,75 +10,49 @@ class ProductController extends Controller
 {
     public function get_list()
     {
-        $posts = Posts::all()->where("type","ps");
-        return view('ad.posts.list', ['p' => $posts]);
+        $product = Posts::all()->where("type","pr");
+        $di = Posts::all()->where("type","di");
+        $tr = Posts::all()->where("type","tr");
+        return view('ad.product.list', ['p' => $product,'di' => $di,'tr' => $tr]);
     }
 
     public function get_add()
     {
-        return view('ad.posts.add');
+        $tr = Posts::where("type","tr");
+        $di = Posts::where("type","di");
+        return view('ad.product.add',['tr'=>$tr,'di'=>$di]);
     }
 
     public function post_add(Request $request)
     {
 
-        $post = new Posts;
-
+        $product = new product;
+        $product->type = 'pr';
         
         if($request->name){
-            $post->name = $request->name;
+            $product->name = $request->name;
         }
-
-            if($request->show=="show");
-            {
-                $post->show = 1;
-            }
-
-        if($request->summary){
-            $post->summary = $request->summary;
-        }
+     
         if($request->content){
-            $post->content = $request->content;
+            $product->content = $request->content;
         }
+
         if($request->price){
-            $post->price = $request->price;
+            $product->price = $request->price;
         }
+
         if($request->promotion_price){
-            $post->promotion_price = $request->promotion_price;
+            $product->promotion_price = $request->promotion_price;
         }
+
         if($request->id_trademark){
-            $post->id_trademark = $request->id_trademark;
+            $product->id_trademark = $request->id_trademark;
         }
         if($request->id_distributor){
-            $post->id_distributor = $request->id_distributor;
+            $product->id_distributor = $request->id_distributor;
         }
-        if($request->place){
-            $post->place = $request->place;
-        }
-        if($request->timetake){
-            $post->timetake = $request->timetake;
-        }
-        if($request->telephone){
-            $post->telephone = $request->telephone;
-        }
-        if($request->email){
-            $post->email = $request->email;
-        }
-        if($request->type){
-            $post->type = $request->type;
-        }
-        if($request->image){
-            $file = $request->file('image');
-            $name = $file->getClientOriginalName();
-            $image = time()."_".$name;
-            $file->move('post',$image);
-            $post->image = $image;
-        }
-        else
-        {
-            $post->image = "default.jpg";
-        }
-        $post->save();
+
+        $product->save();
 
         if($request->hasFile('img')){
             foreach($request->file("img") as $file)
@@ -86,119 +60,104 @@ class ProductController extends Controller
                 //upload images to server
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
-                $file->move('post',$image);
+                $file->move('product',$image);
                 //create row of table Images
                 $images = new Images();
-                $images->id_post = $post->id;
+                $images->id_product = $product->id;
                 $images->img = $image;
                 $images->save();
             }
         }
         
-        return back();
+        return  redirect("ad/product/list");
        
     }
+
     public function get_edit($id)
     {
-        $post = Posts::find($id);
-        return view('ad.posts.edit',['p'=>$post]);
+        $product = Posts::find($id);
+        return view('ad.product.edit',['p'=>$product]);
     }
+    
     public function post_edit(Request $request,$id)
     {
 
-        $post = Posts::find($id);
+        $product = Posts::find($id);
 
+        
         if($request->name){
-            $post->name = $request->name;
+            $product->name = $request->name;
         }
-
-        if($request->show=="show");
-        {
-            $post->show = 1;
-        }
-
-        if($request->summary){
-            $post->summary = $request->summary;
-        }
+     
         if($request->content){
-            $post->content = $request->content;
+            $product->content = $request->content;
         }
+
         if($request->price){
-            $post->price = $request->price;
+            $product->price = $request->price;
         }
+
         if($request->promotion_price){
-            $post->promotion_price = $request->promotion_price;
+            $product->promotion_price = $request->promotion_price;
         }
+
         if($request->id_trademark){
-            $post->id_trademark = $request->id_trademark;
+            $product->id_trademark = $request->id_trademark;
         }
         if($request->id_distributor){
-            $post->id_distributor = $request->id_distributor;
-        }
-        if($request->place){
-            $post->place = $request->place;
-        }
-        if($request->timetake){
-            $post->timetake = $request->timetake;
-        }
-        if($request->telephone){
-            $post->telephone = $request->telephone;
-        }
-        if($request->email){
-            $post->email = $request->email;
-        }
-        if($request->type){
-            $post->type = $request->type;
+            $product->id_distributor = $request->id_distributor;
         }
 
         if($request->image){
             $file = $request->file('image');
             $name = $file->getClientOriginalName();
             $image = time()."_".$name;
-            $file->move('post',$image);
-            unlink("post/".$post->image);
-            $post->image = $image;
+            $file->move('product',$image);
+            unlink("product/".$product->image);
+            $product->image = $image;
         }
 
-        $post->save();
+        $product->save();
 
         if($request->hasFile('img')){
-            foreach ($post->images as $value){
-                unlink('post/'.$value);
+            foreach ($product->images as $value){
+                unlink('product/'.$value);
             } 
             foreach($request->file("img") as $file)
             {
                 //upload images to server
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
-                $file->move('post',$image);
+                $file->move('product',$image);
 
                 //create row of table Images
                 $images = new Images();
-                $images->id_post = $post->id;
+                $images->id_product = $product->id;
                 $images->img = $image;
                 $images->save();              
             }
-        }    
-        return  redirect("ad/post/list");
+        }   
+
+        return  redirect("ad/product/list");
     }
 
     public function get_del($id)
     {
-        $post = Posts::find($id);
-        $post->delete();
-        foreach($post->images as $img){
+        $product = Posts::find($id);
+        $product->delete();
+        foreach($product->images as $img){
             $img->delete();
         }
-        return  redirect("ad/post/list");
+        return  redirect("ad/product/list");
     }
     public function get_change($id)
     {
-        $post = Posts::find($id);
-        if($post->show==1)
-            $post->show = 0;
+        $product = Posts::find($id);
+        if($product->show==1)
+            $product->show = 0;
         else 
-            $post->show = 1;
-        $post->save();
+            $product->show = 1;
+        $product->save();
     }
+    
 }

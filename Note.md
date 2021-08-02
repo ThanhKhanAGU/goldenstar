@@ -16,30 +16,40 @@
     + type
   
 => including
-  * blog
+  * blog:ps
     + title
     + summary
     + content
     + image
     + show
     + view
-  * product
+  * product:pr
     + title
     + content
     + price
     + promotion_price
     + id_trademark
     + id_distributor
-  * action
+    + img
+  * action: ac
     + title
     + content
+    + img
     + place
     + timetake
-  * trademake
+  * trademake:tr
     + title
     + content
+    + img
     + telephone
     + email
+   * distributor:di
+    + title
+    + content
+    + img
+    + telephone
+    + email
+    + place
 
 - Run project
   + step 1: php artisan migrate

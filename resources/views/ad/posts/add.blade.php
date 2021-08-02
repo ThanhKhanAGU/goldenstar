@@ -59,123 +59,6 @@
             <input id="show" name="show" value="show" type="checkbox" data-plugin="switchery" data-color="#1bb99a" data-size="small">
         </div>
     </div>
-    <!-- Prouct -->
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Giá Bán
-        </label>
-        <div class="col-lg-10">
-            <input name="price" id="price"
-            placeholder="Giá bán sản phẩm..."
-            value=""
-            type="number" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Khuyễn mãi
-        </label>
-        <div class="col-lg-10">
-            <input name="promotion_price" id="promotion_price"
-            placeholder="Khuyễn mãi sản phẩm..."
-            value=""
-            type="number" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Thương hiệu
-        </label>
-        <div class="col-lg-10">
-            <select id="id_trademark" name="id_trademark" class="form-control" >
-                <option>123</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Phân phối bởi
-        </label>
-        <div class="col-lg-10">
-            <select id="id_distributor" name="id_distributor" class="form-control" >
-                <option>123</option>
-            </select>
-        </div>
-    </div>
-
-<!--  Action  -->
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Đại điểm
-        </label>
-        <div class="col-lg-10">
-            <input name="place" id="place" 
-            data-parsley-length="[5,255]" 
-            placeholder="Địa điểm hoạt động..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Đại điểm
-        </label>
-        <div class="col-lg-10">
-            <input name="place" id="place" 
-            data-parsley-length="[5,255]" 
-            placeholder="Địa điểm hoạt động..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Thời gian
-        </label>
-        <div class="col-lg-10">
-            <input name="timetake" id="timetake"
-            placeholder="Tóm tắt bài viết..."
-            value=""
-            type="date" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Sdt
-        </label>
-        <div class="col-lg-10">
-            <input name="telephone" id="telephone" 
-            data-parsley-length="[6,12]" 
-            placeholder="Số điện thoại..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Email
-        </label>
-        <div class="col-lg-10">
-            <input name="email" id="email" 
-            data-parsley-length="[5,255]" 
-            placeholder="Email ..."
-            value=""
-            type="email" class="form-control" required="">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            Hình ảnh liên quan
-        </label>
-        <div class="col-lg-10">
-            <input name="img[]" id="img" 
-            type="file" onchange="imgs()" accept="image/*" multiple class="form-control">
-            <div id="viewimg_2" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px"></div>
-        </div>
-
-    </div>
-
-    
 <!-- end Action  -->
     <div class="form-group mb-0">
         <div>
@@ -208,10 +91,7 @@
                 img[i].src = fr.result;
             }
             fr.readAsDataURL(input.files[i]);
-        }
-
-        
-         
+        }     
     }
     function loadimg()
     {

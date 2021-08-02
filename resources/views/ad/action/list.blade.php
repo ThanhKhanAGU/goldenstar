@@ -1,6 +1,6 @@
 @extends('ad.layout.index')
 @section('content')
-<h4 class="header-title mb-4">Danh sách bài viết</h4>
+<h4 class="header-title mb-4">Danh sách hoạt động</h4>
 <div class="container-fluid">
   <div class="row">
       <div class="col-12">
@@ -10,8 +10,7 @@
                     <thead>
                         <tr>
                           <th >Tên</th>
-                          <th >L.Xem</th>
-                          <th >N.Bật</th>
+                          <th >T.Gian</th>
                           <th >Xem</th>
                           <th >Sửa</th>
                           <th >Xóa</th>
@@ -24,26 +23,20 @@
                           <h6 style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
                             {{$i->name}}</h6>
                           <p style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
-                            {{$i->summary}}</p>
-                        </td>
-                        <td>0</td>
-                        <td>
-                          <iframe hidden name="hidden"></iframe>
-                          <a href="ad/post/change/{{$i->id}}" target="hidden">
-                            <input type="checkbox" data-plugin="switchery"
-                            @if($i->show) checked="checked" @endif
-                          data-color="#1bb99a" data-size="small">
-                          </a>
+                            {!!$i->content!!}</p>
                         </td>
                         <td>
-                          <a target="view_demo" href="page/{{$i->id.'/'.$i->TieuDeKhongDau}}.html" style="width: 40px">
+                          {{$i->timetake}}
+                        </td>
+                        <td>
+                          <a target="view_demo" href="action/{{$i->id}}.html" style="width: 40px">
                             <button data-toggle="modal" data-target="#view_page" type="button" class="btn btn-icon waves-effect waves-light btn-secondary"> 
                               <i class=" fas fa-eye"></i>
                             </button>
                           </a>
                         </td>
                         <td>
-                          <a href="ad/post/edit/{{$i->id}}">
+                          <a href="ad/action/edit/{{$i->id}}">
                             <button class="btn btn-primary" href="#">
                               <i class="fa fa-edit"></i>
                             </button>
@@ -61,7 +54,7 @@
                 </table>
               </div>
           </div>
-          <a href="ad/post/add">
+          <a href="ad/action/add">
             <button type="button" class="btn btn-primary block">
               <i class="fa fa-plus"></i> Thêm bài viết
             </button>
@@ -107,7 +100,7 @@
   function del(id,name)
   {
       document.getElementById("mess_title").innerText = name;
-      document.getElementById("urldelte").href = "ad/post/del/"+id;
+      document.getElementById("urldelte").href = "ad/action/del/"+id;
   }
 </script>
 
@@ -154,8 +147,6 @@
 <link href="assets\libs\datatables\dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
 <link href="assets\libs\datatables\responsive.bootstrap4.min.css" rel="stylesheet" type="text/css">
 <link href="assets\libs\datatables\select.bootstrap4.min.css" rel="stylesheet" type="text/css"> 
-
-<!-- App css -->
 <link href="assets\css\bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">
 <link href="assets\css\icons.min.css" rel="stylesheet" type="text/css">
 <link href="assets\css\app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet">

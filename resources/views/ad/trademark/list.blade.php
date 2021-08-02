@@ -10,8 +10,8 @@
                     <thead>
                         <tr>
                           <th >Tên</th>
-                          <th >L.Xem</th>
-                          <th >N.Bật</th>
+                          <th >SĐT</th>
+                          <th >Mail</th>
                           <th >Xem</th>
                           <th >Sửa</th>
                           <th >Xóa</th>
@@ -26,24 +26,21 @@
                           <p style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
                             {{$i->summary}}</p>
                         </td>
-                        <td>0</td>
                         <td>
-                          <iframe hidden name="hidden"></iframe>
-                          <a href="ad/post/change/{{$i->id}}" target="hidden">
-                            <input type="checkbox" data-plugin="switchery"
-                            @if($i->show) checked="checked" @endif
-                          data-color="#1bb99a" data-size="small">
-                          </a>
+                          {{$i->telephone}}
                         </td>
                         <td>
-                          <a target="view_demo" href="page/{{$i->id.'/'.$i->TieuDeKhongDau}}.html" style="width: 40px">
+                          {{$i->email}}
+                        </td>
+                        <td>
+                          <a target="view_demo" href="page/{{$i->id}}.html" style="width: 40px">
                             <button data-toggle="modal" data-target="#view_page" type="button" class="btn btn-icon waves-effect waves-light btn-secondary"> 
                               <i class=" fas fa-eye"></i>
                             </button>
                           </a>
                         </td>
                         <td>
-                          <a href="ad/post/edit/{{$i->id}}">
+                          <a href="ad/trademake/edit/{{$i->id}}">
                             <button class="btn btn-primary" href="#">
                               <i class="fa fa-edit"></i>
                             </button>
@@ -61,7 +58,7 @@
                 </table>
               </div>
           </div>
-          <a href="ad/post/add">
+          <a href="ad/trademake/add">
             <button type="button" class="btn btn-primary block">
               <i class="fa fa-plus"></i> Thêm bài viết
             </button>
@@ -107,7 +104,7 @@
   function del(id,name)
   {
       document.getElementById("mess_title").innerText = name;
-      document.getElementById("urldelte").href = "ad/post/del/"+id;
+      document.getElementById("urldelte").href = "ad/trademake/del/"+id;
   }
 </script>
 
