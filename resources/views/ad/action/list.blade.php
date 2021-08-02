@@ -8,7 +8,7 @@
               <div class="card-body ">
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center">
                           <th >Tên</th>
                           <th >T.Gian</th>
                           <th >Xem</th>

@@ -36,7 +36,7 @@
                           </a>
                         </td>
                         <td>
-                          <a target="view_demo" href="page/{{$i->id.'/'.$i->TieuDeKhongDau}}.html" style="width: 40px">
+                          <a target="view_demo" href="page/{{$i->id}}.html" style="width: 40px">
                             <button data-toggle="modal" data-target="#view_page" type="button" class="btn btn-icon waves-effect waves-light btn-secondary"> 
                               <i class=" fas fa-eye"></i>
                             </button>

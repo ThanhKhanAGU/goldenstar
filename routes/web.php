@@ -97,10 +97,21 @@ Route::get('/file-cheditor','mainController@file_img');
 
 Route::get('/','mainController@home');
 Route::get('/pages','mainController@pages');
-Route::get('/page/{id}/{name}.html','mainController@page');
 Route::get('img_product/{id}','mainController@view_img');
 Route::get('plusview/{id}','mainController@plusview');
-
+Route::get('/page/{id}/{name}.html','mainController@page');
+//product
 Route::get('/products','mainController@products');
 Route::get('/products/{id}','mainController@inforProduct');
+Route::get('/products/{id}.html','mainController@inforProduct');
+//action
+Route::get('/actions','mainController@get_action');
+Route::get('/actions/{id}','mainController@infor_action');
+Route::get('/actions/{id}.html','mainController@inforProduct');
+//distributor
+Route::get('/distributors','mainController@distributor');
+Route::get('/distributors.html','mainController@distributor');
+//trademark
+Route::get('/trademarks','mainController@trademark');
+Route::get('/trademarks.html','mainController@trademark');
 Route::get('img_product/{id}','mainController@view_img');

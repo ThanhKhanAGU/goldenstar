@@ -8,7 +8,7 @@
               <div class="card-body ">
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                           <th >Tên</th>
                           <th >SĐT</th>
                           <th >Mail</th>
@@ -33,7 +33,7 @@
                           {{$i->email}}
                         </td>
                         <td>
-                          <a target="view_demo" href="page/{{$i->id}}.html" style="width: 40px">
+                          <a target="view_demo" href="trademarks.html" style="width: 40px">
                             <button data-toggle="modal" data-target="#view_page" type="button" class="btn btn-icon waves-effect waves-light btn-secondary"> 
                               <i class=" fas fa-eye"></i>
                             </button>
