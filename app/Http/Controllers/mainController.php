@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Information;
 use App\TinTuc;
@@ -143,4 +144,33 @@ class mainController extends Controller
 
         return redirect('/#image-block'); 
     }
+
+    public function products()
+    {
+
+        $product = DB::table('Posts')->where("type","pr")->paginate(20);
+        $di = DB::table('Posts')->where("type","di")->get();
+        $tr = DB::table('Posts')->where("type","tr")->get();
+        // echo $product;
+        return view('pages.products', ['p' => $product,'di' => $di,'tr' => $tr]);
+        // return view('pages.products');
+    }
+
+    public function inforProduct($id){
+        // $sanpham = SanPham::find($id);
+        return view('pages.inforproduct');
+    }
+
+    public function hoatdong()
+    {
+        $hoatdong = HoatDong::all();
+        // $noibat = DB::table('SanPham')->where("NoiBat",1)->get()->take(4);
+        return view('pages.hoatdong',['hoatdong'=>$hoatdong]);
+    }
+
+    public function chitiethoatdong($id, $ten){
+        $data = HoatDong::find($id);
+        return view('pages.chitiethoatdong',['data'=>$data]);
+    }
+
 }

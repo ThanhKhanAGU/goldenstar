@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                @for ($i = 0;$i  < 12; $i++)
+                @foreach ($p as $i)
                 <div class="col-lg-3 col-sm-4 col-xs-6 portfolio-static-item">
                     <div class="grid ">
                         <figure class="effect-oscar img-9-9">
@@ -36,11 +36,11 @@
                             </figcaption>			
                         </figure>
                         <a href="" class="portfolio-static-desc">
-                            <h3>Startup Business</h3>
-                            <span style="color:#555">Illustrations</span>
-                            @if ($i % 3 != 0)
+                            <h3 style="height: 7rem;">{{$i->name}}</h3>
+                            {{-- <span style="color:#555">{!!$i->content !!}</span> --}}
+                            @if ($i->price % 3 != 0)
                                 <p style="height: 1rem;"></p>
-                                <p class="price text text-right">450.000 VND</p> 
+                                <p class="price text text-right">@money($i->price) VND</p> 
                             @else
                                 <p class="text-right price-old">600.000 VND</p>
                                 <p class="price text-right" >450.000 VND</p>
@@ -50,7 +50,7 @@
                         </a>					
                     </div><!--/ grid end -->
                 </div><!--/ item 1 end -->
-                @endfor
+                @endforeach
             </div>
             
             
@@ -58,14 +58,11 @@
                 <div class="sidebar sidebar-right">
                     <!-- category start -->
                     <div class="widget widget-categories">
-                        <h3 class="widget-title">Categories</h3>
+                        <h3 class="widget-title">Cung cấp bởi</h3>
                         <ul class="category-list clearfix">
-                          <li><a href="#">Objects</a><span class="posts-count"> (19)</span></li>
-                          <li><a href="#">Technology</a><span class="posts-count"> (09)</span></li>
-                          <li><a href="#">Photography</a><span class="posts-count"> (13)</span></li>
-                          <li><a href="#">Fashion</a><span class="posts-count"> (10)</span></li>
-                          <li><a href="#">Realtough</a><span class="posts-count"> (14)</span></li>
-                          <li><a href="#">Architecture</a><span class="posts-count"> (11)</span></li>
+                            @foreach ($tr as $i)
+                                <li><a href="#">{{$i->name}}</a><span class="posts-count"> (19)</span></li>
+                            @endforeach
                         </ul>
                     </div><!-- category end -->
                 </div><!--/ Sidebar end -->

@@ -40,30 +40,4 @@ class listpagesController extends Controller
         $tin->SoLuotXem++;
         $tin->save();
     }
-    
-    public function products()
-    {
-        // $sanpham = SanPham::all();
-        // $sanpham = DB::table('SanPham')->paginate(20);
-        // $noibat = DB::table('SanPham')->where("NoiBat",1)->get()->take(4);
-        // $moi = TinTuc::all()->sortByDesc('created_at')->take(3);
-        return view('pages.products');
-    }
-
-    public function inforProduct($id){
-        // $sanpham = SanPham::find($id);
-        return view('pages.inforproduct');
-    }
-
-    public function hoatdong()
-    {
-        $hoatdong = HoatDong::all();
-        // $noibat = DB::table('SanPham')->where("NoiBat",1)->get()->take(4);
-        return view('pages.hoatdong',['hoatdong'=>$hoatdong]);
-    }
-
-    public function chitiethoatdong($id, $ten){
-        $data = HoatDong::find($id);
-        return view('pages.chitiethoatdong',['data'=>$data]);
-    }
 }
