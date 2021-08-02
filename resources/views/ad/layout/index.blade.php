@@ -66,7 +66,6 @@
         <!-- ============================================================== -->
 
     </div>
-    @include('ad.layout.nav_right')
     <script src="assets\js\vendor.min.js"></script>
     <script src="assets\libs\parsleyjs\parsley.min.js"></script>
     <script src="assets\js\pages\form-validation.init.js"></script>
