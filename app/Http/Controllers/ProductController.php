@@ -164,5 +164,10 @@ class ProductController extends Controller
             $product->show = 1;
         $product->save();
     }
+    public function view_img($id)
+    {
+        //$pr = Posts::find($id)->images;
+        return view ('view_img');
+    }
     
 }

@@ -81,3 +81,4 @@ Route::get('/file-cheditor','mainController@file_img');
  */
 
 Route::get('/','listpagesController@products');
+Route::get('img_product/{id}','productController@view_img');

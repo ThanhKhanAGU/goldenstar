@@ -170,7 +170,7 @@
 	}
 
 	figure.effect-oscar figcaption{
-		padding: 1.5em;
+		padding: 0;
 	}
 	figure.effect-oscar figcaption::before{
 		top: 15px;
@@ -260,7 +260,7 @@
 	}
 
 	.app-gallery figure.effect-oscar a{
-		margin-top: 105px;
+		margin-top:5px
 	}
 
 	/* Blog single */
@@ -524,7 +524,7 @@
 	}
 
 	.app-gallery figure.effect-oscar a{
-		margin-top: 105px;
+		margin-top: 10px;
 	}
 
 	.hero-images img{
@@ -559,6 +559,20 @@
 
 	#main-slide .item img{
 		height: 250px;
+	}
+	
+	figure.effect-oscar figcaption{
+		padding: 0;
+	}
+	figure.effect-oscar figcaption::before{
+		top: 15px;
+		right: 15px;
+		bottom: 15px;
+		left: 15px;
+	}
+	figure.effect-oscar h3{
+		margin-top: 0;
+		font-size: 16px;
 	}
 
 }
