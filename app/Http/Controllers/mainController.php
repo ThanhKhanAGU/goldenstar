@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Information;
+<<<<<<< HEAD
+=======
+use App\TinTuc;
+use App\Images;
+>>>>>>> ec3021b1e55480ec52e8bd1b960b38c7b6515601
 use App\Posts;
 
 class mainController extends Controller
@@ -55,17 +60,19 @@ class mainController extends Controller
     public function products()
     {
 
-        $product = DB::table('Posts')->where("type","pr")->paginate(20);
+        $product = DB::table('Posts')->where("type","pr")->paginate(16);
         $di = DB::table('Posts')->where("type","di")->get();
         $tr = DB::table('Posts')->where("type","tr")->get();
+        $img = DB::table('Images')->get();
         // echo $product;
-        return view('pages.products', ['p' => $product,'di' => $di,'tr' => $tr]);
+        return view('pages.products', ['p' => $product,'di' => $di,'tr' => $tr, 'img' => $img]);
         // return view('pages.products');
     }
 
     public function inforProduct($id){
-        // $sanpham = SanPham::find($id);
-        return view('pages.inforproduct');
+        $product = Posts::find($id);
+        $images = DB::table('Images')->where('id_post', $id)->get();
+        return view('pages.inforproduct', ['product' => $product, 'images' => $images]);
     }
 
     public function hoatdong()
