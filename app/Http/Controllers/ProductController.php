@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Posts;
 use App\Images;
 
@@ -10,23 +11,24 @@ class ProductController extends Controller
 {
     public function get_list()
     {
-        $product = Posts::all()->where("type","pr");
-        $di = Posts::all()->where("type","di");
-        $tr = Posts::all()->where("type","tr");
+        $product = DB::table('Posts')->where("type","pr")->get();
+        $di = DB::table('Posts')->where("type","di")->get();
+        $tr = DB::table('Posts')->where("type","tr")->get();
+        // echo $product;
         return view('ad.product.list', ['p' => $product,'di' => $di,'tr' => $tr]);
     }
 
     public function get_add()
     {
-        $tr = Posts::where("type","tr");
-        $di = Posts::where("type","di");
+        $di = DB::table('Posts')->where("type","di")->get();
+        $tr = DB::table('Posts')->where("type","tr")->get();
         return view('ad.product.add',['tr'=>$tr,'di'=>$di]);
     }
 
     public function post_add(Request $request)
     {
 
-        $product = new product;
+        $product = new Posts;
         $product->type = 'pr';
         
         if($request->name){
@@ -52,6 +54,7 @@ class ProductController extends Controller
             $product->id_distributor = $request->id_distributor;
         }
 
+        // echo $request->promotion_price;
         $product->save();
 
         if($request->hasFile('img')){
@@ -63,7 +66,7 @@ class ProductController extends Controller
                 $file->move('product',$image);
                 //create row of table Images
                 $images = new Images();
-                $images->id_product = $product->id;
+                $images->id_post = $product->id;
                 $images->img = $image;
                 $images->save();
             }
@@ -75,8 +78,10 @@ class ProductController extends Controller
 
     public function get_edit($id)
     {
-        $product = Posts::find($id);
-        return view('ad.product.edit',['p'=>$product]);
+        $product = Posts::find($id);    
+        $di = DB::table('Posts')->where("type","di")->get();
+        $tr = DB::table('Posts')->where("type","tr")->get();
+        return view('ad.product.edit',['p'=>$product, 'tr'=>$tr,'di'=>$di]);
     }
     
     public function post_edit(Request $request,$id)
@@ -132,7 +137,7 @@ class ProductController extends Controller
 
                 //create row of table Images
                 $images = new Images();
-                $images->id_product = $product->id;
+                $images->id_post = $product->id;
                 $images->img = $image;
                 $images->save();              
             }

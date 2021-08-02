@@ -8,7 +8,7 @@
               <div class="card-body ">
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center">
                           <th >Tên</th>
                           <th >Giá</th>
                           <th >K.Mãi</th>
@@ -30,9 +30,8 @@
                         </td>
                         <td>{{$i->price}}</td>
                         <td>{{$i->promotion_price}}</td>
-                        <td>{{$di->find(id_distributor)->name}}</td>
-                        <td>{{$tr->find(id_trademark)->name}}</td>
-                        <td>{{$i->promotion_price}}</td>
+                        <td>{!! \App\Posts::findOrFail($i->id_distributor)->name; !!}</td>
+                        <td>{!! \App\Posts::findOrFail($i->id_trademark)->name; !!}</td>
     
                         <td>
                           <a target="view_demo" href="page/{{$i->id}}.html" style="width: 40px">

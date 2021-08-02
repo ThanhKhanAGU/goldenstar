@@ -22,8 +22,8 @@
                         <td>
                           <h6 style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
                             {{$i->name}}</h6>
-                          <p style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
-                            {!!$i->content!!}</p>
+                          {{-- <p style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
+                            {!!$i->content!!}</p> --}}
                         </td>
                         <td>
                           {{$i->timetake}}

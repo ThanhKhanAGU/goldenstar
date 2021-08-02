@@ -40,7 +40,7 @@
                           </a>
                         </td>
                         <td>
-                          <a href="ad/trademake/edit/{{$i->id}}">
+                          <a href="ad/trademark/edit/{{$i->id}}">
                             <button class="btn btn-primary" href="#">
                               <i class="fa fa-edit"></i>
                             </button>
@@ -58,7 +58,7 @@
                 </table>
               </div>
           </div>
-          <a href="ad/trademake/add">
+          <a href="ad/trademark/add">
             <button type="button" class="btn btn-primary block">
               <i class="fa fa-plus"></i> Thêm bài viết
             </button>

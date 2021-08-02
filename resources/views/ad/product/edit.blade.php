@@ -36,7 +36,7 @@
             <input name="promotion_price" id="promotion_price"
             placeholder="Giá khuyễn mãi sản phẩm..."
             value="{{$p->promotion_price}}"
-            type="number" class="form-control" required="">
+            type="number" class="form-control" >
         </div>
     </div>
     <div class="form-group row">
@@ -46,9 +46,13 @@
         <div class="col-lg-10">
             <select id="id_trademark" name="id_trademark" 
             class="form-control" value="{{$p->id_trademark}}">
-            @foreach ($p->trademark as $i)
-                <option value="{{$i->id}}">{{$i->name}}</option>
-            @endforeach
+            @foreach ($tr as $i)
+                <option 
+                @if ($p->id_trademark == $i->id)
+                    selected = 'selected';
+                @endif
+                value="{{$i->id}}">{{$i->name}}</option>
+            @endforeach 
             </select>
         </div>
     </div>
@@ -58,10 +62,14 @@
         </label>
         <div class="col-lg-10">
             <select id="id_distributor" name="id_distributor" 
-            class="form-control" value="{{$p->id_distributor}}">
-            @foreach ($p->distributor as $i)
-                <option value="{{$i->id}}">{{$i->name}}</option>
-            @endforeach
+            class="form-control" value="">
+            @foreach ($di as $i)
+            <option
+                @if ($p->id_distributor == $i->id)
+                    selected = 'selected';
+                @endif
+                 value="{{$i->id}}">{{$i->name}}</option>
+            @endforeach 
             </select>
         </div>
     </div>
@@ -75,7 +83,7 @@
             <div id="viewimg_2" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px">
             @foreach ($p->images as $i)
                 <img height="75px" class="img_view_item" 
-                width="100px" src="post/{{$i->img}}" alt="">
+                width="100px" src="product/{{$i->img}}" alt="">
             @endforeach
             </div>
         </div>

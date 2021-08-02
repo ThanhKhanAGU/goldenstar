@@ -2,7 +2,7 @@
 @section('content')
 <h4 class="header-title mb-4">THÊM THƯƠNG HIỆU</h4>
 
-<form action="ad/trademake/add" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<form action="ad/trademark/add" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="type" value="ps">
     <div class="form-group row">
