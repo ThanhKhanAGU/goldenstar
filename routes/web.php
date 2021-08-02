@@ -95,15 +95,12 @@ Route::get('/file-cheditor','mainController@file_img');
  * Route cho người dùng
  */
 
-<<<<<<< HEAD
 Route::get('/','mainController@home');
 Route::get('/pages','mainController@pages');
 Route::get('/page/{id}/{name}.html','mainController@page');
 Route::get('img_product/{id}','mainController@view_img');
 Route::get('plusview/{id}','mainController@plusview');
 
-=======
 Route::get('/products','mainController@products');
 Route::get('/products/{id}','mainController@inforProduct');
 Route::get('img_product/{id}','mainController@view_img');
->>>>>>> ec3021b1e55480ec52e8bd1b960b38c7b6515601

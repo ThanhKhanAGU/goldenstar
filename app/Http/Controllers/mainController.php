@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Information;
-<<<<<<< HEAD
-=======
-use App\TinTuc;
 use App\Images;
->>>>>>> ec3021b1e55480ec52e8bd1b960b38c7b6515601
 use App\Posts;
 
 class mainController extends Controller
@@ -73,18 +69,6 @@ class mainController extends Controller
         $product = Posts::find($id);
         $images = DB::table('Images')->where('id_post', $id)->get();
         return view('pages.inforproduct', ['product' => $product, 'images' => $images]);
-    }
-
-    public function hoatdong()
-    {
-        $hoatdong = HoatDong::all();
-        // $noibat = DB::table('SanPham')->where("NoiBat",1)->get()->take(4);
-        return view('pages.hoatdong',['hoatdong'=>$hoatdong]);
-    }
-
-    public function chitiethoatdong($id, $ten){
-        $data = HoatDong::find($id);
-        return view('pages.chitiethoatdong',['data'=>$data]);
     }
 
     public function pages()
