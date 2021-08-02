@@ -56,13 +56,11 @@ class mainController extends Controller
     public function products()
     {
 
-        $product = DB::table('Posts')->where("type","pr")->paginate(16);
+        $product = DB::table('Posts')->where("type","pr")->paginate(12);
         $di = DB::table('Posts')->where("type","di")->get();
         $tr = DB::table('Posts')->where("type","tr")->get();
         $img = DB::table('Images')->get();
-        // echo $product;
         return view('pages.products', ['p' => $product,'di' => $di,'tr' => $tr, 'img' => $img]);
-        // return view('pages.products');
     }
 
     public function inforProduct($id){
@@ -86,13 +84,23 @@ class mainController extends Controller
         $pin[3] = Posts::find($data['pin3']);
         return view('pages.listpages',['tintuc'=>$tintuc,'noibat'=>$noibat,'moi'=>$moi,'pin'=>$pin]);
     }
-    public function page($id,$ten)
+    public function page($id)
     {
         $tin = Posts::find($id);
         $noibat = DB::table('Posts')->where("type",'ps')->where("show",1)->get()->take(4);
         $moi = Posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
 
         return view('pages.page',['data'=>$tin,'noibat'=>$noibat,'moi'=>$moi]);
+    }
+
+    public function distributor(){
+        $di = DB::table('Posts')->where("type","di")->paginate(12);
+        return view('pages.distributor',['di'=>$di]);
+    }
+
+    public function trademark(){
+        $tr = DB::table('Posts')->where("type","tr")->paginate(12);
+        return view('pages.trademark',['tr'=>$tr]);
     }
 
     public function plusview($id)
@@ -105,6 +113,21 @@ class mainController extends Controller
     {
         
         return view('view_img');
+    }
+
+    public function get_action()
+    {
+        $action = DB::table('Posts')->where("type","ac")->paginate(12);
+        return view('pages.action', ['p' => $action]);
+    }
+
+    public function infor_action($id)
+    {
+        $tin = Posts::find($id);
+        // $noibat = DB::table('Posts')->where("type",'ps')->where("show",1)->get()->take(4);
+        // $moi = Posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
+
+        return view('pages.inforaction',['data'=>$tin]);
     }
 
 }

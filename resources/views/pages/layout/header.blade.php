@@ -37,7 +37,7 @@
                         <a href="home" class="dropdown-toggle" data-toggle="dropdown">Truyền thông<i class="fa fa-angle-down"></i></a>
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="list">Tin tức</a></li>
+                                <li><a href="pages">Tin tức</a></li>
                                 <li><a href="{{asset('/')}}">Chia sẽ cộng đồng</a></li>
                                 <li><a href="{{asset('/')}}">Khuyến mãi</a></li>
                             </ul>
@@ -47,7 +47,7 @@
                         <a href="{{asset('')}}" class="dropdown-toggle" data-toggle="dropdown">Phân phối</a>
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="product">Sản Phẩm</a></li>
+                                <li><a href="products">Sản Phẩm</a></li>
                             </ul>
                         </div>
                     </li>
