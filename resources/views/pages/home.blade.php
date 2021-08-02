@@ -7,51 +7,51 @@
         <ul class="cd-hero-slider">
             <li class="selected" >
                 <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[1]->HinhAnh}}" alt="slider">
+                    <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{$pin[1]->TieuDeKhongDau}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[1]->id}}/{{$pin[1]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9 "style="width:100%">
-                            <h5 style="color: orangered; height: 2.5em; line-height: 2.5em; overflow: hidden;">
-                                {{$pin[1]->TieuDe}}
-                            </h5>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[1]->TomTat}}</p>
+                            <h2 class="head_pin" >
+                                {{$pin[1]->name}}
+                            </h2>
+                            <p style="overflow: hidden; height: 4em;">{{$pin[1]->summary}}</p>
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
             </li>
             <li>
                 <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[2]->HinhAnh}}" alt="slider">
+                    <img style="width: 100%; " class="" src="post/{{$pin[2]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[2]->id}}/{{$pin[2]->TieuDeKhongDau}}.html" class="cd-btn" style="display:flex; margin:20px;">
-                       <div class="img-6-9" style="width: 70%">
-                            <h5 style="color: orangered; height: 2.5em; line-height: 2.5em; overflow: hidden;">
-                                {{$pin[2]->TieuDe}} 
-                            </h5>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[2]->TomTat}}</p>
+                    <a href="page/{{$pin[2]->id}}/{{$pin[2]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                       <div class="img-6-9" style="width: 70%;">
+                            <h3 class="head_pin" >
+                                {{$pin[2]->name}} 
+                            </h3>
+                            <p style="overflow: hidden; height: 4em;">{{$pin[2]->summary}}</p>
                        </div>
                        <div class="img-6-9 br-img" style="width: 30%">
-                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->HinhAnh}}" alt="">
+                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->image}}" alt="">
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
             </li>
             <li>
                 <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[3]->HinhAnh}}" alt="slider">
+                    <img style="width: 100%;" class="" src="post/{{$pin[3]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[3]->id}}/{{$pin[3]->TieuDeKhongDau}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[3]->id}}/{{$pin[3]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%">
-                            <h5 style="color: orangered; height: 2.5em; line-height: 2.5em; overflow: hidden;">
-                                {{$pin[3]->TieuDe}} 
-                            </h5>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[3]->TomTat}}</p>
+                            <h3 class="head_pin" >
+                                {{$pin[3]->name}} 
+                            </h3>
+                            <p style="overflow: hidden; height: 4em;">{{$pin[3]->summary}}</p>
                        </div>
                        <div class="img-6-9 br-img" style="width: 30%">
-                            <img style="height: 100%;background-position: center center; background-size: cover " src="post/{{$pin[3]->HinhAnh}}" alt="">
+                            <img style="height: 100%;background-position: center center; background-size: cover " src="post/{{$pin[3]->image}}" alt="">
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
@@ -169,23 +169,46 @@
 <!--/ Counter end -->
 
 <section id="image-block" class="image-block no-padding">
-    <div class="container-fluid" style="margin: 20px;margin-top: 0">
-        <div class="row wow fadeInUp">
-            <!-- <div class="col-md-6 ts-padding img img-thumbnail" style="max-height:650px; background:url(images/image-block-bg.jpg) 50% 50% / cover no-repeat;"> -->
-            <div class="col-md-6 img-6-9">
-                <img src="assets_pages/images/{{$data['gt_icon']}}" alt="">
-            </div>
-            <div class="col-md-6">
-                <div style="text-align: justify">
-                    <h3 class="font-weight-bold text-center">{{$data['gt_title']}}</h3>
-                    {!!$data['gt_ct']!!}
+    <div class="container">
+        <div class="baiviet">
+            <div class="row">
+                <div class="background img-3-9">
+                    <img src="post/{{$gt->image}}" alt="">
+                    <span class="filter"></span>
+                </div>
+                <div class="text-center">
+                    <h2 class="head_gt">{!!$gt->name!!}</h2>
+                    <p class="breadcrumb" style="background: rgb(204, 203, 203)">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        {{$gt->created_at}}
+                    </p>
+                </div>
+                <div class="col-12">
+                    <div class="post-content text-justify">
+                        <p><b>{!!$gt->summary!!}</b></p>
+                        <br/>
+                        {!!$gt->content!!}
+                    </div><!--/ post content end -->
+                    <br>
                 </div>
             </div>
-
-        </div>
+        </div>    
     </div>
 </section>
 <!--/ Image block end -->
 
-    
+<style>
+
+.text-justify p{
+    text-align: justify;
+    text-indent: 1.5em;
+}
+.head_gt{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:orangered;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgb(27, 27, 27)
+}
+
+</style>    
 @endsection

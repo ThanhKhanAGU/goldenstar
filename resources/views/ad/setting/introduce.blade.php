@@ -1,9 +1,16 @@
 @extends('ad.layout.index')
 @section('content')
-<h4 class="header-title mb-4">Bài VIẾT GIỚI THIỆU CÔNG TY</h4>
-
-<form action="ad/set/introduce" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<h4 class="header-title mb-4">GIỚI THIỆU CÔNG TY</h4>
+<div class="modal fade view_home_demo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content embed-responsive" style="height: 90vh">
+        <iframe name="view_home"></iframe>
+    </div>
+    </div>
+</div>
+<form action="ad/set/policy" target="view_home" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
+    <input type="hidden" name="id" value="{{$p->id}}">
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
             Tiêu đề
@@ -52,24 +59,11 @@
             {!!$p->content!!}
             </textarea>
         </div>
-    </div> 
-    <div class="form-group row">
-        <label class="col-2 col-form-label" for="example-fileinput">Nổi bật</label>
-        <div class="col-10 switchery-demo">
-            <input id="show" name="show" value="show"
-            @if($p->show==1)
-            {
-                checked="checked"
-            }   
-            @endif
-            type="checkbox" data-plugin="switchery" 
-            data-color="#1bb99a" data-size="small">
-        </div>
-    </div>    
+    </div>   
 <!-- end Action  -->
     <div class="form-group mb-0">
         <div>
-            <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
+            <button type="submit" data-toggle="modal" data-target=".view_home_demo" class="btn btn-primary waves-effect waves-light mr-1">
                 Lưu thay đổi
             </button>
         </div>

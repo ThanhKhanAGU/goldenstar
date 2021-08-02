@@ -6,7 +6,7 @@
                 <h3 class="widget-title">Goldenstar Corp</h3>
                 <!-- <p>We are a awward winning multinational company. We believe in quality and standard worldwide.</p> -->
                 <h4>Địa chỉ</h4>
-                {{-- <p>{{$dt['dc']}}</p>
+                <p>{{$dt['dc']}}</p>
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Email:</h4>
@@ -16,7 +16,7 @@
                         <h4>Phone No.</h4>
                         <p>{{$dt['sdt']}}</p>
                     </div>
-                </div> --}}
+                </div>
                 <form action="#" role="form">
                     <div class="input-group subscribe">
                         <input type="email" class="form-control" placeholder="Email Address" required="">

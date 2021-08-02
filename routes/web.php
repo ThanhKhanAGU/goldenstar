@@ -82,7 +82,6 @@ Route::group(['prefix'=>'/ad'],function(){
         Route::post('/side','settingController@post_side');
         Route::post('/tag1','settingController@post_tag1');
         Route::post('/tag2','settingController@post_tag2');
-        Route::post('/intr','settingController@post_introduce');
         Route::post('/policy','settingController@post_policy');
         Route::post('/com','settingController@post_communications');
     });
@@ -96,5 +95,9 @@ Route::get('/file-cheditor','mainController@file_img');
  * Route cho người dùng
  */
 
-Route::get('/','mainController@products');
+Route::get('/','mainController@home');
+Route::get('/pages','mainController@pages');
+Route::get('/page/{id}/{name}.html','mainController@page');
 Route::get('img_product/{id}','mainController@view_img');
+Route::get('plusview/{id}','mainController@plusview');
+

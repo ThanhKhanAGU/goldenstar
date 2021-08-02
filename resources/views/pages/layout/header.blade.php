@@ -5,6 +5,12 @@
         <div class="row">
             <!-- Logo start -->
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <div class="navbar-brand navbar-bg">
                     <a href="{{asset('')}}">
                         <img class="img-responsive" src="assets_pages/images/logo.png" alt="logo">

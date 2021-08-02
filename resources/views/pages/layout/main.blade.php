@@ -111,8 +111,18 @@
 			border: 4px solid white;
 			margin: 1em;
 		}
+		.head_pin{
+			color: orangered; 
+			height: 2.5em;
+			line-height: 2.5em; 
+			overflow: hidden;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-weight: bold;
+			text-shadow: 5px 5px 20px #000000
+		}
 	</style>
-
+	
+	@yield('css')
 <link rel="stylesheet" href="assets_pages/css/baiviet.css">
 <script>
 	

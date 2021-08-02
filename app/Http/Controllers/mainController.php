@@ -6,11 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Information;
-use App\TinTuc;
+use App\Posts;
 
 class mainController extends Controller
 {
     //
+    function __construct()
+    {
+        $dt['dc'] = Information::where('Ten','dc')->first()->NoiDung;
+        $dt['sdt'] = Information::where('Ten','sdt')->first()->NoiDung;
+        $dt['mail'] = Information::where('Ten','mail')->first()->NoiDung;
+        view()->share('dt',$dt);
+    }
+
     public function home()
     {
         $dt = Information::all();
@@ -18,10 +26,12 @@ class mainController extends Controller
         {
             $data[$item->Ten] = $item->NoiDung;
         }
-        $pin[1] = TinTuc::find($data['pin1']);
-        $pin[2] = TinTuc::find($data['pin2']);
-        $pin[3] = TinTuc::find($data['pin3']);
-        return view('pages.home',['data'=>$data,'pin'=>$pin]);
+        $pin[1] = Posts::find($data['pin1']);
+        $pin[2] = Posts::find($data['pin2']);
+        $pin[3] = Posts::find($data['pin3']);
+        $gt = Posts::find($data['id_gt']);
+        return view('pages.home',['data'=>$data,'pin'=>$pin,'gt'=>$gt]);
+
     }
     public function up_img(Request $request)
     {
@@ -40,106 +50,6 @@ class mainController extends Controller
     public function file_img(Request $request)
     {
         return view('listimg');
-    }
-    public function setting_danhmuc()
-    {
-        $dt = Information::all();
-        foreach($dt as $item)
-        {
-            $data[$item->Ten] = $item->NoiDung;
-        }
-        return view('ad.setting.danhmuc',['data'=>$data]);
-    }
-    public function edit_tag1(Request $request)
-    {
-        
-        $data = Information::where("Ten",'tag1')->first();
-        $data->NoiDung = $request->tag1;
-        $data->save();
-
-        for($i=1;$i<4;$i++)
-        {
-            $data = Information::where("Ten",'tag1_'.$i.'_icon')->first();
-            $data->NoiDung = $request['tag1_'.$i.'_icon'];
-            $data->save();
-            $data = Information::where("Ten",'tag1_'.$i.'_title')->first();
-            $data->NoiDung = $request['tag1_'.$i.'_title'];
-            $data->save();
-            $data = Information::where("Ten",'tag1_'.$i.'_ct')->first();
-            $data->NoiDung = $request['tag1_'.$i.'_ct'];
-            $data->save();
-        }
-
-        return redirect('/#service');      
-    }
-    public function edit_tag2(Request $request)
-    {
-        
-        $data = Information::where("Ten",'tag2')->first();
-        $data->NoiDung = $request->tag2;
-        $data->save();
-
-        for($i=1;$i<5;$i++)
-        {
-            if($request->hasFile('tag2_'.$i.'_icon')){
-                $data = Information::where("Ten",'tag2_'.$i.'_icon')->first();
-                $file = $request->file('tag2_'.$i.'_icon');
-                $name = $file->getClientOriginalName();
-                $HinhAnh = time()."_".$name;
-                $file->move('assets_pages/images/img',$HinhAnh);
-                if($data->NoiDung != "default.jpg")
-                    unlink('assets_pages/images/img/'.$data->NoiDung);
-                $data->NoiDung = $HinhAnh;
-                $data->save();
-            }
-            $data = Information::where("Ten",'tag2_'.$i.'_title')->first();
-            $data->NoiDung = $request['tag2_'.$i.'_title'];
-            $data->save();
-            $data = Information::where("Ten",'tag2_'.$i.'_ct')->first();
-            $data->NoiDung = $request['tag2_'.$i.'_ct'];
-            $data->save();
-        }
-        return redirect('/#team');      
-    }
-    public function edit_tag3(Request $request)
-    {
-        for($i=1;$i<5;$i++)
-        {
-            $data = Information::where("Ten",'sl_'.$i)->first();
-            $data->NoiDung = $request['sl_'.$i];
-            $data->save();
-            $data = Information::where("Ten",'sl_'.$i.'_ten')->first();
-            $data->NoiDung = $request['sl_'.$i.'_ten'];
-            $data->save();
-            $data = Information::where("Ten",'sl_'.$i.'_icon')->first();
-            $data->NoiDung = $request['sl_'.$i.'_icon'];
-            $data->save();
-        }
-        return redirect('/#gioithieu'); 
-    }
-    public function edit_tag4(Request $request)
-    {
-        $data = Information::where("Ten",'gt_title')->first();
-        $data->NoiDung = $request->gt_title;
-        $data->save();
-
-        $data = Information::where("Ten",'gt_ct')->first();
-        $data->NoiDung = $request->gt_ct;
-        $data->save();
-
-        if($request->hasFile('gt_icon')){
-            $data = Information::where("Ten",'gt_icon')->first();
-            $file = $request->file('gt_icon');
-            $name = $file->getClientOriginalName();
-            $HinhAnh = time()."_".$name;
-            $file->move('assets_pages/images',$HinhAnh);
-            if($data->NoiDung != "default.jpg")
-                unlink('assets_pages/images/'.$data->NoiDung);
-            $data->NoiDung = $HinhAnh;
-            $data->save();
-        }
-
-        return redirect('/#image-block'); 
     }
 
     public function products()
@@ -168,6 +78,37 @@ class mainController extends Controller
     public function chitiethoatdong($id, $ten){
         $data = HoatDong::find($id);
         return view('pages.chitiethoatdong',['data'=>$data]);
+    }
+
+    public function pages()
+    {
+        $tintuc = DB::table('Posts')->orderBy('id', 'DESC')->where('type','ps')->paginate(4);
+        $noibat = DB::table('Posts')->where('type','ps')->where("show",1)->get()->take(4);
+        $moi = Posts::all()->where('type','ps')->sortByDesc('created_at')->take(3);
+        $dt = Information::all();
+        foreach($dt as $item)
+        {
+            $data[$item->Ten] = $item->NoiDung;
+        }
+        $pin[1] = Posts::find($data['pin1']);
+        $pin[2] = Posts::find($data['pin2']);
+        $pin[3] = Posts::find($data['pin3']);
+        return view('pages.listpages',['tintuc'=>$tintuc,'noibat'=>$noibat,'moi'=>$moi,'pin'=>$pin]);
+    }
+    public function page($id,$ten)
+    {
+        $tin = Posts::find($id);
+        $noibat = DB::table('Posts')->where("type",'ps')->where("show",1)->get()->take(4);
+        $moi = Posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
+
+        return view('pages.page',['data'=>$tin,'noibat'=>$noibat,'moi'=>$moi]);
+    }
+
+    public function plusview($id)
+    {
+        $tin = Posts::find($id);
+        $tin->view++;
+        $tin->save();
     }
 
 }

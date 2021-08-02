@@ -4,7 +4,6 @@
 
 <form  target="view_demo" action="ad/set/com" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="type" value="ps">
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
             Địa Chỉ
@@ -13,7 +12,7 @@
             <input name="dc" id="dc" 
             data-parsley-length="[5,255]" 
             placeholder="Địa chỉ công ty..."
-            value=""
+            value="{{$dt['dc']}}"
             type="text" class="form-control" required="">
         </div>
     </div>
@@ -25,7 +24,7 @@
             <input name="mail" id="mail" 
             data-parsley-length="[5,255]" 
             placeholder="Email công ty..."
-            value=""
+            value="{{$dt['mail']}}"
             type="text" class="form-control" required="">
         </div>
     </div><div class="form-group row">
@@ -36,7 +35,7 @@
             <input name="sdt" id="sdt"
             data-parsley-length="[5,255]" 
             placeholder="Số điện thoại công ty..."
-            value=""
+            value="{{$dt['sdt']}}"
             type="text" class="form-control" required="">
         </div>
     </div>
@@ -58,7 +57,6 @@
       </div>
     </div>
   </div>
-  <script>
 @endsection
 @section('js')
 <script src="assets/libs/ckeditor/ckeditor.js"></script>

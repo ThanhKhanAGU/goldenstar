@@ -2,57 +2,56 @@
 @extends('pages.layout.main')
 
 @section('content')
-<!-- Slider start -->
 <section id="home" class="no-padding wow fadeInDown">
     <div id="main-slide" class="cd-hero img-3-9 side-cd">
         <ul class="cd-hero-slider">
             <li class="selected" >
                 <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[1]->HinhAnh}}" alt="slider">
+                    <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{$pin[1]->TieuDeKhongDau}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[1]->id}}/{{$pin[1]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9 "style="width:100%">
-                            <h5 style="color: orangered; height: 2.5em; line-height: 2.5em; overflow: hidden;">
-                                {{$pin[1]->TieuDe}}
-                            </h5>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[1]->TomTat}}</p>
+                            <h2 class="head_pin" >
+                                {{$pin[1]->name}}
+                            </h2>
+                            <p style="overflow: hidden; height: 4em;">{{$pin[1]->summary}}</p>
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
             </li>
             <li>
                 <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[2]->HinhAnh}}" alt="slider">
+                    <img style="width: 100%; " class="" src="post/{{$pin[2]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[2]->id}}/{{$pin[2]->TieuDeKhongDau}}.html" class="cd-btn" style="display:flex; margin:20px;">
-                       <div class="img-6-9" style="width: 70%">
-                            <h5 style="color: orangered; height: 2.5em; line-height: 2.5em; overflow: hidden;">
-                                {{$pin[2]->TieuDe}} 
-                            </h5>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[2]->TomTat}}</p>
+                    <a href="page/{{$pin[2]->id}}/{{$pin[2]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                       <div class="img-6-9" style="width: 70%;">
+                            <h3 class="head_pin" >
+                                {{$pin[2]->name}} 
+                            </h3>
+                            <p style="overflow: hidden; height: 4em;">{{$pin[2]->summary}}</p>
                        </div>
                        <div class="img-6-9 br-img" style="width: 30%">
-                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->HinhAnh}}" alt="">
+                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->image}}" alt="">
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
             </li>
             <li>
                 <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[3]->HinhAnh}}" alt="slider">
+                    <img style="width: 100%;" class="" src="post/{{$pin[3]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[3]->id}}/{{$pin[3]->TieuDeKhongDau}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[3]->id}}/{{$pin[3]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%">
-                            <h5 style="color: orangered; height: 2.5em; line-height: 2.5em; overflow: hidden;">
-                                {{$pin[3]->TieuDe}} 
-                            </h5>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[3]->TomTat}}</p>
+                            <h3 class="head_pin" >
+                                {{$pin[3]->name}} 
+                            </h3>
+                            <p style="overflow: hidden; height: 4em;">{{$pin[3]->summary}}</p>
                        </div>
                        <div class="img-6-9 br-img" style="width: 30%">
-                            <img style="height: 100%;background-position: center center; background-size: cover " src="post/{{$pin[3]->HinhAnh}}" alt="">
+                            <img style="height: 100%;background-position: center center; background-size: cover " src="post/{{$pin[3]->image}}" alt="">
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
@@ -88,18 +87,18 @@
                     <?php $dem = 0; ?>
                     @foreach ($moi as $item)
                     <?php $dem += 3; ?>
-                    <a href="page/{{$item->id}}/{{$item->TieuDeKhongDau}}.html">
+                    <a href="page/{{$item->id}}/{{$item->name}}.html">
                         <div class="col-md-4 col-sm-4 wow fadeInDown" data-wow-delay=".{{$dem}}s">
                             <div class="service-image card-img" >
                                 <div class="img-6-9" >
-                                    <img src="post/{{$item->HinhAnh}}" alt="{{$item->HinhAnh}}" />
+                                    <img src="post/{{$item->image}}" alt="{{$item->image}}" />
                                 </div>
-                                <h5 class="font-weight-bold">{{$item->TieuDe}}</h5>
-                                <p style="color:gray; height: 5em; overflow: hidden; text-overflow: ellipsis;">{{$item->TomTat}}</p>
+                                <h5 class="font-weight-bold">{{$item->name}}</h5>
+                                <p style="color:gray; height: 5em; overflow: hidden; text-overflow: ellipsis;">{{$item->summary}}</p>
                                 <p class="post-meta text-right">
                                     <span class="post-meta-date">
                                         <i class="fa fa-clock-o"></i> {{$item->created_at}}
-                                        <i class="fa fa-eye"></i> {{$item->SoLuotXem}}
+                                        <i class="fa fa-eye"></i> {{$item->view}}
                                     </span>
                                 </p>
                             </div>
@@ -115,20 +114,21 @@
                 <div class="container">
                     <div class="row card mb-3">
                         @foreach ($noibat as $tt)
-                        <a href="page/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html">
+                        <a href="page/{{$tt->id}}/{{$tt->name}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
-                                        <img src="post/{{$tt->HinhAnh}}">
+                                        <img src="post/{{$tt->image}}">
                                     </div>
                                 </div>
                                 <div class="col-md-8 ">
                                     <div>
-                                        <h5 class="font-weight-bold">{{$tt->TieuDe}}</h5>
+                                        <h5 style="height: 3em;overflow: hidden;" class=" font-weight-bold">{{$tt->name}}</h5>
+                                        <p style="height: 3.5em;overflow: hidden; color:gray" class=" hidden-md  hidden-lg">{{$tt->summary}}</p>
                                         <p class="post-meta">
                                             <span class="post-meta-date">
                                                 <i class="fa fa-clock-o"></i> {{$tt->created_at}}
-                                                <i class="fa fa-eye"></i> {{$tt->SoLuotXem}}
+                                                <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>
                                     </div>
@@ -146,23 +146,23 @@
                 <div class="row">
                     <div class="card col-md-9">
                         @foreach ($tintuc as $tt)
-                        <a href="page/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html">
+                        <a href="page/{{$tt->id}}/{{$tt->name}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
-                                        <img src="post/{{$tt->HinhAnh}}">
+                                        <img src="post/{{$tt->image}}">
                                     </div>
                                 </div>
                                 <div class="col-md-8 ">
                                     <div>
-                                        <h5 class="font-weight-bold">{{$tt->TieuDe}}</h5>
-                                        <p style="color:gray; height: 3em; overflow: hidden; text-overflow: ellipsis;" >
-                                            {{$tt->TomTat}}
+                                        <h5  style="height: 3em;overflow: hidden;" class="font-weight-bold">{{$tt->name}}</h5>
+                                        <p  style="height: 3.5em;overflow: hidden;color: gray" style="color:gray; height: 3em; overflow: hidden; text-overflow: ellipsis;" >
+                                            {{$tt->summary}}
                                         </p>
                                         <p class="post-meta">
                                             <span class="post-meta-date">
                                                 <i class="fa fa-clock-o"></i> {{$tt->created_at}}
-                                                <i class="fa fa-eye"></i> {{$tt->SoLuotXem}}
+                                                <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>
                                     </div>
@@ -176,10 +176,5 @@
                 </div>                 
             </div>
     </div><!--/ container end -->
-</section><!-- Blog details page end -->
-
-
-
-
-
+</section><!-- Blog details page end --> 
 @endsection

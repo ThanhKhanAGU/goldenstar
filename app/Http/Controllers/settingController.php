@@ -42,14 +42,11 @@ class settingController extends Controller
         $p = Posts::find($id);
         return view('ad.setting.introduce',['p'=>$p]);
     }
+
     public function get_policy(){
-        $dt = Information::all();
-        foreach($dt as $item)
-        {
-            $data[$item->Ten] = $item->NoiDung;
-        }
-        $p = Posts::all();
-        return view('ad.setting.policy',['dt'=>$data,'p'=>$p]);
+        $id = Information::where('Ten','id_cl')->first()->NoiDung;
+        $p = Posts::find($id);
+        return view('ad.setting.policy',['p'=>$p]);
     }
     public function get_communications(){
         $dt = Information::all();
@@ -69,7 +66,7 @@ class settingController extends Controller
             $dt = $data->where("Ten","pin".($i+1))->first();
             $dt->NoiDung = $value;
         }
-        return redirect('/#home');
+        return redirect('/');
     }
     public function post_tag1(Request $request){
         $data = Information::where("Ten",'tag1')->first();
@@ -89,7 +86,7 @@ class settingController extends Controller
             $data->save();
         }
 
-        return redirect('/#service'); 
+        return redirect('/'); 
     }
     public function post_tag2(Request $request){
         $data = Information::where("Ten",'tag2')->first();
@@ -116,16 +113,52 @@ class settingController extends Controller
             $data->NoiDung = $request['tag2_'.$i.'_ct'];
             $data->save();
         }
-        return redirect('/#team');  
-    }
-    public function post_introduce(Request $request){
-        
+        return redirect('/');  
     }
     public function post_policy(Request $request){
+        $post = Posts::find($request->id);
         
+        if($request->name){
+            $post->name = $request->name;
+        }
+
+        if($request->summary){
+            $post->summary = $request->summary;
+        }
+
+        if($request->content){
+            $post->content = $request->content;
+        }
+
+        if($request->show=="show");
+        {
+            $post->show = 1;
+        }
+
+        if($request->image){
+            $file = $request->file('image');
+            $name = $file->getClientOriginalName();
+            $image = time()."_".$name;
+            $file->move('post',$image);
+            unlink("post/".$post->image);
+            $post->image = $image;
+        }
+        $post->save();
+        return redirect('/');  
     }
     public function post_communications(Request $request){
-        
+        $data = Information::where("Ten",'dc')->first();
+        $data->NoiDung = $request->dc;
+        $data->save();
+
+        $data = Information::where("Ten",'mail')->first();
+        $data->NoiDung = $request->mail;
+        $data->save();
+
+        $data = Information::where("Ten",'sdt')->first();
+        $data->NoiDung = $request->sdt;
+        $data->save();
+        return redirect('/');  
     }
     
 }
