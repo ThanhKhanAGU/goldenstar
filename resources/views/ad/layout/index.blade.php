@@ -34,7 +34,6 @@
 
         <div class="content-page">
             <div class="content">
-
                 <div >
                     <div class="card">
                         <div class="card-body">
@@ -43,7 +42,6 @@
                     </div>
                     <!-- end card -->
                 </div>
-
             </div>
             <!-- end content -->
 

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Posts;
 use App\Images;
 
-class PostsController extends Controller
+class ActionController extends Controller
 {
     public function get_list()
     {

@@ -9,21 +9,13 @@ class Posts extends Model
     protected $table = 'Posts';
 
     public function trademark(){
-        return $this->belongsTo('App\Posts', 'id_trademark', 'id');
+        return $this->hasMany('App\Posts', 'id_trademark', 'id');
     }
 
     public function distributor(){
-        return $this->belongsTo('App\Posts', 'id_distributor', 'id');
+        return $this->hasMany('App\Posts', 'id_distributor', 'id');
     }
     
-    public function product(){
-        if($table->type == 'tr'){
-            return $this->hasMany('App\Posts', 'id_trademark', 'id');
-        }
-        if($table->type == 'ds'){
-            return $this->hasMany('App\Posts', 'id_distributor', 'id');
-        }
-    }
     public function images(){
         return $this->hasMany("App\Images","id_post","id");
     }
