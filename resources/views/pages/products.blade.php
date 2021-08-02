@@ -11,31 +11,43 @@
                     <li>Home</li>
                     <li>Portfolio</li>
                     <li><a href="#"> Portfolio Static</a></li>
-                  </ul>
+                </ul>
               </div>
           </div><!-- Subpage title end -->
 </div><!-- Banner area end -->
 
-<!-- Portfolio start -->
 <section id="main-container" class="portfolio-static portfolio portfolio-box">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                @for ($i = 0;$i  < 30; $i++)
-                <div class="col-lg-3 col-sm-4 portfolio-static-item">
+                @for ($i = 0;$i  < 12; $i++)
+                <div class="col-lg-3 col-sm-4 col-xs-6 portfolio-static-item">
                     <div class="grid ">
                         <figure class="effect-oscar img-9-9">
-                                <img src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
+                                <img style="width: 100%;height: 100%;" src="assets_pages/images/portfolio/portfolio2.jpg" alt="">
                             <figcaption>
-                                <a class="link icon-pentagon" href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                                <a class="view icon-pentagon" data-rel="prettyPhoto" href="assets_pages/images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>            
+                                <a class="link icon-pentagon" href="portfolio-item.html">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                                <a  class="view icon-pentagon" data-toggle="modal" data-target="#viewimg"
+                                onclick="loadimg_side()">
+                                    <i class="fa fa-search"></i>
+                                </a>            
                             </figcaption>			
                         </figure>
-                        <div class="portfolio-static-desc">
+                        <a href="" class="portfolio-static-desc">
                             <h3>Startup Business</h3>
-                            <span><a href="#">Illustrations</a></span>
-                            <p class="price">450.000 VND</p>
-                        </div>					
+                            <span style="color:#555">Illustrations</span>
+                            @if ($i % 3 != 0)
+                                <p style="height: 1rem;"></p>
+                                <p class="price text text-right">450.000 VND</p> 
+                            @else
+                                <p class="text-right price-old">600.000 VND</p>
+                                <p class="price text-right" >450.000 VND</p>
+                            @endif
+
+
+                        </a>					
                     </div><!--/ grid end -->
                 </div><!--/ item 1 end -->
                 @endfor
@@ -65,14 +77,63 @@
 
 <div class="gap-40"></div>
 
+<div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body" style="display: flex">
+            <div style="margin: auto;box-shadow: 3px 4px 5px #5c5c5c" id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+              
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active ">
+                    <img style="width: 60vh;height: 60vh;" src="https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-9-1527053440039156820618.jpg" alt="Los Angeles">
+                  </div>
+              
+                  <div class="item ">
+                    <img style="width: 60vh;height: 60vh;" src="https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-9-1527053440039156820618.jpg" alt="Chicago">
+                  </div>
+              
+                  <div class="item">
+                    <img style="width: 60vh;height: 60vh;" src="https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-9-1527053440039156820618.jpg" alt="New York">
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 <style>
     .price{
         font-size: 1.6rem;
         color: #f71b10;
     }
+    .price-old{
+        color:#555; 
+        font-size: .9em; 
+        height: 1rem; 
+        text-decoration: line-through;
+        font-style: italic;
+        overflow: visible
+    }
 </style>
 
 
 @endsection
-
+@section('js')
+    <script>
+        function loadimg_side(array)
+        {
+            
+        }
+    </script>
+@endsection
 
