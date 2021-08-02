@@ -115,7 +115,7 @@ Route::get('/products/{id}.html','mainController@inforProduct');
 //action
 Route::get('/actions','mainController@get_action');
 Route::get('/actions/{id}','mainController@infor_action');
-Route::get('/actions/{id}.html','mainController@inforProduct');
+Route::get('/actions/{id}.html','mainController@infor_action');
 //distributor
 Route::get('/distributors','mainController@distributor');
 Route::get('/distributors.html','mainController@distributor');

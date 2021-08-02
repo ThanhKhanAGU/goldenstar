@@ -111,8 +111,8 @@ class mainController extends Controller
     }
     public function inforProduct_img($id)
     {
-        
-        return view('view_img');
+        $img = DB::table('Images')->where('id_post', $id)->get();
+        return view('view_img', ['img'=> $img]);
     }
 
     public function get_action()
