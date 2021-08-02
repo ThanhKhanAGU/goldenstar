@@ -109,7 +109,7 @@ class mainController extends Controller
         $tin->view++;
         $tin->save();
     }
-    public function inforProduct_img($id)
+    public function view_img($id)
     {
         $img = DB::table('Images')->where('id_post', $id)->get();
         return view('view_img', ['img'=> $img]);

@@ -13,25 +13,23 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                  <div id="Demo" class="row">
+                  <div id="Demo" class="row wow fadeInDown" data-wow-delay=.5s>
                     @foreach ($p as $i)
                     <div class="col-lg-3 col-sm-4 col-xs-6 portfolio-static-item product tr_{{$i->id_trademark}} di_{{$i->id_distributor}}">
                         <div class="grid ">
                             <figure class="effect-oscar img-9-9">
                                   @if (count(\App\Images::where(['id_post' => $i->id])->get()))
-                                  <img style="width: 100%;height: 100%;" src="product/{{\App\Images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
+                                  <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/{{\App\Images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
                                   @else
-                                          <img style="width: 100%;height: 100%;" src="product/default.jpg" alt="">
+                                  <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/default.jpg" alt="">
                                   @endif
                                   <figcaption>
-                                      <a class="link icon-pentagon" href="products/{{$i->id}}">
-                                          <i class="fa fa-link"></i>
-                                      </a>
-                                      <a class="icon-pentagon" data-toggle="modal"
-                                      target="view_img" href="products_img/{{$i->id}}"
-                                      data-target="#viewimg">
-                                          <i class="fa fa-search"></i>                              
-                                      </a>             
+                                      <div onclick="img_load(img_{{$i->id}})">
+                                        <a class="link icon-pentagon" data-toggle="modal"
+                                        data-target="#viewimg" >
+                                            <i class="fa fa-search"></i>                              
+                                        </a> 
+                                      </div>            
                                   </figcaption>			
                             </figure>
                             <a href="products/{{$i->id}}" class="portfolio-static-desc">
@@ -59,20 +57,28 @@
               <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                   <div class="sidebar sidebar-right">
                       <!-- category start -->
-                      <div class="widget widget-categories">
+                      <div class="widget widget-categories wow fadeInUp" data-wow-delay=.5s>
                           <h3 class="widget-title">THƯƠNG HIỆU</h3>
                           <ul class="category-list clearfix">
-                                <li>
-                                    <span class="tr" onclick="fill('product')"></span>
-                                    <span class="posts-count"> 
-                                        Tất cả({{count($p)}})
-                                    </span>
-                                </li>
+                                    <li>
+                                        <span class="tr" onclick="fill('product')">
+                                            Tất cả
+                                        </span>
+                                        <span class="posts-count"> 
+                                           ({{count($p)}})
+                                        </span>
+                                    </li>
                               @foreach ($tr as $i)
                                   <li>
-                                      <span class="tr" onclick="fill('tr_{{$i->id}}')">{{$i->name}}</span>
+                                      <span class="tr" onclick="fill('tr_{{$i->id}}')">
+                                        {{$i->name}}
+                                      </span>
                                       <span class="posts-count"> 
-                                          (15)
+                                          (
+                                              <script>
+                                                  document.write(document.getElementsByClassName('tr_{{$i->id}}').length)
+                                              </script>
+                                          )
                                       </span>
                                   </li>
                               @endforeach
@@ -89,9 +95,11 @@
   
   <div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body" style="display: flex">
-            <iframe name="view_img" height="400px" width="100%"></iframe>
+        <div class="modal-content modal-lg">
+          <div class="modal-body">
+            <div style="width: 100%; display: flex">
+                <img id="img" style="margin: auto" width="100%" src="" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -135,7 +143,11 @@
                 a[i].style.display= "block"
             }
           }
-</script>
+          function img_load(url)
+          {
+              document.getElementById('img').src = url.src;
+          }
+    </script>
   @endsection
   
   

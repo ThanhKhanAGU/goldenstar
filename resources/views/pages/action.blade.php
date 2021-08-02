@@ -27,13 +27,10 @@
                                 <a class="link icon-pentagon" href="actions/{{$i->id}}">
                                     <i class="fa fa-link"></i>
                                 </a>
-                                <a  class="view icon-pentagon" data-toggle="modal" data-target="#viewimg"
-                                    onclick="loadimg_side()">
-                                    <i class="fa fa-search"></i>
-                                </a>            
+                                         
                             </figcaption>			
                         </figure>
-                        <a href="" class="portfolio-static-desc">
+                        <a href="actions/{{$i->id}}" class="portfolio-static-desc">
                             <h3 style="height: 4rem; overflow: hidden; text-align: center">{{$i->name}}</h3>
                         </a>					
                     </div><!--/ grid end -->

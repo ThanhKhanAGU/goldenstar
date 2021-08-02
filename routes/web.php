@@ -105,7 +105,7 @@ Route::get('plusview/{id}','mainController@plusview');
 Route::get('/products','mainController@products');
 Route::get('/products/{id}','mainController@inforProduct');
 Route::get('/products_img/{id}','mainController@inforProduct_img');
-Route::get('img_product/{id}','mainController@view_img');
+Route::get('/img_product/{id}','mainController@view_img');
 Route::get('plusview/{id}','mainController@plusview');
 Route::get('/page/{id}/{name}.html','mainController@page');
 //product

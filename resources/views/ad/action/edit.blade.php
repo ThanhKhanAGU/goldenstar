@@ -52,7 +52,7 @@
             <div id="viewimg_2" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px">
             @foreach ($p->images as $i)
                 <img height="75px" class="img_view_item" 
-                width="100px" src="post/{{$i->img}}" alt="">
+                width="100px" src="action/{{$i->img}}" alt="">
             @endforeach
             </div>
         </div>

@@ -25,7 +25,7 @@
                         @foreach ($tr as $i)
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
-                                    <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
+                                    <div style="width: 90%; box-shadow: 2px 2px 5px #999; height: 90%; margin: 5%" class="img-6-9">
                                         <img src="trademark/{{\App\Images::where(['id_post' => $i->id])->pluck('img') ->first()}}">
                                     </div>
                                 </div>

@@ -38,8 +38,7 @@
                         <div class="dropdown-menu">
                             <ul>
                                 <li><a href="pages">Tin tức</a></li>
-                                <li><a href="{{asset('/')}}">Chia sẽ cộng đồng</a></li>
-                                <li><a href="{{asset('/')}}">Khuyến mãi</a></li>
+                                <li><a href="actions">Chia sẽ cộng đồng</a></li>
                             </ul>
                         </div>
                     </li>
@@ -52,7 +51,7 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="{{asset('')}}" class="dropdown-toggle" data-toggle="dropdown">Thương hiệu</a>
+                        <a href="trademarks" class="dropdown-toggle" data-toggle="dropdown">Thương hiệu</a>
                     </li>
                     <li class="dropdown">
                         <a href="{{asset('')}}" class="dropdown-toggle" data-toggle="dropdown">Liên hệ<i class="fa fa-angle-down"></i></a>
@@ -60,8 +59,6 @@
                             <ul>
                                 <li><a href="{{asset('')}}">Zalo</a></li>
                                 <li><a href="{{asset('')}}">Facebook</a></li>
-                                <li><a href="{{asset('')}}">Phone: 0123456789</a></li>
-                                <li><a href="{{asset('')}}">Gmail: abc@gmail.com</a></li>
                             </ul>
                         </div>
                     </li>
