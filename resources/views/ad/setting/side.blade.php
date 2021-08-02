@@ -9,9 +9,9 @@
         <label class="col-lg-2 col-form-label">
             Bài Ghim số {{$i+1}}
         </label>
-        <button onclick="" data-toggle="modal" data-target="#exampleModalLong" type="button" class="costom col-lg-10 btn btn-primary">
-            <h5>tên</h5>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, eum. Accusamus cupiditate ipsa odit dignissimos omnis, esse labore autem sunt, dolores facere consequatur veniam aspernatur, officiis pariatur laboriosam libero consectetur.</p>    
+        <button onclick="getdata(pin{{$i}},n{{$i}},c{{$i}})" data-toggle="modal" data-target="#exampleModalLong" type="button" class="costom col-lg-10 btn btn-primary">
+            <h5 id="n{{$i}}" >tên</h5>
+            <p id="c{{$i}}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, eum. Accusamus cupiditate ipsa odit dignissimos omnis, esse labore autem sunt, dolores facere consequatur veniam aspernatur, officiis pariatur laboriosam libero consectetur.</p>    
         </button>
         <input id="pin{{$i}}" type="hidden" name="pinn[]">
     </div>
@@ -75,15 +75,19 @@
 @endsection
 @section('js')
 <script>
-var data 
-function getdata(x)
+var data,data1,data2;
+function getdata(i,n,c)
 {
-    data = x;
+    data = i;
+    data1 = n;
+    data2 = c;
 } 
 
-function add_data(n,c)
+function add_data(i,n,c)
 {
-
+    data.value = i;
+    data1.innerText = n;
+    data2.innerText = c;
 }
 
 </script>
