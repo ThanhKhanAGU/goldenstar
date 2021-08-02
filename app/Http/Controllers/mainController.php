@@ -50,10 +50,7 @@ class mainController extends Controller
         {
             $data[$item->Ten] = $item->NoiDung;
         }
-        $pin[1] = TinTuc::find($data['pin1']);
-        $pin[2] = TinTuc::find($data['pin2']);
-        $pin[3] = TinTuc::find($data['pin3']);
-        return view('ad.setting.danhmuc',['data'=>$data,'pin'=>$pin]);
+        return view('ad.setting.danhmuc',['data'=>$data]);
     }
     public function edit_tag1(Request $request)
     {

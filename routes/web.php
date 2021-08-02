@@ -71,6 +71,22 @@ Route::group(['prefix'=>'/ad'],function(){
 
         Route::get('/del/{id}','actionController@get_del');
     });
+    Route::group(['prefix'=>'/set'],function(){
+        Route::get('/side','settingController@get_side');
+        Route::get('/tag1','settingController@get_tag1');
+        Route::get('/tag2','settingController@get_tag2');
+        Route::get('/intr','settingController@get_introduce');
+        Route::get('/policy','settingController@get_policy');
+        Route::get('/com','settingController@get_communications');
+       
+        Route::post('/side','settingController@post_side');
+        Route::post('/tag1','settingController@post_tag1');
+        Route::post('/tag2','settingController@post_tag2');
+        Route::post('/intr','settingController@post_introduce');
+        Route::post('/policy','settingController@post_policy');
+        Route::post('/com','settingController@post_communications');
+    });
+
 });
 
 Route::post('/uploads-cheditor','mainController@up_img');
