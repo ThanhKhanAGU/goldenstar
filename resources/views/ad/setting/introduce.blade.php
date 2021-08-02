@@ -1,64 +1,80 @@
 @extends('ad.layout.index')
 @section('content')
-<h4 class="header-title mb-4">Thay đổi thông tin liên hệ</h4>
+<h4 class="header-title mb-4">Bài VIẾT GIỚI THIỆU CÔNG TY</h4>
 
-<form  target="view_demo" action="ad/set/com" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<form action="ad/set/introduce" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="type" value="ps">
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
-            Địa Chỉ
+            Tiêu đề
         </label>
         <div class="col-lg-10">
-            <input name="dc" id="dc" 
+            <input name="name" id="name" 
             data-parsley-length="[5,255]" 
-            placeholder="Địa chỉ công ty..."
-            value=""
+            placeholder="Tiêu đề bài viết..."
+            value="{{$p->name}}"
             type="text" class="form-control" required="">
         </div>
     </div>
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
-            Email
+            Tóm tắt
         </label>
         <div class="col-lg-10">
-            <input name="mail" id="mail" 
-            data-parsley-length="[5,255]" 
-            placeholder="Email công ty..."
-            value=""
-            type="text" class="form-control" required="">
-        </div>
-    </div><div class="form-group row">
-        <label class="col-lg-2 col-form-label">
-            SĐT
-        </label>
-        <div class="col-lg-10">
-            <input name="sdt" id="sdt"
-            data-parsley-length="[5,255]" 
-            placeholder="Số điện thoại công ty..."
-            value=""
+            <input name="summary" id="summary"
+            placeholder="Tóm tắt bài viết..."
+            value="{{$p->summary}}"
             type="text" class="form-control" required="">
         </div>
     </div>
+    <div class="form-group row">
+        <label class="col-lg-2 col-form-label" for="example-fileinput">
+            Hình ảnh
+        </label>
+        <div class="col-lg-10 ">
+            <input name="image" id="image"
+            onchange="loadimg()" type="file" 
+            class="form-control" accept="image/*">        
+            <div class="col-lg-8" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px">
+                <div id="viewimg" class="img-3-9" style="padding: 0; border-radius: 3px">
+                    <img id="viewimg-img" src="post/{{$p->image}}" >
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="form-group row">
+        <label class="col-lg-2 col-form-label">
+            Nội dung
+        </label>
+        <div class="col-12">          
+            <textarea name="content" id="content" 
+            class="form-control" required="">
+            {!!$p->content!!}
+            </textarea>
+        </div>
+    </div> 
+    <div class="form-group row">
+        <label class="col-2 col-form-label" for="example-fileinput">Nổi bật</label>
+        <div class="col-10 switchery-demo">
+            <input id="show" name="show" value="show"
+            @if($p->show==1)
+            {
+                checked="checked"
+            }   
+            @endif
+            type="checkbox" data-plugin="switchery" 
+            data-color="#1bb99a" data-size="small">
+        </div>
+    </div>    
 <!-- end Action  -->
     <div class="form-group mb-0">
         <div>
-            <button data-toggle="modal" data-target="#view_page" type="submit" class="btn btn-primary waves-effect waves-light mr-1">
-                Lưu Thay đổi
+            <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
+                Lưu thay đổi
             </button>
         </div>
     </div>
 </form>
-<div id="view_page" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" >
-      <div class="modal-content">
-        <div class="modal-body embed-responsive " style="height: 90vh">
-            <iframe name="view_demo" class="embed-responsive-item" src="" frameborder="0"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
 @endsection
 @section('js')
 <script src="assets/libs/ckeditor/ckeditor.js"></script>
@@ -79,7 +95,10 @@
                 img[i].src = fr.result;
             }
             fr.readAsDataURL(input.files[i]);
-        }     
+        }
+
+        
+         
     }
     function loadimg()
     {

@@ -17,8 +17,51 @@
     <link href="assets\css\icons.min.css" rel="stylesheet" type="text/css">
     <link href="assets\css\app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet">
     @yield('css')
+	<style>
+		*{
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+		
+		.img-6-9 > img,.img-3-9 > img, .img-9-9 >img{
+			width: 100%;
+            height: 100%;
+			background-size: cover; 
+			overflow: hidden;
+		}
+		.img-6-9,.img-3-9,.img-9-9{
+			overflow: hidden;
+			border-radius: 3px;
+		}
+	</style>
+
+<script>
+	
+	function size()
+	{
+		var mapElement = document.getElementsByClassName("img-6-9");
+		for(i=0;i<mapElement.length;i++)
+		{
+			mapElement[i].style.height = mapElement[i].offsetWidth*6/9+"px";
+		
+		}
+		var mapElement = document.getElementsByClassName("img-3-9");
+		for(i=0;i<mapElement.length;i++)
+		{
+			mapElement[i].style.height = mapElement[i].offsetWidth*4/9+"px";
+		
+		}
+		var mapElement = document.getElementsByClassName("img-9-9");
+		for(i=0;i<mapElement.length;i++)
+		{
+			mapElement[i].style.height = mapElement[i].offsetWidth+"px";
+		
+		}
+	}
+	window.addEventListener("resize",size);
+</script>
+
 </head>
-<body>
+<body onload="size()">
     <div id="wrapper">
 
             

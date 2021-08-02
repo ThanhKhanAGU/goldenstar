@@ -2,7 +2,7 @@
 @section('content')
 <h4 class="header-title mb-4">THÊM BÀI VIẾT</h4>
 
-<form action="ad/set/side" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<form target="view_home" action="ad/set/side" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
     @for($i=0;$i<3;$i++)
     <div class="form-group row">
@@ -10,20 +10,22 @@
             Bài Ghim số {{$i+1}}
         </label>
         <button onclick="getdata(pin{{$i}},n{{$i}},c{{$i}})" data-toggle="modal" data-target="#exampleModalLong" type="button" class="costom col-lg-10 btn btn-primary">
-            <h5 id="n{{$i}}" >tên</h5>
-            <p id="c{{$i}}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, eum. Accusamus cupiditate ipsa odit dignissimos omnis, esse labore autem sunt, dolores facere consequatur veniam aspernatur, officiis pariatur laboriosam libero consectetur.</p>    
+            <h5 id="n{{$i}}">
+            {{$p->find($dt['pin'.($i+1)])->name}}
+            </h5>
+            <p id="c{{$i}}">
+            {{$p->find($dt['pin'.($i+1)])->summary}}
+            </p>    
         </button>
-        <input id="pin{{$i}}" type="hidden" name="pinn[]">
+        <input value="{{$dt['pin'.($i+1)]}}" id="pin{{$i}}" type="hidden" name="pin[]">
     </div>
     @endfor
 
 <!-- end Action  -->
     <div class="form-group mb-0">
-        <div>
-            <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
-                Lưu Lại Thay đôi
-            </button>
-        </div>
+        <button type="submit" data-toggle="modal" data-target=".view_home_demo" style="font-size: 1.5em" class="font-weight-bold text-uppercase float-right btn btn-primary">
+            <i class="fas fa-save"></i> LƯU THAY ĐỔI
+        </button>
     </div>
 </form>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -36,7 +38,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table">
+        <table class="table" data-dismiss="modal">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
@@ -71,6 +73,13 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal fade view_home_demo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content embed-responsive" style="height: 90vh">
+        <iframe name="view_home"></iframe>
+    </div>
+    </div>
 </div>
 @endsection
 @section('js')
