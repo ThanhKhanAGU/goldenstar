@@ -199,5 +199,6 @@
 	<!-- Template custom -->
 	<script type="text/javascript" src="assets_pages/js/custom.js"></script>
 	</div>
+	@yield('js')
 </body>
 </html>

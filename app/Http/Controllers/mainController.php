@@ -101,5 +101,10 @@ class mainController extends Controller
         $tin->view++;
         $tin->save();
     }
+    public function inforProduct_img($id)
+    {
+        
+        return view('view_img');
+    }
 
 }

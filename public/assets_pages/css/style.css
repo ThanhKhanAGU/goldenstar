@@ -652,7 +652,7 @@ blockquote {
 
 .header-solid{
 	background: #191919;
-	box-shadow: 0px 1px 7px 0 rgba(0, 0, 0, 0.2); */
+	box-shadow: 0px 1px 7px 0 rgba(0, 0, 0, 0.2); 
 }
 
 .header-solid ul.navbar-nav > li > a{
@@ -1561,7 +1561,7 @@ ul.navbar-nav > li > a i{
 	height: 100%;
 }
 .grid figure figcaption {
-	padding: 2em;
+	padding: .3em;
 	color: #fff;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -1582,7 +1582,6 @@ figure.effect-oscar img {
 }
 
 figure.effect-oscar figcaption {
-	padding: 2.5em;
 	background-color: rgba(0,0,0,0.1);
 	-webkit-transition: background-color 0.35s;
 	transition: background-color 0.35s;
@@ -1679,7 +1678,7 @@ figure.effect-oscar:hover img {
 }
 
 .portfolio-static-item figure.effect-oscar a{
-	margin-top: 70px;
+	margin-top: 50px;
 }
 
 .portfolio-static-desc h3{
