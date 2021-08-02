@@ -26,7 +26,10 @@
                 <div class="portfolio-slider">
                     <div class="flexportfolio flexslider img-6-9">
                         <ul class="slides">
-                            <li><img src="assets_pages/images/img/boss.png" alt=""></li>
+                            @foreach ($images as $i)
+                                <li><img src="product/{{$i->img}}" alt=""></li>
+                            @endforeach
+                            
                             <li><img src="assets_pages/images/img/expo.png" alt=""/></li>
                             <li><img src="assets_pages/images/img/spec.png" alt=""/></li>
                         </ul>

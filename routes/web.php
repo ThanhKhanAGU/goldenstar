@@ -80,5 +80,6 @@ Route::get('/file-cheditor','mainController@file_img');
  * Route cho người dùng
  */
 
-Route::get('/','mainController@products');
+Route::get('/products','mainController@products');
+Route::get('/products/{id}','mainController@inforProduct');
 Route::get('img_product/{id}','mainController@view_img');
