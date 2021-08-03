@@ -12,7 +12,7 @@
 */
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix'=>'/ad'],function(){
+Route::group(['prefix'=>'/ad', 'middleware'=>'adminLogin'],function(){
     Route::group(['prefix'=>'/post'],function(){
         Route::get('/list','postsController@get_list');
 
