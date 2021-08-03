@@ -43,24 +43,13 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="{{asset('')}}" class="dropdown-toggle" data-toggle="dropdown">Phân phối</a>
-                        <div class="dropdown-menu">
-                            <ul>
-                                <li><a href="products">Sản Phẩm</a></li>
-                            </ul>
-                        </div>
+                        <a href="products" class="dropdown-toggle"> Sản phẩm </a>
                     </li>
                     <li class="dropdown">
-                        <a href="trademarks" class="dropdown-toggle" data-toggle="dropdown">Thương hiệu</a>
+                        <a href="trademarks" class="dropdown-toggle"> Phân phối </a>
                     </li>
                     <li class="dropdown">
-                        <a href="{{asset('')}}" class="dropdown-toggle" data-toggle="dropdown">Liên hệ<i class="fa fa-angle-down"></i></a>
-                        <div class="dropdown-menu">
-                            <ul>
-                                <li><a href="{{asset('')}}">Zalo</a></li>
-                                <li><a href="{{asset('')}}">Facebook</a></li>
-                            </ul>
-                        </div>
+                        <a href="distributors" class="dropdown-toggle"> Thương hiệu </a>
                     </li>
                 </ul>
             </nav>
