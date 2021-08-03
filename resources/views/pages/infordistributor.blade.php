@@ -3,7 +3,7 @@
 <div class="baiviet">
     <div class="background img-3-9">
         @if (count(\App\Images::where(['id_post' => $data->id])->get()))
-            <img src="action/{{\App\Images::where(['id_post' => $data->id])->pluck('img')->first()}}" alt="">
+            <img src="distributor/{{\App\Images::where(['id_post' => $data->id])->pluck('img')->first()}}" alt="">
         @else
             <img style="width: 100%;height: 100%;" src="action/default.jpg" alt="">
         @endif
@@ -14,8 +14,7 @@
     <div class="text-center">
         <h2>{!!$data->name!!}</h2>
         <p class="breadcrumb" style="color">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            {{$data->timetake}}
+            Đại chỉ: {{$data->place}}
         </p>
     </div> 
 <section id="main-container" style="padding-top: 0">
@@ -28,7 +27,8 @@
                     <ul class="slides ">
                         @foreach ($data->images as $i)
                             <li style="width: 80vw;">
-                                <img style="height: 100%; width: 100%" src="action/{{$i->img}}" alt="">
+                                <img style="height: 100%; width: 100%"
+                                src="distributor/{{$i->img}}" alt="">
                             </li>
                         @endforeach
                     </ul>
@@ -41,19 +41,34 @@
             
         @endif
     </div>
+    <hr>
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="post-content">
                 <br/>{!!$data->content!!}
             </div><!--/ post content end -->
-            <p class="text-right">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                {{$data->view}} lượt xem
-            </p>
             <br>
-        </div>
-        
+        </div>   
     </div><!--/ row end -->
+    <hr>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 footer-widget footer-about-us">
+            <h3 class="widget-title text-center">{{$data->name}}</h3>
+            <!-- <p>We are a awward winning multinational company. We believe in quality and standard worldwide.</p> -->
+            <h4>Địa chỉ</h4>
+            <p>{{$data->place}}</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Email:</h4>
+                    <p>{{$data->email}}</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Phone No.</h4>
+                    <p>{{$data->telephone}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <hr>
 </div><!--/ container end -->
 </section><!--/ Main container end -->
