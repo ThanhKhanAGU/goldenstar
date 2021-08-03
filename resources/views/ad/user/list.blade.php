@@ -30,7 +30,7 @@
                           {{$user->role}}
                         </td>
                         <td>
-                          <a href="ad/action/edit/{{$user->id}}">
+                          <a href="ad/user/edit/{{$user->id}}">
                             <button class="btn btn-primary" href="#">
                               <i class="fa fa-edit"></i>
                             </button>
@@ -48,9 +48,9 @@
                 </table>
               </div>
           </div>
-          <a href="ad/action/add">
+          <a href="ad/user/add">
             <button type="button" class="btn btn-primary block">
-              <i class="fa fa-plus"></i> Thêm bài viết
+              <i class="fa fa-plus"></i> Thêm người dùng
             </button>
           </a>
       </div>
@@ -94,7 +94,7 @@
   function del(id,name)
   {
       document.getElementById("mess_title").innerText = name;
-      document.getElementById("urldelte").href = "ad/action/del/"+id;
+      document.getElementById("urldelte").href = "ad/user/del/"+id;
   }
 </script>
 

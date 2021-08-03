@@ -71,7 +71,7 @@
                                     </div>
                                   <div class="button-list">
                                     <button type="submit" class="btn btn-primary waves-effect width-md waves-light">Thêm người dùng</button>
-                                    <a href="ad/user/list"><button type="button" class="btn btn-danger waves-effect width-md waves-light">Hủy</button></a>
+                                    <a href="ad/user/list"><button type="button" class="btn btn-secondary waves-effect width-md waves-light">Cancel</button></a>
                                   </div>
 
                                 </form>
