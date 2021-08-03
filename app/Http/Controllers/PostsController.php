@@ -36,7 +36,7 @@ class PostsController extends Controller
             $post->content = $request->content;
         }
 
-        if($request->show=="show");
+        if($request->show=="show")
         {
             $post->show = 1;
         }
