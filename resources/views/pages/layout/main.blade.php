@@ -5,7 +5,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-    <title>GoldenStart</title>
+    <title>@yield('title')</title>
     <meta name="description" content="">	
 	<meta name="author" content="">
     <base href="{{asset('')}}">

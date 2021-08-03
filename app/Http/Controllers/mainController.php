@@ -71,8 +71,8 @@ class mainController extends Controller
 
     public function pages()
     {
-        $tintuc = DB::table('Posts')->orderBy('id', 'DESC')->where('type','ps')->paginate(4);
-        $noibat = DB::table('Posts')->where('type','ps')->where("show",1)->get()->take(4);
+        $tintuc = DB::table('Posts')->orderBy('id', 'DESC')->where('type','ps')->get();
+        $noibat = DB::table('Posts')->where('type','ps')->where("show",1)->get()->take(3);
         $moi = Posts::all()->where('type','ps')->sortByDesc('created_at')->take(3);
         $dt = Information::all();
         foreach($dt as $item)
