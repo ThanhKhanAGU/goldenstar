@@ -200,10 +200,16 @@ class InforTableSeeder extends Seeder{
                 'NoiDung'=>'3'
             ],
         ]);
+        DB::table('users')->insert([
+            ['name'=>'admin', 'email'=>'test@gmail.com', 'password'=>bcrypt('123456'), 'role'=> '1'],
+            ['name'=>'user1', 'email'=>'test1@gmail.com', 'password'=>bcrypt('123456'), 'role'=> '0'],
+            ['name'=>'user2', 'email'=>'test2@gmail.com', 'password'=>bcrypt('123456'), 'role'=> '0']
+        ]);
         
     }
 }class tinTucSeeder extends Seeder{
     public function run(){
+        
         DB::table('information')->truncate();
         DB::table('information')->insert([
             [
@@ -397,10 +403,6 @@ class InforTableSeeder extends Seeder{
                 'NoiDung'=>'3'
             ],
         ]);
-        DB::table('users')->insert([
-            ['name'=>'admin', 'email'=>'test@gmail.com', 'password'=>bcrypt('123456'), 'level'=> '1'],
-            ['name'=>'user1', 'email'=>'test1@gmail.com', 'password'=>bcrypt('123456'), 'level'=> '0'],
-            ['name'=>'user2', 'email'=>'test2@gmail.com', 'password'=>bcrypt('123456'), 'level'=> '0']
-        ]);
+        
     }
 }

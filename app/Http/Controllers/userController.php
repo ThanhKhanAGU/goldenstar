@@ -76,15 +76,15 @@ class userController extends Controller
             ]);
         // echo  $request->email;
         if(Auth::attempt(['email' => $request->email, 'password'=> $request->password ])){
-            return redirect('ad/sanpham/list');
+            return redirect('ad/product/list');
         }else{
-            return redirect('ad/dangnhap')->with('thongbao','Đăng nhập không thành công');
+            return redirect('ad/login')->with('thongbao','Đăng nhập không thành công');
         }
     }
 
     public function get_dangxuat()
     {
         Auth::logout();
-        return redirect('ad/dangnhap');
+        return redirect('ad/login');
     }
 }

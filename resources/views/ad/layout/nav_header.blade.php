@@ -20,8 +20,7 @@
         </li>
 
         <li class="dropdown notification-list">
-            {{-- {{ $user_login }} --}}
-            {{-- @if (Auth::check())
+            @if (Auth::check())
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="ad/blade" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="fas fa-user-alt rounded-circle"></i>
                     <span class="pro-user-name ml-1">
@@ -56,7 +55,7 @@
 
                 </div>
                 
-            @endif --}}
+            @endif
             
         </li>
 

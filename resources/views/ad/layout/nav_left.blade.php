@@ -97,7 +97,19 @@
                     </ul>
                 </li>
 
-                
+                @if (Auth::user()->role == 1)
+                    <li>
+                        <a href="javascript: void(0);" class="waves-effect">
+                            <i class=" ion ion-md-people"></i>
+                            <span> Người Dùng </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="ad/user/list">Danh Sách Người Dùng</a></li>
+                            <li><a href="ad/user/add">Thêm Người Dùng</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
 
         </div>

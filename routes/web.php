@@ -86,6 +86,18 @@ Route::group(['prefix'=>'/ad'],function(){
         Route::post('/com','settingController@post_communications');
     });
 
+    Route::group(['prefix'=>'/user'],function(){
+        Route::get('/list','userController@get_list');
+
+        Route::get('/add','userController@get_add');
+        Route::post('/add','userController@post_add');
+
+        Route::get('/edit/{id}','userController@get_edit');
+        Route::post('/edit/{id}','userController@post_edit');
+
+        Route::get('/del/{id}','userController@get_del');
+    });
+
 });
 
 Route::post('/uploads-cheditor','mainController@up_img');
@@ -123,3 +135,7 @@ Route::get('/distributors.html','mainController@distributor');
 Route::get('/trademarks','mainController@trademark');
 Route::get('/trademarks.html','mainController@trademark');
 Route::get('img_product/{id}','mainController@view_img');
+//user
+Route::get('ad/login', 'userController@get_dangnhap');
+Route::post('ad/login', 'userController@post_dangnhap');
+Route::get('ad/logout', 'userController@get_dangxuat');
