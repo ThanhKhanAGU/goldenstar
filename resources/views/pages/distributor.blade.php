@@ -23,28 +23,28 @@
                 <div class="row">
                     <div class="card col-md-9">
                         @foreach ($di as $i)
-                            <div class="row g-0 card-w card-img">
-                                <div class="col-md-4 col-sm-5 col-xs-5">
-                                    <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
-                                        <img src="distributor/{{\App\Images::where(['id_post' => $i->id])->pluck('img') ->first()}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-8 ">
-                                    <div>
-                                        <h5  style="height: 3em;overflow: hidden; color: red" class="font-weight-bold">{{$i->name}}</h5>
-                                        <div class="content-di"  >
-                                            {!! $i->content !!}
+                            <a href="distributors/{{$i->id}}">
+                                <div class="row g-0 card-w card-img">
+                                    <div class="col-md-4 col-sm-5 col-xs-5">
+                                        <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
+                                            <img src="distributor/{{\App\Images::where(['id_post' => $i->id])->pluck('img') ->first()}}">
                                         </div>
-                                        <p style="color: red">{{$i->place}}</p>
-                                        <p class="post-meta">
-                                            <span class="post-meta-date">
-                                                <i class="fa fa-clock-o"></i> {{$i->created_at}}
-                                                <i class="fa fa-eye"></i> {{$i->view}}
-                                            </span>
-                                        </p>
+                                    </div>
+                                    <div class="col-md-8 ">
+                                        <div>
+                                            <h5  style="height: 3em;overflow: hidden; color: red" class="font-weight-bold">{{$i->name}}</h5>
+                                            <div class="content-di"  >
+                                                {!! $i->content !!}
+                                            </div>
+                                            <p class="post-meta">
+                                                <span class="post-meta-date">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> {{$i->place}}
+                                                </span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                         {!!$di->links()!!}
                     </div><!--/ Content row end -->   

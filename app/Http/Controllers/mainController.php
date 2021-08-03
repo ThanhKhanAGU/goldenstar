@@ -129,5 +129,19 @@ class mainController extends Controller
 
         return view('pages.inforaction',['data'=>$tin]);
     }
+    public function welcome()
+    {
+        return view("ad.welcome");
+    }
+    public function distributor_infor($id)
+    {
+        $dis = Posts::find($id);
+        return view('pages.infordistributor',['data'=>$dis]);
+    }
+    public function trademark_infor($id)
+    {
+        $dis = Posts::find($id);
+        return view('pages.infortrademark',['data'=>$dis]);
+    }
 
 }

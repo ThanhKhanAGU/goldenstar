@@ -46,10 +46,10 @@
                         <a href="products" class="dropdown-toggle"> Sản phẩm </a>
                     </li>
                     <li class="dropdown">
-                        <a href="trademarks" class="dropdown-toggle"> Phân phối </a>
+                        <a href="distributors" class="dropdown-toggle"> Phân phối </a>
                     </li>
                     <li class="dropdown">
-                        <a href="distributors" class="dropdown-toggle"> Thương hiệu </a>
+                        <a href="trademarks" class="dropdown-toggle"> Thương hiệu </a>
                     </li>
                 </ul>
             </nav>

@@ -9,6 +9,7 @@
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
                         <tr style="text-align: center">
+                          <th>#</th>
                           <th >Tên</th>
                           <th >Giá</th>
                           <th >K.Mãi</th>
@@ -20,8 +21,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <?php $dem=0;?>
                       @foreach ($p as $i)
                       <tr id='{{$i->id}}' class="text-center">
+                        <td><?php echo $dem++;?></td>
                         <td>
                           <h6 style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
                             {{$i->name}}</h6>

@@ -9,6 +9,7 @@
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
                         <tr style="text-align: center">
+                          <th>#</th>
                           <th >Tên</th>
                           <th >SĐT</th>
                           <th >Đ.Chỉ</th>
@@ -19,8 +20,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <?php $dem=0; ?>
                       @foreach ($p as $i)
                       <tr id='{{$i->id}}' class="text-center">
+                        <td><?php echo $dem++;?></td>
                         <td>
                           <h6 style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis">
                             {{$i->name}}</h6>
@@ -31,7 +34,7 @@
                         <td>{{$i->place}}</td>
                         <td>{{$i->email}}</td>
                         <td>
-                          <a target="view_demo" href="distributors.html" style="width: 40px">
+                          <a target="view_demo" href="distributors/{{$i->id}}" style="width: 40px">
                             <button data-toggle="modal" data-target="#view_page" type="button" class="btn btn-icon waves-effect waves-light btn-secondary"> 
                               <i class=" fas fa-eye"></i>
                             </button>

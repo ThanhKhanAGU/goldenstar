@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Form Validation | Velonic - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>{{Auth::user()->name}} - Administrtor view</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Responsive bootstrap 4 admin template" name="description">
     <meta content="Coderthemes" name="author">
@@ -95,7 +95,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            2015 - 2020 &copy; Velonic theme by <a href="">Coderthemes</a>
+                            2021 - 2022 &copy; 
+                            create by <a href="https://www.facebook.com/tham.truong.1088" target="_blank">Ngoc Tham</a> & <a target="_blank" href="https://www.facebook.com/ucduc.agu">Thanh Khan</a>
                         </div>
                     </div>
                 </div>

@@ -19,9 +19,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <?php $dem=0;?>
                       @foreach ($p as $i)
                       <tr id='{{$i->id}}' class="text-center">
-                        <td>{{$i->id}}</td>
+                        <td><?php echo $dem++;?></td>
                         <td>
                           <h6 style="white-space: nowrap; width: 15em; margin: auto;  overflow: hidden; text-overflow: ellipsis">
                             {{$i->name}}</h6>
