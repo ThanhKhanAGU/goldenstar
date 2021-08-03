@@ -19,16 +19,31 @@ class userController extends Controller
     }
 
     public function post_add(Request $request){
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email|unique:Users,email',
+            'password' => 'required|min:6',
+            'confirm-password' => 'required|same:password'
+        ],[
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'email.required' => 'Bạn chưa nhập email',
+            'email.email' => 'Bạn chưa nhập đúng định dạng email',
+            'email.unique' => 'Email đã tồn tại',
+            'password.required' => 'Bạn chưa nhập Password',
+            'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
+            'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
+            'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'
+        ]);
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->level = $request->level;
+        $user->role = $request->level;
         //change
         $user->password = bcrypt($request->password);
 
+        echo $request->level;
         $user->save();
         return redirect('ad/user/list');
-        // return redirect('ad/user/add')->with('thongbao','Thêm Thành Công');
     }
 
     public function get_edit($id){
@@ -37,16 +52,34 @@ class userController extends Controller
     }
 
     public function post_edit(Request $request, $id){
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email',
+        ],[
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'email.required' => 'Bạn chưa nhập email',
+            'email.email' => 'Bạn chưa nhập đúng định dạng email',
+        ]);
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->level = $request->level;
+        $user->role = $request->level;
         //change
 
-        if($request->changePassword === "on"){
+        // echo $request->changePassword;
+
+        if($request->changePassword == "checked"){
+            $this->validate($request, [
+                'password' => 'required|min:6',
+                'confirm-password' => 'required|same:password'
+            ],[
+                'password.required' => 'Bạn chưa nhập Password',
+                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
+                'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
+                'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'
+            ]);
             $user->password = bcrypt($request->password);
         }
-       
 
         $user->save();
         // echo "thanh cong";
@@ -86,5 +119,42 @@ class userController extends Controller
     {
         Auth::logout();
         return redirect('ad/login');
+    }
+
+    public function get_edit_user($id){
+        $user = User::find($id);
+        return view('ad.user.edituser', ['user'=> $user]);
+    }
+
+    public function post_edit_user(Request $request, $id){
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|email',
+        ],[
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'email.required' => 'Bạn chưa nhập email',
+            'email.email' => 'Bạn chưa nhập đúng định dạng email',
+            
+        ]);
+        $user = User::find($id);
+        echo $user;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($request->changePassword == "checked"){
+            $this->validate($request, [
+                'password' => 'required|min:6',
+                'confirm-password' => 'required|same:password'
+            ],[
+                'password.required' => 'Bạn chưa nhập Password',
+                'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
+                'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
+                'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'
+            ]);
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+        Auth::logout();
+        return redirect('ad/login')->with('thongbao','Xóa Thành Công');
     }
 }

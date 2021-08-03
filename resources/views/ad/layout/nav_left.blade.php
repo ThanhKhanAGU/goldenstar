@@ -2,37 +2,26 @@
     <div class="slimscroll-menu">
         <div id="sidebar-menu">
             <ul class="metismenu" id="side-menu">
+                @if (Auth::user()->role == 1)
+                    <li class="menu-title">Quản Lý Trang Chủ</li>
 
-                <li class="menu-title">Quản Lý Trang Chủ</li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="fas fa-home"></i>
-                        <span> Trang chủ </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="ad/set/side">Quản lý Slide</a></li>
-                        <li><a href="ad/set/tag1">Công Nghệ Mới</a></li>
-                        <li><a href="ad/set/tag2">Thương Hiệu Nổi Bật</a></li>
-                        <li><a href="ad/set/intr">Bài viết giới thiệu</a></li>
-                        <li><a href="ad/set/policy">Chính Sách công ty</a></li>
-                        <li><a href="ad/set/com">Thông tin liên hệ</a></li>
-                    </ul>
-                </li>
-
-                {{-- <li class="menu-title">Quản Lý Tin Nhắn</li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="ion ion-logo-facebook"></i>
-                        <span> Tin Nhắn FaceBook</span>   
-                    </a>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="fas fa-envelope"></i>
-                        <span> Tin Nhắn Zalo</span>
-                    </a>
-                </li> --}}
+                    <li>
+                        <a href="javascript: void(0);" class="waves-effect">
+                            <i class="fas fa-home"></i>
+                            <span> Trang chủ </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="ad/set/side">Quản lý Slide</a></li>
+                            <li><a href="ad/set/tag1">Công Nghệ Mới</a></li>
+                            <li><a href="ad/set/tag2">Thương Hiệu Nổi Bật</a></li>
+                            <li><a href="ad/set/intr">Bài viết giới thiệu</a></li>
+                            <li><a href="ad/set/policy">Chính Sách công ty</a></li>
+                            <li><a href="ad/set/com">Thông tin liên hệ</a></li>
+                        </ul>
+                    </li>
+                @endif
+                
 
                 <li class="menu-title">Quản Lý Thông Tin</li>
 

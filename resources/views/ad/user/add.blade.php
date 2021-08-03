@@ -24,6 +24,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="">
+                                @if(count($errors)>0)
+                                        <div class="alert alert-danger" role="alert">
+                                            @foreach ($errors->all() as $err)
+                                                {{$err}} <br>
+                                            @endforeach
+                                        </div>
+                                @endif
                                 <form action="ad/user/add" class="form-horizontal" enctype='multipart/form-data' method="POST">
                                   <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-group row">
