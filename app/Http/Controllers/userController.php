@@ -29,7 +29,7 @@ class userController extends Controller
             'email.required' => 'Bạn chưa nhập email',
             'email.email' => 'Bạn chưa nhập đúng định dạng email',
             'email.unique' => 'Email đã tồn tại',
-            'password.required' => 'Bạn chưa nhập Password',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
             'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
             'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
             'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'
@@ -71,7 +71,7 @@ class userController extends Controller
                 'password' => 'required|min:6',
                 'confirm-password' => 'required|same:password'
             ],[
-                'password.required' => 'Bạn chưa nhập Password',
+                'password.required' => 'Bạn chưa nhập mật khẩu',
                 'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
                 'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
                 'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'
@@ -140,7 +140,7 @@ class userController extends Controller
                 'password' => 'required|min:6',
                 'confirm-password' => 'required|same:password'
             ],[
-                'password.required' => 'Bạn chưa nhập Password',
+                'password.required' => 'Bạn chưa nhập mật khẩu',
                 'password.min' => 'Mật khẩu phải có ít nhất 6 kí tự',
                 'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
                 'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'

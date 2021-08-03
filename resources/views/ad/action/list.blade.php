@@ -9,7 +9,7 @@
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead><?php $dem =1; ?>
                         <tr style="text-align: center">
-                          <th>#</th>
+                          <th>STT</th>
                           <th >Tên</th>
                           <th >T.Gian</th>
                           <th >Xem</th>
