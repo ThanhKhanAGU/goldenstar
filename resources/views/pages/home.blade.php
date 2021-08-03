@@ -10,7 +10,7 @@
                     <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{$pin[1]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[1]->id}}/{{substr($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9 "style="width:100%">
                             <h2 class="head_pin" >
                                 {{$pin[1]->name}}
@@ -25,7 +25,7 @@
                     <img style="width: 100%; " class="" src="post/{{$pin[2]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[2]->id}}/{{$pin[2]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[2]->id}}/{{substr($pin[2]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%;">
                             <h3 class="head_pin" >
                                 {{$pin[2]->name}} 
@@ -43,7 +43,7 @@
                     <img style="width: 100%;" class="" src="post/{{$pin[3]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[3]->id}}/{{$pin[3]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[3]->id}}/{{substr($pin[3]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%">
                             <h3 class="head_pin" >
                                 {{$pin[3]->name}} 

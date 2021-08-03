@@ -2,7 +2,7 @@
 @section('content')
 <h4 class="header-title mb-4">SỬA Thương Hiệu</h4>
 
-<form action="ad/post/edit/{{$p->id}}" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<form action="ad/trademark/edit/{{$p->id}}" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="type" value="ps">
     <div class="form-group row">
@@ -51,7 +51,7 @@
             <div id="viewimg_2" style="margin-top: 3px; border: 1px solid #ccc; border-radius: 3px; padding: 5px">
             @foreach ($p->images as $i)
                 <img height="75px" class="img_view_item" 
-                width="100px" src="post/{{$i->img}}" alt="">
+                width="100px" src="trademark/{{$i->img}}" alt="">
             @endforeach
             </div>
         </div>

@@ -29,7 +29,7 @@
                         <div class="dropdown-menu">
                             <ul>
                                 <li><a href="{{asset('#gioithieu')}}">Giới thiệu công ty</a></li>
-                                <li><a href="{{asset('#gioithieu')}}">Chính sách chất lượng</a></li>
+                                <li><a href="ad/post/2/Bai_viet_gioi_thieu_chinh_sach_chat_luong.html">Chính sách chất lượng</a></li>
                             </ul>
                         </div>
                     </li>
@@ -37,7 +37,7 @@
                         <a href="home" class="dropdown-toggle" data-toggle="dropdown">Truyền thông<i class="fa fa-angle-down"></i></a>
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="pages">Tin tức</a></li>
+                                <li><a href="pages">Tin tức & thông báo</a></li>
                                 <li><a href="actions">Chia sẽ cộng đồng</a></li>
                             </ul>
                         </div>

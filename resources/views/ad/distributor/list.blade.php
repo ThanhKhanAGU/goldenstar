@@ -105,11 +105,6 @@
       document.getElementById("urldelte").href = "ad/distributor/del/"+id;
   }
 </script>
-
-
-
-
-
 </div>
 @endsection
 @section('js')
