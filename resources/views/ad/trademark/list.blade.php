@@ -9,6 +9,7 @@
                 <table id="key-datatable" class="table dt-responsive " style="width: 100%">
                     <thead>
                         <tr style="text-align: center;">
+                          <th>STT</th>
                           <th >Tên</th>
                           <th >SĐT</th>
                           <th >Mail</th>
