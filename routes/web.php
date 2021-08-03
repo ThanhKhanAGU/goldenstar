@@ -95,6 +95,9 @@ Route::group(['prefix'=>'/ad', 'middleware'=>'adminLogin'],function(){
         Route::get('/edit/{id}','userController@get_edit');
         Route::post('/edit/{id}','userController@post_edit');
 
+        Route::get('/{id}','userController@get_edit_user');
+        Route::post('/{id}','userController@post_edit_user');
+
         Route::get('/del/{id}','userController@get_del');
     });
     Route::get('/welcome_to_administrator','mainController@welcome');

@@ -23,15 +23,20 @@
 
                     <div class="row">
                         <div class="col-12">
-                            @if(count($errors)>0)
-                                    <div class="alert alert-danger" role="alert">
-                                        @foreach ($errors->all() as $err)
-                                            {{$err}} <br>
-                                        @endforeach
-                                    </div>
-                            @endif
                             <div class="">
-                                <form action="ad/user/edit/{{$user->id}}" class="form-horizontal" enctype='multipart/form-data' method="POST">
+                                @if(count($errors)>0)
+                                        <div class="alert alert-danger" role="alert">
+                                            @foreach ($errors->all() as $err)
+                                                {{$err}} <br>
+                                            @endforeach
+                                        </div>
+                                @endif
+                                @if (session('thongbao'))
+                                    <div class="alert alert-primary" role="alert">
+                                        {{session('thongbao')}}
+                                    </div>
+                                @endif
+                                <form action="ad/user/{{$user->id}}" class="form-horizontal" enctype='multipart/form-data' method="POST">
                                   <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <div class="form-group row">
                                         <label class="col-lg-2 col-form-label">Tên người dùng</label>
@@ -49,22 +54,23 @@
                                         <label class="col-lg-2 col-form-label">Quyền</label>
 
                                         <div class="radio radio-custom col-lg-4">
-                                            <input type="radio" name="level" id="radio5"
-                                            @if ($user->level == 1)
+                                            <input disabled type="radio" name="level" id="level"
+                                            @if ($user->role == 1)
                                                 {{"checked"}}
                                             @endif
-                                             value="1">
+                                             value="1"/>
                                             <label for="radio5">
                                                 Admin
                                             </label>
                                         </div>
 
                                         <div class="radio radio-custom col-lg-3">
-                                            <input type="radio" name="level"
-                                            @if ($user->level == 0)
+                                            <input type="radio" disable>
+                                            <input disabled type="radio" name="level" 
+                                            @if ($user->role == 0)
                                                 {{"checked"}}
                                             @endif
-                                             id="radio6" value="0">
+                                             id="level" value="0"/>
                                             <label for="radio6">
                                                 Thường
                                             </label>
