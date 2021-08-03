@@ -2,7 +2,7 @@
 @section('content')
 <h4 class="header-title mb-4">SỬA Sản Phẩm</h4>
 
-<form action="ad/post/edit/{{$p->id}}" method="POST" class="parsley-examples" enctype="multipart/form-data">
+<form action="ad/product/edit/{{$p->id}}" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="type" value="ps">
     <div class="form-group row">

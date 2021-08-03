@@ -56,7 +56,7 @@ class mainController extends Controller
     public function products()
     {
 
-        $product = DB::table('Posts')->where("type","pr")->paginate(12);
+        $product = DB::table('Posts')->orderBy('id', 'DESC')->where("type","pr")->get();
         $di = DB::table('Posts')->where("type","di")->get();
         $tr = DB::table('Posts')->where("type","tr")->get();
         $img = DB::table('Images')->get();

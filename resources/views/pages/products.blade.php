@@ -14,8 +14,11 @@
           <div class="row">
               <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                   <div id="Demo" class="row wow fadeInDown" data-wow-delay=.5s>
-                    @foreach ($p as $i)
-                    <div class="col-lg-3 col-sm-4 col-xs-6 portfolio-static-item product tr_{{$i->id_trademark}} di_{{$i->id_distributor}}">
+                    @foreach ($p as $key=>$i)
+                    <div  id="k_{{$key}}" 
+                    class=" col-lg-3 col-sm-4 col-xs-6 portfolio-static-item 
+                    product tr_{{$i->id_trademark}}
+                    di_{{$i->id_distributor}}">
                         <div class="grid ">
                             <figure class="effect-oscar img-9-9">
                                   @if (count(\App\Images::where(['id_post' => $i->id])->get()))
@@ -34,12 +37,12 @@
                             </figure>
                             <a href="products/{{$i->id}}" class="portfolio-static-desc">
                               <h3 style="height: 3.5rem; overflow: hidden;">{{$i->name}}</h3>
-                              @if ($i->price % 3 != 0)
-                                  <p style="height: 1rem;"></p>
-                                  <p class="price text text-right">@money($i->price) VND</p> 
+                              @if ($i->promotion_price)
+                                <p style="height: 1rem;" class="text-right price-old">@money($i->price) VND</p>
+                                <p class="price text-right" >@money($i->promotion_price) VND</p>
                               @else
-                                  <p style="height: 1rem;" class="text-right price-old">@money($i->price) VND</p>
-                                  <p class="price text-right" >@money($i->promotion_price) VND</p>
+                                <p style="height: 1rem;"></p>
+                                <p class="price text text-right">@money($i->price) VND</p> 
                               @endif
                           </a>					
                         </div><!--/ grid end -->
@@ -47,7 +50,10 @@
                     @endforeach
                   </div>                
                     <div class="row">
-                        <div id="pagination-container"></div>
+                        <nav aria-label="Page navigation example">
+                            <div id="view_pagi" class="pagination">
+                            </div>
+                          </nav>
                     </div>
             
               </div>
@@ -127,6 +133,33 @@
           color: orangered;
           font-weight: bold
         }
+      .fill{
+        display: none;
+      }
+      .p{
+        display: none;
+      }
+      .page-item
+      {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid orangered;
+          display: inline-block;
+          text-align: center;
+          margin: 0px;
+          cursor: pointer;
+          transition: 100ms all linear
+      }
+      .page-item.active
+      {
+        color: white;
+        background: orangered;
+      }
+      .page-item:hover{
+        color: white;
+        background: orangered;
+      }
   </style>
   
   
@@ -136,17 +169,54 @@
           function fill(id){
             var a = document.getElementsByClassName("product")
             for (let i = 0; i < a.length; i++) {
-                a[i].style.display="none"
+               a[i].classList.remove("p")
+               if(a[i].classList.contains(id))
+               {
+                    a[i].classList.remove("fill")
+               }else
+               {
+                    a[i].classList.add("fill")
+               }
             }
-            var a = document.getElementsByClassName(id)
-            for (let i = 0; i < a.length; i++) {
-                a[i].style.display= "block"
-            }
+            pary(1);
           }
           function img_load(url)
           {
               document.getElementById('img').src = url.src;
           }
+          function pary(page_select)
+          {
+            var a = document.getElementsByClassName("product");
+            var b =[];
+            for (let i = 0; i < a.length; i++) {
+                if(!a[i].classList.contains("fill"))
+                {
+                    b.push(a[i])
+                    
+                }   
+            }
+            let sl_page = parseInt(b.length/12) + ((b.length%12>0)?1:0);
+            let view_pagi = document.getElementById("view_pagi");
+            view_pagi.innerHTML = "Trang:";
+            for (let i = 0; i < sl_page; i++) {
+                view_pagi.innerHTML+=`
+                <div onclick="pary(${i+1})" class="page-item ${(i==(page_select-1))?'active':''}">${i+1}</div>`
+            }
+
+            for (let i = 0; i < b.length; i++) {
+                
+                if(12*(page_select-1)<=i&&i<12*(page_select))
+                {
+                    b[i].classList.remove("p")
+                }else
+                {
+                    b[i].classList.add("p")
+                }
+
+            }
+            size();
+          }
+          pary(1)
     </script>
   @endsection
   
