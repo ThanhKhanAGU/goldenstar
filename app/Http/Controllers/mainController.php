@@ -129,5 +129,9 @@ class mainController extends Controller
 
         return view('pages.inforaction',['data'=>$tin]);
     }
+    public function welcome()
+    {
+        return view("ad.welcome");
+    }
 
 }

@@ -12,10 +12,10 @@
                     <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{substr($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[1]->id}}/{{$pin[1]->name}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9 "style="width:100%">
                             <h2 class="head_pin" >
-                                {{substr($pin[1]->name,0,100)}}
+                                {{$pin[1]->name}}
                             </h2>
                             <p style="overflow: hidden; height: 4em;">{{$pin[1]->summary}}</p>
                        </div>
@@ -112,11 +112,12 @@
             
             <!-- sidebar start -->
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">              
-                <h3 class="widget-title">Bài Viết Nổi Bật</h3>  
+                <h3 class="widget-title"><i class="fa fa-star" aria-hidden="true"></i> Bài Viết Nổi Bật</h3>  
+                <hr>
                 <div class="container">
                     <div class="row card mb-3">
                         @foreach ($noibat as $tt)
-                        <a href="page/{{$tt->id}}/{{substr($tt->name,0,100)}}.html">
+                        <a href="page/{{$tt->id}}/{{$tt->name}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
@@ -148,7 +149,7 @@
                 <div class="row">
                     <div class="card col-md-9">
                         @foreach ($tintuc as $tt)
-                        <a href="page/{{$tt->id}}/{{substr($i->name,0,100)}}.html">
+                        <a class="product" href="page/{{$tt->id}}/{{$tt->name}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
@@ -164,7 +165,7 @@
                                         <p class="post-meta">
                                             <span class="post-meta-date">
                                                 <i class="fa fa-clock-o"></i> {{$tt->created_at}}
-                                                &nbsp;- &nbsp;<i class="fa fa-eye"></i> {{$tt->view}}
+                                                <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>
                                     </div>
@@ -172,11 +173,84 @@
                             </div>
                         </a>
                         @endforeach
-                        <div class="row"></div>
+                        <div class="row">
+
+                        </div>
                     </div><!--/ Content row end -->   
                       
-                </div>                 
+                </div>   
+                <div class="row">
+                    <nav aria-label="Page navigation example">
+                        <div id="view_pagi" class="pagination">
+                        </div>
+                      </nav>
+                </div>              
             </div>
     </div><!--/ container end -->
 </section><!-- Blog details page end --> 
+@endsection
+@section('css')
+<style>
+    .p{
+        display: none;
+    }
+    .page-item
+    {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid orangered;
+        display: inline-block;
+        text-align: center;
+        margin: 0px;
+        cursor: pointer;
+        transition: 100ms all linear
+    }
+    .page-item.active
+    {
+        color: white;
+        background: orangered;
+    }
+    .page-item:hover{
+        color: white;
+        background: orangered;
+    }
+</style>
+@endsection
+@section('js')
+<script>
+    function pary(page_select)
+    {
+    var a = document.getElementsByClassName("product");
+    var b =[];
+    for (let i = 0; i < a.length; i++) {
+        if(!a[i].classList.contains("fill"))
+        {
+            b.push(a[i])
+            
+        }   
+    }
+    let sl_page = parseInt(b.length/4) + ((b.length%4>0)?1:0);
+    let view_pagi = document.getElementById("view_pagi");
+    view_pagi.innerHTML = "Trang:";
+    for (let i = 0; i < sl_page; i++) {
+        view_pagi.innerHTML+=`
+        <div onclick="pary(${i+1})" class="page-item ${(i==(page_select-1))?'active':''}">${i+1}</div>`
+    }
+
+    for (let i = 0; i < b.length; i++) {
+        
+        if(4*(page_select-1)<=i&&i<4*(page_select))
+        {
+            b[i].classList.remove("p")
+        }else
+        {
+            b[i].classList.add("p")
+        }
+
+    }
+    size();
+    }
+    pary(1)
+</script>
 @endsection

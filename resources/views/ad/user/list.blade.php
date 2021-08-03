@@ -17,8 +17,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <?php $dem=0; ?>
                       @foreach ($users as $user)
                       <tr id='{{$user->id}}' class="text-center">
+                        <td><?php echo $dem++;?></td>
                         <td>
                           <h6 style="white-space: nowrap; width: 15em;overflow: hidden; text-overflow: ellipsis; margin: auto">
                             {{$user->name}}</h6>

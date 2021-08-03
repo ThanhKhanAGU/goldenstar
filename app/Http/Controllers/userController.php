@@ -41,15 +41,12 @@ class userController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->level = $request->level;
-        //change
 
         if($request->changePassword === "on"){
             $user->password = bcrypt($request->password);
         }
        
-
         $user->save();
-        // echo "thanh cong";
         return redirect('ad/user/list')->with('thongbao','Xóa Thành Công');
     }
 
@@ -74,17 +71,16 @@ class userController extends Controller
                 'password.max'=>'Password không được lớn hơn 32 kí tự',
             ]
             ]);
-        // echo  $request->email;
         if(Auth::attempt(['email' => $request->email, 'password'=> $request->password ])){
-            return redirect('ad/product/list');
+            return redirect('ad/welcome_to_administrator');
         }else{
-            return redirect('ad/login')->with('thongbao','Đăng nhập không thành công');
+            return redirect('login')->with('thongbao','Đăng nhập không thành công');
         }
     }
 
     public function get_dangxuat()
     {
         Auth::logout();
-        return redirect('ad/login');
+        return redirect('login');
     }
 }

@@ -97,6 +97,7 @@ Route::group(['prefix'=>'/ad', 'middleware'=>'adminLogin'],function(){
 
         Route::get('/del/{id}','userController@get_del');
     });
+    Route::get('/welcome_to_administrator','mainController@welcome');
 
 });
 
@@ -127,15 +128,13 @@ Route::get('/products/{id}.html','mainController@inforProduct');
 //action
 Route::get('/actions','mainController@get_action');
 Route::get('/actions/{id}','mainController@infor_action');
-Route::get('/actions/{id}.html','mainController@infor_action');
 //distributor
 Route::get('/distributors','mainController@distributor');
-Route::get('/distributors.html','mainController@distributor');
+Route::get('/distributors/{id}','mainController@distributor_infor');
 //trademark
 Route::get('/trademarks','mainController@trademark');
-Route::get('/trademarks.html','mainController@trademark');
-Route::get('img_product/{id}','mainController@view_img');
+Route::get('/trademarks/{id}','mainController@trademark_infor');
 //user
-Route::get('ad/login', 'userController@get_dangnhap');
+Route::get('login', 'userController@get_dangnhap');
 Route::post('ad/login', 'userController@post_dangnhap');
 Route::get('ad/logout', 'userController@get_dangxuat');

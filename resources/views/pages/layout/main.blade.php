@@ -52,6 +52,7 @@
 		
 		.img-6-9 > img,.img-3-9 > img, .img-9-9 >img{
 			width: 100%;
+			height: 100%;
 			background-size: cover; 
 			overflow: hidden;
 		}
