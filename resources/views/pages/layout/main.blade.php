@@ -120,6 +120,32 @@
 			font-weight: bold;
 			text-shadow: 5px 5px 20px #000000
 		}
+		/* width */
+		::-webkit-scrollbar {
+			width: 12px
+		}
+		/* Track */
+		::-webkit-scrollbar-track {			
+			width: 5px;
+			background: #d6d6d6
+		}
+		
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: orangered; 
+			border-radius: 5px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: orangered; 
+			width: 20px;
+		}
+		#back-to-top * {
+			outline: none;	
+		}
+		#back-to-top{
+		}
 	</style>
 	
 	@yield('css')
@@ -149,12 +175,6 @@
 	}
 	window.addEventListener("resize",size);
 </script>
-
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 <body onload="size()">
