@@ -39,26 +39,35 @@
             <div class="col-md-12 text-center">
                 <ul class="footer-social unstyled">
                     <li>
-                        <a title="Twitter" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-twitter"></i></span>
+                        <a title="Twitter" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">G</span>
                         </a>
-                        <a title="Facebook" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-facebook"></i></span>
+                        <a title="Facebook" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">O</span>
                         </a>
-                        <a title="Google+" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-google-plus"></i></span>
+                        <a title="Google+" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">L</span>
                         </a>
-                        <a title="linkedin" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-linkedin"></i></span>
+                        <a title="linkedin" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">D</span>
                         </a>
-                        <a title="Pinterest" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-pinterest"></i></span>
+                        <a title="Pinterest" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">E</span>
                         </a>
-                        <a title="Skype" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-skype"></i></span>
+                        <a title="Skype" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">N</span>
                         </a>
-                        <a title="Dribble" href="assets_pages/#">
-                            <span class="icon-pentagon wow bounceIn"><i class="fa fa-dribbble"></i></span>
+                        <a title="Dribble" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">S</span>
+                        </a>
+                        <a title="Dribble" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">T</span>
+                        </a>
+                        <a title="Dribble" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">A</span>
+                        </a>
+                        <a title="Dribble" href="{{asset('/')}}">
+                            <span class="icon-pentagon wow bounceIn">R</span>
                         </a>
                     </li>
                 </ul>
