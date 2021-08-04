@@ -1,6 +1,8 @@
 {{-- Kế Thừa dữ Liệu --}}
 @extends('pages.layout.main')
-
+@section('title')
+    Danh Sách Thuong Hiệu
+@endsection
 @section('content')
 <style>
     .header{

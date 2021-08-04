@@ -1,6 +1,8 @@
 {{-- Kế Thừa dữ Liệu --}}
 @extends('pages.layout.main')
-
+@section('title')
+    Goldenstar Corp
+@endsection
 @section('content')
 <section id="home" class="no-padding wow fadeInDown">
     <div id="main-slide" class="cd-hero img-3-9 side-cd">
@@ -178,11 +180,8 @@
                 </div>
                 <div class="text-center">
                     <h2 class="head_gt">{!!$gt->name!!}</h2>
-                    <p class="breadcrumb" style="background: rgb(204, 203, 203)">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        {{$gt->created_at}}
-                    </p>
                 </div>
+                <br>
                 <div class="col-12">
                     <div class="post-content text-justify">
                         <p><b>{!!$gt->summary!!}</b></p>

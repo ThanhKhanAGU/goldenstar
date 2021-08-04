@@ -1,4 +1,7 @@
 @extends('pages.layout.main')
+@section('title')
+    Hoạt động công ty
+@endsection
 @section('content')
 <style>
     .header{

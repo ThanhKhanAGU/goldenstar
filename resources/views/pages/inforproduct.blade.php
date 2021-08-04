@@ -1,4 +1,7 @@
 @extends('pages.layout.main')
+@section('title')
+    {{$product->name}}
+@endsection
 @section('content')
 <style>
     .header{

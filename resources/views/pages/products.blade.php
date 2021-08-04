@@ -1,5 +1,8 @@
 
 @extends('pages.layout.main')
+@section('title')
+    Danh Sachs Sản Phẩm
+@endsection
 @section('content')
 <style>
     .header{

@@ -1,4 +1,7 @@
 @extends('pages.layout.main')
+@section('title')
+    {{$data->name}}
+@endsection
 @section('content')
 <div class="baiviet">
     <div class="background img-3-9">
