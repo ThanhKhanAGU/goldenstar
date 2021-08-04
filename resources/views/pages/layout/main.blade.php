@@ -12,10 +12,9 @@
 	<!-- Mobile Specific Metas
 	================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 	<!-- Favicons
 	================================================== -->
-	<link rel="icon" href="img/favicon/favicon-32x32.png" type="image/x-icon" />
+	<link rel="icon" href="logo.png" type="image/x-icon" />
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicon/favicon-144x144.png">
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicon/favicon-72x72.png">
 	<link rel="apple-touch-icon-precomposed" href="img/favicon/favicon-54x54.png">
