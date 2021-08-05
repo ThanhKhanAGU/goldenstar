@@ -12,7 +12,7 @@
                     <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{substr($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[1]->id}}/{{changeTitle($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9 "style="width:100%">
                             <h2 class="head_pin" >
                                 {{$pin[1]->name}}
@@ -27,7 +27,7 @@
                     <img style="width: 100%; " class="" src="post/{{$pin[2]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[2]->id}}/{{substr($pin[2]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[2]->id}}/{{changeTitle($pin[2]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%;">
                             <h3 class="head_pin" >
                                 {{$pin[2]->name}} 
@@ -45,7 +45,7 @@
                     <img style="width: 100%;" class="" src="post/{{$pin[3]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[3]->id}}/{{substr($pin[3]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[3]->id}}/{{changeTitle($pin[3]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%">
                             <h3 class="head_pin" >
                                 {{$pin[3]->name}} 
@@ -89,7 +89,7 @@
                     <?php $dem = 0; ?>
                     @foreach ($moi as $item)
                     <?php $dem += 3; ?>
-                    <a href="page/{{$item->id}}/{{substr($item->name,0,100)}}.html">
+                    <a href="page/{{$item->id}}/{{changeTitle($item->name,0,100)}}.html">
                         <div class="col-md-4 col-sm-4 wow fadeInDown" data-wow-delay=".{{$dem}}s">
                             <div class="service-image card-img" >
                                 <div class="img-6-9" >
@@ -117,7 +117,7 @@
                 <div class="container">
                     <div class="row card mb-3">
                         @foreach ($noibat as $tt)
-                        <a href="page/{{$tt->id}}/{{substr($tt->name,0,100)}}.html">
+                        <a href="page/{{$tt->id}}/{{changeTitle($tt->name,0,100)}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
@@ -149,7 +149,7 @@
                 <div class="row">
                     <div class="card col-md-9">
                         @foreach ($tintuc as $tt)
-                        <a class="product" href="page/{{$tt->id}}/{{substr($tt->name,0,100)}}.html">
+                        <a class="product" href="page/{{$tt->id}}/{{changeTitle($tt->name,0,100)}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">

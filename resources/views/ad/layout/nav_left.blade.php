@@ -15,6 +15,7 @@
                             <li><a href="ad/set/side">Quản lý Slide</a></li>
                             <li><a href="ad/set/tag1">Công Nghệ Mới</a></li>
                             <li><a href="ad/set/tag2">Thương Hiệu Nổi Bật</a></li>
+                            <li><a href="ad/set/tag3">Thành Tựu</a></li>
                             <li><a href="ad/set/intr">Bài viết giới thiệu</a></li>
                             <li><a href="ad/set/policy">Chính Sách công ty</a></li>
                             <li><a href="ad/set/com">Thông tin liên hệ</a></li>

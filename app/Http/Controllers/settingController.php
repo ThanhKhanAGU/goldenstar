@@ -37,6 +37,15 @@ class settingController extends Controller
         $p = posts::all();
         return view('ad.setting.tag2',['dt'=>$data,'p'=>$p]);
     }
+    public function get_tag3(){
+        $dt = information::all();
+        foreach($dt as $item)
+        {
+            $data[$item->Ten] = $item->NoiDung;
+        }
+        $p = posts::all();
+        return view('ad.setting.tag3',['dt'=>$data,'p'=>$p]);
+    }
     public function get_introduce(){
         $id = information::where('Ten','id_gt')->first()->NoiDung;
         $p = posts::find($id);
@@ -113,6 +122,35 @@ class settingController extends Controller
             $data->NoiDung = $request['tag2_'.$i.'_ct'];
             $data->save();
         }
+        for($i=1;$i<5;$i++)
+        {
+            $data = information::where("Ten",'sl_'.$i)->first();
+            $data->NoiDung = $request['sl_'.$i];
+            $data->save();
+            $data = information::where("Ten",'sl_'.$i.'_ten')->first();
+            $data->NoiDung = $request['sl_'.$i.'_ten'];
+            $data->save();
+            $data = information::where("Ten",'sl_'.$i.'_icon')->first();
+            $data->NoiDung = $request['sl_'.$i.'_icon'];
+            $data->save();
+        }
+
+        return redirect('/');  
+    }
+    public function post_tag3(Request $request){
+        for($i=1;$i<5;$i++)
+        {
+            $data = information::where("Ten",'sl_'.$i)->first();
+            $data->NoiDung = $request['sl_'.$i];
+            $data->save();
+            $data = information::where("Ten",'sl_'.$i.'_ten')->first();
+            $data->NoiDung = $request['sl_'.$i.'_ten'];
+            $data->save();
+            $data = information::where("Ten",'sl_'.$i.'_icon')->first();
+            $data->NoiDung = $request['sl_'.$i.'_icon'];
+            $data->save();
+        }
+
         return redirect('/');  
     }
     public function post_policy(Request $request){

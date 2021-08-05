@@ -75,6 +75,7 @@ Route::group(['prefix'=>'/ad', 'middleware'=>'adminLogin'],function(){
         Route::get('/side','settingController@get_side');
         Route::get('/tag1','settingController@get_tag1');
         Route::get('/tag2','settingController@get_tag2');
+        Route::get('/tag3','settingController@get_tag3');
         Route::get('/intr','settingController@get_introduce');
         Route::get('/policy','settingController@get_policy');
         Route::get('/com','settingController@get_communications');
@@ -82,6 +83,7 @@ Route::group(['prefix'=>'/ad', 'middleware'=>'adminLogin'],function(){
         Route::post('/side','settingController@post_side');
         Route::post('/tag1','settingController@post_tag1');
         Route::post('/tag2','settingController@post_tag2');
+        Route::post('/tag3','settingController@post_tag3');
         Route::post('/policy','settingController@post_policy');
         Route::post('/com','settingController@post_communications');
     });
