@@ -63,14 +63,14 @@
         
     <?php
     
-        $paths = glob(public_path('post/*'));
+        $paths = glob(public_path('img/*'));
         foreach($paths as $path)
         {
             $url_img = basename($path);
             echo  
            '<li onclick="geturl(`'.$url_img.'`)">
                 <div class="img">
-                    <img src="post/'.$url_img.'" alt="">
+                    <img src="public/img/'.$url_img.'" alt="">
                 </div>
                 <div class="p">
                     <p>
@@ -89,7 +89,7 @@
             let href = this.location.href.split("/");
             href.length--;
             window.opener.CKEDITOR.tools.
-            callFunction(<?php echo $_GET['CKEditorFuncNum'] ?>,href.join("/")+'/post/'+url);
+            callFunction(<?php echo $_GET['CKEditorFuncNum'] ?>,href.join("/")+'/public/img/'+url);
             window.close();
         }
     </script>

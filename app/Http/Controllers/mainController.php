@@ -39,10 +39,10 @@ class mainController extends Controller
         $file = $request->file('upload');
         $name = $file->getClientOriginalName();
         $HinhAnh = time()."_".$name;
-        $file->move('post',$HinhAnh);
+        $file->move('public/img/',$HinhAnh);
         
         $ck = $request->input('CKEditorFuncNum');
-        $url = asset('/post/'.$HinhAnh);
+        $url = asset('public/img/'.$HinhAnh);
         $msg = "Tải Ảnh Thành Công";
         $response = "<script>window.parent.CKEDITOR.tools.callFunction($ck,'$url','$msg')</script>";
         @header('Content-type: text/html; charset=utf-8');

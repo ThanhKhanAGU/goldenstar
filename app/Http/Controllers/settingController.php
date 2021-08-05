@@ -100,9 +100,9 @@ class settingController extends Controller
                 $file = $request->file('tag2_'.$i.'_icon');
                 $name = $file->getClientOriginalName();
                 $HinhAnh = time()."_".$name;
-                $file->move('assets_pages/images/img',$HinhAnh);
+                $file->move('assets_pages/images/',$HinhAnh);
                 if($data->NoiDung != "default.jpg")
-                    unlink('assets_pages/images/img/'.$data->NoiDung);
+                    unlink('assets_pages/images/'.$data->NoiDung);
                 $data->NoiDung = $HinhAnh;
                 $data->save();
             }
