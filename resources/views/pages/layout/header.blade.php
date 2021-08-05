@@ -13,7 +13,7 @@
                 </button>
                 <div class="navbar-brand navbar-bg">
                     <a href="home">
-                        <img class="img-responsive" src="logo.png" alt="logo">
+                        <img style="height: 100%"class="img-responsive" src="logo_main.png" alt="logo">
                     </a>
                 </div>
             </div>

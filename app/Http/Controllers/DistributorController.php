@@ -53,7 +53,7 @@ class DistributorController extends Controller
                 //upload images to server
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
-                $file->move('distributor',$image);
+                $file->move('distributor/',$image);
                 //create row of table images
                 $images = new images();
                 $images->id_post = $distributor->id;
@@ -94,7 +94,7 @@ class DistributorController extends Controller
 
         if($request->hasFile('img')){
             foreach ($distributor->images as $value){
-                unlink('distributor/'.$value);
+                unlink('distributor/'.$value->img);
             } 
             foreach($request->file("img") as $file)
             {
@@ -118,6 +118,7 @@ class DistributorController extends Controller
         $distributor = posts::find($id);
         $distributor->delete();
         foreach($distributor->images as $img){
+            unlink('distributor/'.$img->img);
             $img->delete();
         }
         return  redirect("ad/distributor/list");

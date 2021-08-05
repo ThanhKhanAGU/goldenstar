@@ -90,7 +90,7 @@ class TrademarkController extends Controller
 
         if($request->hasFile('img')){
             foreach ($trademark->images as $value){
-                unlink('trademark/'.$value);
+                unlink('trademark/'.$value->img);
             } 
             foreach($request->file("img") as $file)
             {
@@ -114,6 +114,7 @@ class TrademarkController extends Controller
         $trademark = posts::find($id);
         $trademark->delete();
         foreach($trademark->images as $img){
+            unlink('trademark/'.$img->img);
             $img->delete();
         }
         return  redirect("ad/trademark/list");

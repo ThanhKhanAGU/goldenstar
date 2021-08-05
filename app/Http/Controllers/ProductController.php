@@ -126,7 +126,7 @@ class ProductController extends Controller
 
         if($request->hasFile('img')){
             foreach ($product->images as $value){
-                unlink('product/'.$value);
+                unlink('product/'.$value->img);
             } 
             foreach($request->file("img") as $file)
             {
@@ -151,6 +151,7 @@ class ProductController extends Controller
         $product = posts::find($id);
         $product->delete();
         foreach($product->images as $img){
+            unlink('product/'.$img->img);
             $img->delete();
         }
         return  redirect("ad/product/list");

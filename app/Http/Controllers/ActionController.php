@@ -93,7 +93,7 @@ class ActionController extends Controller
 
         if($request->hasFile('img')){
             foreach ($action->images as $value){
-                unlink('post/'.$value);
+                unlink('action/'.$value->img);
             } 
             foreach($request->file("img") as $file)
             {
@@ -117,7 +117,9 @@ class ActionController extends Controller
         $action = posts::find($id);
         $action->delete();
         foreach($action->images as $img){
+            unlink('action/'.$img->img);
             $img->delete();
+            
         }
         return  redirect("ad/action/list");
     }

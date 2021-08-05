@@ -19,12 +19,8 @@ class AdminLoginMiddlerware
         if(Auth::check()){
             $user = Auth::user();
             return $next($request);
-            // if($user->level == 1)
-                
-            // else
-            //     return redirect('ad/dangnhap');
         }else{
-            return redirect('ad/login');
+            return redirect('login');
         }
         
     }

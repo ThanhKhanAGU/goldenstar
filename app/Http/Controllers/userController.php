@@ -150,6 +150,6 @@ class userController extends Controller
 
         $user->save();
         Auth::logout();
-        return redirect('ad/login')->with('thongbao','Xóa Thành Công');
+        return redirect('login')->with('thongbao','Xóa Thành Công');
     }
 }
