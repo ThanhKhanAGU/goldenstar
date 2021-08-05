@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
-use App\Images;
+use App\posts;
+use App\images;
 
 class DistributorController extends Controller
 {
     public function get_list()
     {
-        $distributor = Posts::all()->where("type","di");
+        $distributor = posts::all()->where("type","di");
         return view('ad.distributor.list', ['p' => $distributor]);
     }
 
@@ -22,7 +22,7 @@ class DistributorController extends Controller
     public function post_add(Request $request)
     {
 
-        $distributor = new Posts;
+        $distributor = new posts;
         $distributor->type = "di";
         
         if($request->name){
@@ -54,8 +54,8 @@ class DistributorController extends Controller
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
                 $file->move('distributor',$image);
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $distributor->id;
                 $images->img = $image;
                 $images->save();
@@ -66,13 +66,13 @@ class DistributorController extends Controller
     }
     public function get_edit($id)
     {
-        $distributor = Posts::find($id);
+        $distributor = posts::find($id);
         return view('ad.distributor.edit',['p'=>$distributor]);
     }
     public function post_edit(Request $request,$id)
     {
 
-        $distributor = Posts::find($id);
+        $distributor = posts::find($id);
 
         if($request->name){
             $distributor->name = $request->name;
@@ -103,8 +103,8 @@ class DistributorController extends Controller
                 $image = time()."_".$name;
                 $file->move('distributor',$image);
 
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $distributor->id;
                 $images->img = $image;
                 $images->save();              
@@ -115,7 +115,7 @@ class DistributorController extends Controller
 
     public function get_del($id)
     {
-        $distributor = Posts::find($id);
+        $distributor = posts::find($id);
         $distributor->delete();
         foreach($distributor->images as $img){
             $img->delete();

@@ -17,14 +17,6 @@
                         <p>{{$dt['sdt']}}</p>
                     </div>
                 </div>
-                <form action="#" role="form">
-                    <div class="input-group subscribe">
-                        <input type="email" class="form-control" placeholder="Email Address" required="">
-                        <span class="input-group-addon">
-                            <button class="btn" type="submit"><i class="fa fa-envelope-o"> </i></button>
-                        </span>
-                    </div>
-                </form>
             </div>
             <!--/ end about us -->
 

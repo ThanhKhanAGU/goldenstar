@@ -183,7 +183,7 @@
                 </div>
                 <br>
                 <div class="col-12">
-                    <div class="post-content text-justify">
+                    <div style="padding: 10px" class="post-content text-justify">
                         <p><b>{!!$gt->summary!!}</b></p>
                         <br/>
                         {!!$gt->content!!}

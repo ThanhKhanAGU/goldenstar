@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
-use App\Images;
+use App\posts;
+use App\images;
 
 class ActionController extends Controller
 {
     public function get_list()
     {
-        $actions = Posts::all()->where("type","ac");
+        $actions = posts::all()->where("type","ac");
         return view('ad.action.list', ['p' => $actions]);
     }
 
@@ -22,7 +22,7 @@ class ActionController extends Controller
     public function post_add(Request $request)
     {
 
-        $action = new Posts;
+        $action = new posts;
         $action->type = "ac";
         
         if($request->name){
@@ -50,8 +50,8 @@ class ActionController extends Controller
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
                 $file->move('action',$image);
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $action->id;
                 $images->img = $image;
                 $images->save();
@@ -64,14 +64,14 @@ class ActionController extends Controller
 
     public function get_edit($id)
     {
-        $action = Posts::find($id);
+        $action = posts::find($id);
         return view('ad.action.edit',['p'=>$action]);
     }
 
     public function post_edit(Request $request,$id)
     {
 
-        $action = Posts::find($id);
+        $action = posts::find($id);
 
         if($request->name){
             $action->name = $request->name;
@@ -102,8 +102,8 @@ class ActionController extends Controller
                 $image = time()."_".$name;
                 $file->move('post',$image);
 
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $action->id;
                 $images->img = $image;
                 $images->save();              
@@ -114,7 +114,7 @@ class ActionController extends Controller
 
     public function get_del($id)
     {
-        $action = Posts::find($id);
+        $action = posts::find($id);
         $action->delete();
         foreach($action->images as $img){
             $img->delete();

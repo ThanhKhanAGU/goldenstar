@@ -4,31 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Posts;
-use App\Images;
+use App\posts;
+use App\images;
 
 class ProductController extends Controller
 {
     public function get_list()
     {
-        $product = DB::table('Posts')->where("type","pr")->get();
-        $di = DB::table('Posts')->where("type","di")->get();
-        $tr = DB::table('Posts')->where("type","tr")->get();
+        $product = DB::table('posts')->where("type","pr")->get();
+        $di = DB::table('posts')->where("type","di")->get();
+        $tr = DB::table('posts')->where("type","tr")->get();
         // echo $product;
         return view('ad.product.list', ['p' => $product,'di' => $di,'tr' => $tr]);
     }
 
     public function get_add()
     {
-        $di = DB::table('Posts')->where("type","di")->get();
-        $tr = DB::table('Posts')->where("type","tr")->get();
+        $di = DB::table('posts')->where("type","di")->get();
+        $tr = DB::table('posts')->where("type","tr")->get();
         return view('ad.product.add',['tr'=>$tr,'di'=>$di]);
     }
 
     public function post_add(Request $request)
     {
 
-        $product = new Posts;
+        $product = new posts;
         $product->type = 'pr';
         
         if($request->name){
@@ -64,8 +64,8 @@ class ProductController extends Controller
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
                 $file->move('product',$image);
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $product->id;
                 $images->img = $image;
                 $images->save();
@@ -78,16 +78,16 @@ class ProductController extends Controller
 
     public function get_edit($id)
     {
-        $product = Posts::find($id);    
-        $di = DB::table('Posts')->where("type","di")->get();
-        $tr = DB::table('Posts')->where("type","tr")->get();
+        $product = posts::find($id);    
+        $di = DB::table('posts')->where("type","di")->get();
+        $tr = DB::table('posts')->where("type","tr")->get();
         return view('ad.product.edit',['p'=>$product, 'tr'=>$tr,'di'=>$di]);
     }
     
     public function post_edit(Request $request,$id)
     {
 
-        $product = Posts::find($id);
+        $product = posts::find($id);
 
         
         if($request->name){
@@ -135,8 +135,8 @@ class ProductController extends Controller
                 $image = time()."_".$name;
                 $file->move('product',$image);
 
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $product->id;
                 $images->img = $image;
                 $images->save();              
@@ -148,7 +148,7 @@ class ProductController extends Controller
 
     public function get_del($id)
     {
-        $product = Posts::find($id);
+        $product = posts::find($id);
         $product->delete();
         foreach($product->images as $img){
             $img->delete();
@@ -157,7 +157,7 @@ class ProductController extends Controller
     }
     public function get_change($id)
     {
-        $product = Posts::find($id);
+        $product = posts::find($id);
         if($product->show==1)
             $product->show = 0;
         else 
@@ -166,7 +166,7 @@ class ProductController extends Controller
     }
     public function view_img($id)
     {
-        //$pr = Posts::find($id)->images;
+        //$pr = posts::find($id)->images;
         return view ('view_img');
     }
     

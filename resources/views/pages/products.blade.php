@@ -24,8 +24,8 @@
                     di_{{$i->id_distributor}}">
                         <div class="grid ">
                             <figure class="effect-oscar img-9-9">
-                                  @if (count(\App\Images::where(['id_post' => $i->id])->get()))
-                                  <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/{{\App\Images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
+                                  @if (count(\App\images::where(['id_post' => $i->id])->get()))
+                                  <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/{{\App\images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
                                   @else
                                   <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/default.jpg" alt="">
                                   @endif

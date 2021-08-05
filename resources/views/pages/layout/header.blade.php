@@ -12,8 +12,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand navbar-bg">
-                    <a href="{{asset('')}}">
-                        <img class="img-responsive" src="assets_pages/images/logo.png" alt="logo">
+                    <a href="home">
+                        <img class="img-responsive" src="logo.png" alt="logo">
                     </a>
                 </div>
             </div>

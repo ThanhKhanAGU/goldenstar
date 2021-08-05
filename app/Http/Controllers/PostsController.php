@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
-use App\Images;
+use App\posts;
+use App\images;
 
 class PostsController extends Controller
 {
     public function get_list()
     {
-        $posts = Posts::all()->where("type","ps");
+        $posts = posts::all()->where("type","ps");
         return view('ad.posts.list', ['p' => $posts]);
     }
     public function get_add()
@@ -20,7 +20,7 @@ class PostsController extends Controller
     public function post_add(Request $request)
     {
 
-        $post = new Posts;
+        $post = new posts;
 
         $post->type = "ps";
         
@@ -58,13 +58,13 @@ class PostsController extends Controller
     }
     public function get_edit($id)
     {
-        $post = Posts::find($id);
+        $post = posts::find($id);
         return view('ad.posts.edit',['p'=>$post]);
     }
     public function post_edit(Request $request,$id)
     {
 
-        $post = Posts::find($id);
+        $post = posts::find($id);
         
         if($request->name){
             $post->name = $request->name;
@@ -96,7 +96,7 @@ class PostsController extends Controller
     }
     public function get_del($id)
     {
-        $post = Posts::find($id);
+        $post = posts::find($id);
         $post->delete();
         foreach($post->images as $img){
             $img->delete();
@@ -105,7 +105,7 @@ class PostsController extends Controller
     }
     public function get_change($id)
     {
-        $post = Posts::find($id);
+        $post = posts::find($id);
         if($post->show==1)
             $post->show = 0;
         else 
@@ -114,7 +114,7 @@ class PostsController extends Controller
     }
     public function count_view($id)
     {
-        $post = Posts::find($id);
+        $post = posts::find($id);
         $post->view+=1;
         $post->save();
     }

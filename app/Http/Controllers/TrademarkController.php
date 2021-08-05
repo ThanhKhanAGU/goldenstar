@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
-use App\Images;
+use App\posts;
+use App\images;
 
 class TrademarkController extends Controller
 {
     public function get_list()
     {
-        $trademark = Posts::all()->where("type","tr");
+        $trademark = posts::all()->where("type","tr");
         return view('ad.trademark.list', ['p' => $trademark]);
     }
 
@@ -22,7 +22,7 @@ class TrademarkController extends Controller
     public function post_add(Request $request)
     {
 
-        $trademark = new Posts;
+        $trademark = new posts;
         $trademark->type = "tr";
         
         if($request->name){
@@ -50,8 +50,8 @@ class TrademarkController extends Controller
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
                 $file->move('trademark',$image);
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $trademark->id;
                 $images->img = $image;
                 $images->save();
@@ -62,13 +62,13 @@ class TrademarkController extends Controller
     }
     public function get_edit($id)
     {
-        $trademark = Posts::find($id);
+        $trademark = posts::find($id);
         return view('ad.trademark.edit',['p'=>$trademark]);
     }
     public function post_edit(Request $request,$id)
     {
 
-        $trademark = Posts::find($id);
+        $trademark = posts::find($id);
 
         if($request->name){
             $trademark->name = $request->name;
@@ -99,8 +99,8 @@ class TrademarkController extends Controller
                 $image = time()."_".$name;
                 $file->move('trademark',$image);
 
-                //create row of table Images
-                $images = new Images();
+                //create row of table images
+                $images = new images();
                 $images->id_post = $trademark->id;
                 $images->img = $image;
                 $images->save();              
@@ -111,7 +111,7 @@ class TrademarkController extends Controller
 
     public function get_del($id)
     {
-        $trademark = Posts::find($id);
+        $trademark = posts::find($id);
         $trademark->delete();
         foreach($trademark->images as $img){
             $img->delete();

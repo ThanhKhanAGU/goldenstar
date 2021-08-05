@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
-use App\User;
+use App\user;
 
 class userController extends Controller
 {
@@ -34,7 +34,7 @@ class userController extends Controller
             'confirm-password.required' => 'Bạn chưa nhập lại mật khẩu',
             'confirm-password.same' => 'Mật khẩu nhập lại chưa trùng khớp'
         ]);
-        $user = new User;
+        $user = new user;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->level;
@@ -47,7 +47,7 @@ class userController extends Controller
     }
 
     public function get_edit($id){
-        $user = User::find($id);
+        $user = user::find($id);
         return view('ad.user.edit', ['user'=> $user]);
     }
 
@@ -60,7 +60,7 @@ class userController extends Controller
             'email.required' => 'Bạn chưa nhập email',
             'email.email' => 'Bạn chưa nhập đúng định dạng email',
         ]);
-        $user = User::find($id);
+        $user = user::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -83,7 +83,7 @@ class userController extends Controller
     }
 
     public function get_del($id){
-        $user = User::find($id);
+        $user = user::find($id);
         $user->delete();
 
         return redirect('ad/user/list')->with('thongbao','Xóa Thành Công');
@@ -117,7 +117,7 @@ class userController extends Controller
     }
 
     public function get_edit_user($id){
-        $user = User::find($id);
+        $user = user::find($id);
         return view('ad.user.edituser', ['user'=> $user]);
     }
 
@@ -131,7 +131,7 @@ class userController extends Controller
             'email.email' => 'Bạn chưa nhập đúng định dạng email',
             
         ]);
-        $user = User::find($id);
+        $user = user::find($id);
         echo $user;
         $user->name = $request->name;
         $user->email = $request->email;

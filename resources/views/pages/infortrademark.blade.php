@@ -5,8 +5,8 @@
 @section('content')
 <div class="baiviet">
     <div class="background img-3-9">
-        @if (count(\App\Images::where(['id_post' => $data->id])->get()))
-            <img src="trademark/{{\App\Images::where(['id_post' => $data->id])->pluck('img')->first()}}" alt="">
+        @if (count(\App\images::where(['id_post' => $data->id])->get()))
+            <img src="trademark/{{\App\images::where(['id_post' => $data->id])->pluck('img')->first()}}" alt="">
         @else
             <img style="width: 100%;height: 100%;" src="action/default.jpg" alt="">
         @endif
@@ -20,7 +20,7 @@
 <section id="main-container" style="padding-top: 0">
 <div class="container">
     <div class="row">
-        @if (count(\App\Images::where(['id_post' => $data->id])->get()))
+        @if (count(\App\images::where(['id_post' => $data->id])->get()))
         <div class="col-12" style="display: flex">
             <div class="portfolio-slider col-lg-8 col-md-10" style="margin: auto">
                 <div class="flexportfolio flexslider ">
