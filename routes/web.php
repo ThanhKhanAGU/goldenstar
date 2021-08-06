@@ -143,3 +143,6 @@ Route::get('/trademarks/{id}','mainController@trademark_infor');
 Route::get('login', 'userController@get_dangnhap');
 Route::post('ad/login', 'userController@post_dangnhap');
 Route::get('ad/logout', 'userController@get_dangxuat');
+
+//Create Schema Card
+Route::get('ad/schema', 'CardController@createSchema');
