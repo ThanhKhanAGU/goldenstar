@@ -24,8 +24,8 @@
                     di_{{$i->id_distributor}}">
                         <div class="grid ">
                             <figure class="effect-oscar img-9-9">
-                                  @if (count(\App\images::where(['id_post' => $i->id])->get()))
-                                  <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/{{\App\images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
+                                  @if (count(\App\Images::where(['id_post' => $i->id])->get()))
+                                  <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/{{\App\Images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
                                   @else
                                   <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/default.jpg" alt="">
                                   @endif
@@ -34,6 +34,9 @@
                                         <a class="link icon-pentagon" data-toggle="modal"
                                         data-target="#viewimg" >
                                             <i class="fa fa-search"></i>                              
+                                        </a> 
+                                        <a href="products/{{$i->id}}" class="link icon-pentagon"  >
+                                            <i class="fa fa-link"></i>                              
                                         </a> 
                                       </div>            
                                   </figcaption>			
@@ -105,10 +108,14 @@
   <div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-lg">
+          <div style="border: none" class="modal-header">
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
           <div class="modal-body">
-            <div style="width: 100%; display: flex">
-                <img id="img" style="margin: auto" width="100%" src="" alt="">
-            </div>
+            <img id="img" style="margin: auto" width="100%" src="" alt="">
           </div>
         </div>
       </div>

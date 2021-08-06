@@ -25,8 +25,8 @@
                 <div class="col-lg-3 col-sm-4 col-xs-6 portfolio-static-item wow fadeInDown" data-wow-delay="0.3s">
                     <div class="grid ">
                         <figure class="effect-oscar img-9-9">
-                            @if (count(\App\images::where(['id_post' => $i->id])->get()))
-                            <img style="width: 100%;height: 100%;" src="action/{{\App\images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
+                            @if (count(\App\Images::where(['id_post' => $i->id])->get()))
+                            <img style="width: 100%;height: 100%;" src="action/{{\App\Images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
                             @else
                             <img style="width: 100%;height: 100%;" src="action/default.jpg" alt="">
                             @endif

@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function get_list()
     {
-        $posts = posts::all()->where("type","ps");
+        $posts = Posts::all()->where("type","ps");
         return view('ad.posts.list', ['p' => $posts]);
     }
     public function get_add()
@@ -58,13 +58,13 @@ class PostsController extends Controller
     }
     public function get_edit($id)
     {
-        $post = posts::find($id);
+        $post = Posts::find($id);
         return view('ad.posts.edit',['p'=>$post]);
     }
     public function post_edit(Request $request,$id)
     {
 
-        $post = posts::find($id);
+        $post = Posts::find($id);
         
         if($request->name){
             $post->name = $request->name;
@@ -96,7 +96,7 @@ class PostsController extends Controller
     }
     public function get_del($id)
     {
-        $post = posts::find($id);
+        $post = Posts::find($id);
         $post->delete();
         foreach($post->images as $img){
             $img->delete();
@@ -105,7 +105,7 @@ class PostsController extends Controller
     }
     public function get_change($id)
     {
-        $post = posts::find($id);
+        $post = Posts::find($id);
         if($post->show==1)
             $post->show = 0;
         else 
@@ -114,7 +114,7 @@ class PostsController extends Controller
     }
     public function count_view($id)
     {
-        $post = posts::find($id);
+        $post = Posts::find($id);
         $post->view+=1;
         $post->save();
     }

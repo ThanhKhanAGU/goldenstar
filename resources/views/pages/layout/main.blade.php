@@ -141,10 +141,11 @@
 			width: 20px;
 		}
 		#back-to-top * {
-			outline: none;	
+			display: none;	
+			
 		}
-		#back-to-top{
-		}
+		
+		
 	</style>
 	
 	@yield('css')
@@ -174,9 +175,9 @@
 	}
 	window.addEventListener("resize",size);
 </script>
-
 </head>
 <body onload="size()">
+
 	<div class="body-inner">
 
         @include('pages.layout.header')

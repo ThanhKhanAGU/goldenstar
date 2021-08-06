@@ -4,78 +4,14 @@
     Danh Sách Tin Tức
 @endsection
 @section('content')
-<section id="home" class="no-padding wow fadeInDown">
-    <div id="main-slide" class="cd-hero img-3-9 side-cd">
-        <ul class="cd-hero-slider">
-            <li class="selected" >
-                <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
-                </div>
-                <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{changeTitle($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
-                       <div class="img-6-9 "style="width:100%">
-                            <h2 class="head_pin" >
-                                {{$pin[1]->name}}
-                            </h2>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[1]->summary}}</p>
-                       </div>
-                    </a>
-                </div> <!-- .cd-full-width -->     
-            </li>
-            <li>
-                <div class="overlay2">
-                    <img style="width: 100%; " class="" src="post/{{$pin[2]->image}}" alt="slider">
-                </div>
-                <div class="cd-full-width">
-                    <a href="page/{{$pin[2]->id}}/{{changeTitle($pin[2]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
-                       <div class="img-6-9" style="width: 70%;">
-                            <h3 class="head_pin" >
-                                {{$pin[2]->name}} 
-                            </h3>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[2]->summary}}</p>
-                       </div>
-                       <div class="img-6-9 br-img" style="width: 30%">
-                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->image}}" alt="">
-                       </div>
-                    </a>
-                </div> <!-- .cd-full-width -->     
-            </li>
-            <li>
-                <div class="overlay2">
-                    <img style="width: 100%;" class="" src="post/{{$pin[3]->image}}" alt="slider">
-                </div>
-                <div class="cd-full-width">
-                    <a href="page/{{$pin[3]->id}}/{{changeTitle($pin[3]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
-                       <div class="img-6-9" style="width: 70%">
-                            <h3 class="head_pin" >
-                                {{$pin[3]->name}} 
-                            </h3>
-                            <p style="overflow: hidden; height: 4em;">{{$pin[3]->summary}}</p>
-                       </div>
-                       <div class="img-6-9 br-img" style="width: 30%">
-                            <img style="height: 100%;background-position: center center; background-size: cover " src="post/{{$pin[3]->image}}" alt="">
-                       </div>
-                    </a>
-                </div> <!-- .cd-full-width -->     
-            </li>
-
-        </ul>
-        <!--/ cd-hero-slider -->
-
-        <div class="cd-slider-nav costom-cd-p">
-            <nav>
-                <ul class="costom-cd">
-                   <li class="selected" ></li>
-                   <li></li>
-                   <li></li>				
-                </ul>
-            </nav>
-        </div>
-            <!-- .cd-slider-nav -->
-
-    </div>
-    <!--/ Main slider end -->
-</section>
+<style>
+    .header{
+      background: black;
+    }
+    #main-container{
+      margin-top: 3rem;
+    }
+  </style>
 <!--/ Slider end -->
 <div style="height: 30px"></div>
 <section id="main-container" class="service angle">
@@ -89,7 +25,7 @@
                     <?php $dem = 0; ?>
                     @foreach ($moi as $item)
                     <?php $dem += 3; ?>
-                    <a href="page/{{$item->id}}/{{changeTitle($item->name,0,100)}}.html">
+                    <a href="page/{{$item->id}}/{{\App\Http\Controllers\Controller::changeTitle($item->name,0,100)}}.html">
                         <div class="col-md-4 col-sm-4 wow fadeInDown" data-wow-delay=".{{$dem}}s">
                             <div class="service-image card-img" >
                                 <div class="img-6-9" >
@@ -117,7 +53,7 @@
                 <div class="container">
                     <div class="row card mb-3">
                         @foreach ($noibat as $tt)
-                        <a href="page/{{$tt->id}}/{{changeTitle($tt->name,0,100)}}.html">
+                        <a href="page/{{$tt->id}}/{{\App\Http\Controllers\Controller::changeTitle($tt->name,0,100)}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">
@@ -149,7 +85,7 @@
                 <div class="row">
                     <div class="card col-md-9">
                         @foreach ($tintuc as $tt)
-                        <a class="product" href="page/{{$tt->id}}/{{changeTitle($tt->name,0,100)}}.html">
+                        <a class="product" href="page/{{$tt->id}}/{{\App\Http\Controllers\Controller::changeTitle($tt->name,0,100)}}.html">
                             <div class="row g-0 card-w card-img">
                                 <div class="col-md-4 col-sm-5 col-xs-5">
                                     <div style="width: 90%; height: 90%; margin: 5%" class="img-6-9">

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posts extends Model
 {
-    protected $table = 'posts';
+    protected $table = 'Posts';
 
     public function trademark(){
-        return $this->hasMany('App\posts', 'id_trademark', 'id');
+        return $this->hasMany('App\Posts', 'id_trademark', 'id');
     }
 
     public function distributor(){
@@ -17,7 +17,7 @@ class Posts extends Model
     }
     
     public function images(){
-        return $this->hasMany("App\images","id_post","id");
+        return $this->hasMany("App\Images","id_post","id");
     }
 }
 

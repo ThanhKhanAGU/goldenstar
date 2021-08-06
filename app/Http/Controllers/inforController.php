@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\information;
+use App\Information;
 
 class inforController extends Controller
 {
@@ -11,7 +11,7 @@ class inforController extends Controller
 
     public function get_list()
     {
-        $infor = information::all();
+        $infor = Information::all();
         return view('ad.infor.list', ['infor' => $infor]);
     }
 }

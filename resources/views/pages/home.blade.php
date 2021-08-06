@@ -7,12 +7,13 @@
 <section id="home" class="no-padding wow fadeInDown">
     <div id="main-slide" class="cd-hero img-3-9 side-cd">
         <ul class="cd-hero-slider">
+            @if ($pin[1])
             <li class="selected" >
                 <div class="overlay2">
                     <img style="width: 100%;" class="" src="post/{{$pin[1]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[1]->id}}/{{changeTitle($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[1]->id}}/{{\App\Http\Controllers\Controller::changeTitle($pin[1]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9 "style="width:100%">
                             <h2 class="head_pin" >
                                 {{$pin[1]->name}}
@@ -21,31 +22,68 @@
                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
-            </li>
+            </li>    
+            @else
+            <li class="selected" >
+                <div class="overlay2">
+                    <img style="width: 100%;" class="" src="post/default.jpg" alt="slider">
+                </div>
+                <div class="cd-full-width">
+                    <a href="ad/set/side" class="cd-btn" style="display:flex; margin:20px;">
+                       <div class="img-6-9 "style="width:100%">
+                            <h2 class="head_pin" >
+                                Bài Ghim Đã bị xóa!
+                            </h2>
+                            <p style="overflow: hidden; height: 4em;"></p>
+                       </div>
+                    </a>
+                </div> <!-- .cd-full-width -->     
+            </li>     
+            @endif
+            
+            @if ($pin[2])
             <li>
                 <div class="overlay2">
                     <img style="width: 100%; " class="" src="post/{{$pin[2]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[2]->id}}/{{changeTitle($pin[2]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[2]->id}}/{{\App\Http\Controllers\Controller::changeTitle($pin[2]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                       <div class="img-6-9 br-img" style="width: 30%">
+                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->image}}" alt="">
+                       </div>
                        <div class="img-6-9" style="width: 70%;">
                             <h3 class="head_pin" >
                                 {{$pin[2]->name}} 
                             </h3>
                             <p style="overflow: hidden; height: 4em;">{{$pin[2]->summary}}</p>
-                       </div>
-                       <div class="img-6-9 br-img" style="width: 30%">
-                        <img style=" height: 100%; background-position: center center; background-size: cover " src="post/{{$pin[2]->image}}" alt="">
-                       </div>
+                        </div>
                     </a>
                 </div> <!-- .cd-full-width -->     
             </li>
+            @else
+            <li class="selected" >
+                <div class="overlay2">
+                    <img style="width: 100%;" class="" src="post/default.jpg" alt="slider">
+                </div>
+                <div class="cd-full-width">
+                    <a href="ad/set/side" class="cd-btn" style="display:flex; margin:20px;">
+                       <div class="img-6-9 "style="width:100%">
+                            <h2 class="head_pin" >
+                                Bài Ghim Đã bị xóa!
+                            </h2>
+                            <p style="overflow: hidden; height: 4em;"></p>
+                       </div>
+                    </a>
+                </div> <!-- .cd-full-width -->     
+            </li>     
+            @endif
+            @if ($pin[3])
             <li>
                 <div class="overlay2">
                     <img style="width: 100%;" class="" src="post/{{$pin[3]->image}}" alt="slider">
                 </div>
                 <div class="cd-full-width">
-                    <a href="page/{{$pin[3]->id}}/{{changeTitle($pin[3]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
+                    <a href="page/{{$pin[3]->id}}/{{\App\Http\Controllers\Controller::changeTitle($pin[3]->name,0,100)}}.html" class="cd-btn" style="display:flex; margin:20px;">
                        <div class="img-6-9" style="width: 70%">
                             <h3 class="head_pin" >
                                 {{$pin[3]->name}} 
@@ -58,6 +96,23 @@
                     </a>
                 </div> <!-- .cd-full-width -->     
             </li>
+            @else
+            <li class="selected" >
+                <div class="overlay2">
+                    <img style="width: 100%;" class="" src="post/default.jpg" alt="slider">
+                </div>
+                <div class="cd-full-width">
+                    <a href="ad/set/side" class="cd-btn" style="display:flex; margin:20px;">
+                       <div class="img-6-9 "style="width:100%">
+                            <h2 class="head_pin" >
+                                Bài Ghim Đã bị xóa!
+                            </h2>
+                            <p style="overflow: hidden; height: 4em;"></p>
+                       </div>
+                    </a>
+                </div> <!-- .cd-full-width -->     
+            </li>     
+            @endif
 
         </ul>
         <!--/ cd-hero-slider -->
@@ -90,16 +145,16 @@
             </div>
         </div><!-- Title row end -->
         <div >
-            <div class="cnm" >
+            <div class="row" >
                 <?php $wow= 0 ?>
-                @for ($i = 1; $i < 4; $i++)
-                    <div class="col-k wow fadeInDown" data-wow-delay="<?php echo $wow+=0.3?>s">
+                @for ($i = 0; $i < $data['tag1_sl'][0]; $i++)
+                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 wow fadeInDown" data-wow-delay="<?php echo $wow+=0.3?>s">
                         <div class="service-content text-center">
                             <span class="service-icon icon-pentagon">
-                                <i class="{{$data['tag1_'.$i.'_icon']}}" aria-hidden="true"></i>
+                                <i class="{{$data['tag1_'.($i+1).'_icon']}}" aria-hidden="true"></i>
                             </span>
-                            <h3>{{$data['tag1_'.$i.'_title']}}</h3>
-                            <p>{{$data['tag1_'.$i.'_ct']}}</p>
+                            <h3>{{$data['tag1_'.($i+1).'_title']}}</h3>
+                            <p>{{$data['tag1_'.($i+1).'_ct']}}</p>
                         </div>
                     </div>
                 @endfor

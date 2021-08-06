@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\posts;
-use App\images;
+use App\Posts;
+use App\Images;
 
 class DistributorController extends Controller
 {
     public function get_list()
     {
-        $distributor = posts::all()->where("type","di");
+        $distributor = Posts::all()->where("type","di");
         return view('ad.distributor.list', ['p' => $distributor]);
     }
 
@@ -66,13 +66,13 @@ class DistributorController extends Controller
     }
     public function get_edit($id)
     {
-        $distributor = posts::find($id);
+        $distributor = Posts::find($id);
         return view('ad.distributor.edit',['p'=>$distributor]);
     }
     public function post_edit(Request $request,$id)
     {
 
-        $distributor = posts::find($id);
+        $distributor = Posts::find($id);
 
         if($request->name){
             $distributor->name = $request->name;
@@ -115,7 +115,7 @@ class DistributorController extends Controller
 
     public function get_del($id)
     {
-        $distributor = posts::find($id);
+        $distributor = Posts::find($id);
         $distributor->delete();
         foreach($distributor->images as $img){
             unlink('distributor/'.$img->img);

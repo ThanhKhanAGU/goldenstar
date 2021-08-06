@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\posts;
-use App\images;
+use App\Posts;
+use App\Images;
 
 class ActionController extends Controller
 {
     public function get_list()
     {
-        $actions = posts::all()->where("type","ac");
+        $actions = Posts::all()->where("type","ac");
         return view('ad.action.list', ['p' => $actions]);
     }
 
@@ -22,7 +22,7 @@ class ActionController extends Controller
     public function post_add(Request $request)
     {
 
-        $action = new posts;
+        $action = new Posts;
         $action->type = "ac";
         
         if($request->name){
@@ -51,7 +51,7 @@ class ActionController extends Controller
                 $image = time()."_".$name;
                 $file->move('action',$image);
                 //create row of table images
-                $images = new images();
+                $images = new Images();
                 $images->id_post = $action->id;
                 $images->img = $image;
                 $images->save();
@@ -64,14 +64,14 @@ class ActionController extends Controller
 
     public function get_edit($id)
     {
-        $action = posts::find($id);
+        $action = Posts::find($id);
         return view('ad.action.edit',['p'=>$action]);
     }
 
     public function post_edit(Request $request,$id)
     {
 
-        $action = posts::find($id);
+        $action = Posts::find($id);
 
         if($request->name){
             $action->name = $request->name;

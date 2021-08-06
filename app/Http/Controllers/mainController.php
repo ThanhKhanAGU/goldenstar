@@ -5,32 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\information;
-use App\images;
-use App\posts;
+use App\Information;
+use App\Images;
+use App\Posts;
 
 class mainController extends Controller
 {
     //
     function __construct()
     {
-        $dt['dc'] = information::where('Ten','dc')->first()->NoiDung;
-        $dt['sdt'] = information::where('Ten','sdt')->first()->NoiDung;
-        $dt['mail'] = information::where('Ten','mail')->first()->NoiDung;
+        $dt['dc'] = Information::where('Ten','dc')->first()->NoiDung;
+        $dt['sdt'] = Information::where('Ten','sdt')->first()->NoiDung;
+        $dt['mail'] = Information::where('Ten','mail')->first()->NoiDung;
         view()->share('dt',$dt);
     }
 
     public function home()
     {
-        $dt = information::all();
+        $dt = Information::all();
         foreach($dt as $item)
         {
             $data[$item->Ten] = $item->NoiDung;
         }
-        $pin[1] = posts::find($data['pin1']);
-        $pin[2] = posts::find($data['pin2']);
-        $pin[3] = posts::find($data['pin3']);
-        $gt = posts::find($data['id_gt']);
+        $pin[1] = Posts::find($data['pin1']);
+        $pin[2] = Posts::find($data['pin2']);
+        $pin[3] = Posts::find($data['pin3']);
+        $gt = Posts::find($data['id_gt']);
         return view('pages.home',['data'=>$data,'pin'=>$pin,'gt'=>$gt]);
 
     }
@@ -64,7 +64,7 @@ class mainController extends Controller
     }
 
     public function inforProduct($id){
-        $product = posts::find($id);
+        $product = Posts::find($id);
         $images = DB::table('images')->where('id_post', $id)->get();
         return view('pages.inforproduct', ['product' => $product, 'images' => $images]);
     }
@@ -73,22 +73,22 @@ class mainController extends Controller
     {
         $tintuc = DB::table('posts')->orderBy('id', 'DESC')->where('type','ps')->get();
         $noibat = DB::table('posts')->where('type','ps')->where("show",1)->get()->take(3);
-        $moi = posts::all()->where('type','ps')->sortByDesc('created_at')->take(3);
-        $dt = information::all();
+        $moi = Posts::all()->where('type','ps')->sortByDesc('created_at')->take(3);
+        $dt = Information::all();
         foreach($dt as $item)
         {
             $data[$item->Ten] = $item->NoiDung;
         }
-        $pin[1] = posts::find($data['pin1']);
-        $pin[2] = posts::find($data['pin2']);
-        $pin[3] = posts::find($data['pin3']);
+        $pin[1] = Posts::find($data['pin1']);
+        $pin[2] = Posts::find($data['pin2']);
+        $pin[3] = Posts::find($data['pin3']);
         return view('pages.listpages',['tintuc'=>$tintuc,'noibat'=>$noibat,'moi'=>$moi,'pin'=>$pin]);
     }
     public function page($id)
     {
-        $tin = posts::find($id);
+        $tin = Posts::find($id);
         $noibat = DB::table('posts')->where("type",'ps')->where("show",1)->get()->take(4);
-        $moi = posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
+        $moi = Posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
 
         return view('pages.page',['data'=>$tin,'noibat'=>$noibat,'moi'=>$moi]);
     }
@@ -105,7 +105,7 @@ class mainController extends Controller
 
     public function plusview($id)
     {
-        $tin = posts::find($id);
+        $tin = Posts::find($id);
         $tin->view++;
         $tin->save();
     }
@@ -123,9 +123,9 @@ class mainController extends Controller
 
     public function infor_action($id)
     {
-        $tin = posts::find($id);
+        $tin = Posts::find($id);
         // $noibat = DB::table('posts')->where("type",'ps')->where("show",1)->get()->take(4);
-        // $moi = posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
+        // $moi = Posts::all()->where("type",'ps')->sortByDesc('created_at')->take(3);
 
         return view('pages.inforaction',['data'=>$tin]);
     }
@@ -135,12 +135,12 @@ class mainController extends Controller
     }
     public function distributor_infor($id)
     {
-        $dis = posts::find($id);
+        $dis = Posts::find($id);
         return view('pages.infordistributor',['data'=>$dis]);
     }
     public function trademark_infor($id)
     {
-        $dis = posts::find($id);
+        $dis = Posts::find($id);
         return view('pages.infortrademark',['data'=>$dis]);
     }
 
