@@ -147,14 +147,14 @@
         <div >
             <div class="row" >
                 <?php $wow= 0 ?>
-                @for ($i = 0; $i < $data['tag1_sl'][0]; $i++)
-                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 wow fadeInDown" data-wow-delay="<?php echo $wow+=0.3?>s">
+                @for ($i = 0; $i < $dt['tag1_sl']; $i++)
+                    <div class="row wow fadeInDown" data-wow-delay="<?php echo $wow+=0.3?>s">
                         <div class="service-content text-center">
                             <span class="service-icon icon-pentagon">
-                                <i class="{{$data['tag1_'.($i+1).'_icon']}}" aria-hidden="true"></i>
+                                <i class="{{$data['tag1_'.$i.'_icon']}}" aria-hidden="true"></i>
                             </span>
-                            <h3>{{$data['tag1_'.($i+1).'_title']}}</h3>
-                            <p>{{$data['tag1_'.($i+1).'_ct']}}</p>
+                            <h3>{{$data['tag1_'.$i.'_title']}}</h3>
+                            <p>{{$data['tag1_'.$i.'_ct']}}</p>
                         </div>
                     </div>
                 @endfor
