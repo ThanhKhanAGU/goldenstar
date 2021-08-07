@@ -1,4 +1,5 @@
 <!-- Header start -->
+
 <header id="header" class="navbar-fixed-top header" role="banner">
     <div class="hr-he"></div>
     <div class="container">
@@ -20,12 +21,12 @@
             <!--/ Logo end -->
             <nav class="collapse navbar-collapse clearfix" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="{{asset('/')}}" class="dropdown-toggle"> Trang chủ </a>
+                    <li class="dropdown <?php if($s == 'home') echo 'active' ?>">
+                        <a href="{{asset('/')}}" class="dropdown-toggle "> Trang chủ </a>
                     </li>
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"> Giới thiệu <i class="fa fa-angle-down"></i> </a>
+                        <a class="dropdown-toggle " data-toggle="dropdown"> Giới thiệu <i class="fa fa-angle-down"></i> </a>
                         <div class="dropdown-menu">
                             <ul>
                                 <li><a href="{{asset('#gioithieu')}}">Giới thiệu công ty</a></li>
@@ -33,23 +34,23 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown <?php if($s == 'pages'||$s == 'actions') echo 'active' ?>">
                         <a href="home" class="dropdown-toggle" data-toggle="dropdown">Truyền thông<i class="fa fa-angle-down"></i></a>
                         <div class="dropdown-menu">
                             <ul>
-                                <li><a href="pages">Tin tức & thông báo</a></li>
-                                <li><a href="actions">Chia sẽ cộng đồng</a></li>
+                                <li class="<?php if($s == 'pages') echo 'active' ?>"><a href="pages">Tin tức & thông báo</a></li>
+                                <li class="<?php if($s == 'actions') echo 'active' ?>"><a  href="actions">Chia sẽ cộng đồng</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="dropdown">
-                        <a href="products" class="dropdown-toggle"> Sản phẩm </a>
+                    <li class="dropdown <?php if($s == 'products') echo 'active' ?>">
+                        <a href="products" class="dropdown-toggle "> Sản phẩm </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="distributors" class="dropdown-toggle"> Phân phối </a>
+                    <li class="dropdown <?php if($s == 'di') echo 'active' ?>">
+                        <a href="distributors" class="dropdown-toggle "> Phân phối </a>
                     </li>
-                    <li class="dropdown">
-                        <a href="trademarks" class="dropdown-toggle"> Thương hiệu </a>
+                    <li class="dropdown <?php if($s == 'tra') echo 'active' ?>">
+                        <a href="trademarks" class="dropdown-toggle "> Thương hiệu </a>
                     </li>
                 </ul>
             </nav>

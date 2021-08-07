@@ -19,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <?php $dem=0;?>
+                      <?php $dem=1;?>
                       @foreach ($p as $i)
                       <tr id='{{$i->id}}' class="text-center">
                         <td><?php echo $dem++;?></td>

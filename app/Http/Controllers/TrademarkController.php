@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\posts;
-use App\images;
+use App\Posts;
+use App\Images;
 
 class TrademarkController extends Controller
 {
@@ -90,7 +90,13 @@ class TrademarkController extends Controller
 
         if($request->hasFile('img')){
             foreach ($trademark->images as $value){
-                unlink('trademark/'.$value->img);
+                try {
+                    unlink('trademark/'.$value->img);
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+                $value->delete();
+                
             } 
             foreach($request->file("img") as $file)
             {
@@ -114,7 +120,11 @@ class TrademarkController extends Controller
         $trademark = posts::find($id);
         $trademark->delete();
         foreach($trademark->images as $img){
-            unlink('trademark/'.$img->img);
+            try {
+                unlink('trademark/'.$img->img);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             $img->delete();
         }
         return  redirect("ad/trademark/list");

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\posts;
-use App\images;
+use App\Posts;
+use App\Images;
 
 class ProductController extends Controller
 {
@@ -118,7 +118,12 @@ class ProductController extends Controller
             $name = $file->getClientOriginalName();
             $image = time()."_".$name;
             $file->move('product',$image);
-            unlink("product/".$product->image);
+            
+            try {
+                unlink("product/".$product->image);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             $product->image = $image;
         }
 
@@ -126,7 +131,12 @@ class ProductController extends Controller
 
         if($request->hasFile('img')){
             foreach ($product->images as $value){
-                unlink('product/'.$value->img);
+                try {
+                    unlink('product/'.$value->img);
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+                $value->delete();
             } 
             foreach($request->file("img") as $file)
             {
@@ -151,7 +161,12 @@ class ProductController extends Controller
         $product = posts::find($id);
         $product->delete();
         foreach($product->images as $img){
-            unlink('product/'.$img->img);
+            try {
+                unlink('product/'.$img->img);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            
             $img->delete();
         }
         return  redirect("ad/product/list");

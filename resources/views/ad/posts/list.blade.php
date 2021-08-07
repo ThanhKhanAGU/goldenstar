@@ -19,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <?php $dem=0;?>
+                      <?php $dem=1;?>
                       @foreach ($p as $i)
                       <tr id='{{$i->id}}' class="text-center">
                         <td><?php echo $dem++;?></td>
@@ -39,7 +39,7 @@
                           </a>
                         </td>
                         <td>
-                          <a target="view_demo" href="page/{{$i->id}}/{{changeTitle($i->name,0,100)}}.html" style="width: 40px">
+                          <a target="view_demo" href="page/{{$i->id}}/{{\App\Http\Controllers\Controller::changeTitle($i->name,0,100)}}.html" style="width: 40px">
                             <button data-toggle="modal" data-target="#view_page" type="button" class="btn btn-icon waves-effect waves-light btn-secondary"> 
                               <i class=" fas fa-eye"></i>
                             </button>
@@ -53,7 +53,7 @@
                           </a>
                         </td>
                         <td>
-                          <button data-toggle="modal" onclick="del('{{$i->id}}','{{changeTitle($i->name,0,100)}}')" data-target="#del_item" class="btn btn-danger" href="#">
+                          <button data-toggle="modal" onclick="del('{{$i->id}}','{{\App\Http\Controllers\Controller::changeTitle($i->name,0,100)}}')" data-target="#del_item" class="btn btn-danger" href="#">
                             <i class="fa fa-trash"></i>
                           </button>
                         </td>

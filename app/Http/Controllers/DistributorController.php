@@ -94,7 +94,13 @@ class DistributorController extends Controller
 
         if($request->hasFile('img')){
             foreach ($distributor->images as $value){
-                unlink('distributor/'.$value->img);
+                
+                try {
+                    unlink('distributor/'.$value->img);
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+                $value->delete();
             } 
             foreach($request->file("img") as $file)
             {
@@ -118,7 +124,12 @@ class DistributorController extends Controller
         $distributor = Posts::find($id);
         $distributor->delete();
         foreach($distributor->images as $img){
-            unlink('distributor/'.$img->img);
+            try {
+                unlink('distributor/'.$img->img);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+           
             $img->delete();
         }
         return  redirect("ad/distributor/list");

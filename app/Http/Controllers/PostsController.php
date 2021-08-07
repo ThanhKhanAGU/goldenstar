@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\posts;
-use App\images;
+use App\Posts;
+use App\Images;
 
 class PostsController extends Controller
 {
@@ -88,7 +88,12 @@ class PostsController extends Controller
             $name = $file->getClientOriginalName();
             $image = time()."_".$name;
             $file->move('post',$image);
-            unlink("post/".$post->image);
+            try {
+                unlink("post/".$post->image);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            
             $post->image = $image;
         }
         $post->save();
@@ -97,6 +102,7 @@ class PostsController extends Controller
     public function get_del($id)
     {
         $post = Posts::find($id);
+            unlink("post/".$post->image);
         $post->delete();
         foreach($post->images as $img){
             $img->delete();

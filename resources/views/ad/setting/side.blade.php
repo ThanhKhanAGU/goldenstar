@@ -5,6 +5,7 @@
 <form target="view_home" action="ad/set/side" method="POST" class="parsley-examples" enctype="multipart/form-data">
     @csrf
     @for($i=0;$i<3;$i++)
+    @if ($p->find($dt['pin'.($i+1)]))
     <div class="form-group row">
         <label class="col-lg-2 col-form-label">
             Bài Ghim số {{$i+1}}
@@ -18,7 +19,23 @@
             </p>    
         </button>
         <input value="{{$dt['pin'.($i+1)]}}" id="pin{{$i}}" type="hidden" name="pin[]">
-    </div>
+    </div>   
+    @else
+    <div class="form-group row">
+        <label class="col-lg-2 col-form-label">
+            Bài Ghim số {{$i+1}}
+        </label>
+        <button onclick="getdata(pin{{$i}},n{{$i}},c{{$i}})" data-toggle="modal" data-target="#exampleModalLong" type="button" class="costom col-lg-10 btn btn-primary">
+            <h5 id="n{{$i}}">
+                Bài Viết Đã bị Xóa
+            </h5>
+            <p id="c{{$i}}">
+            
+            </p>    
+        </button>
+        <input value="{{$dt['pin'.($i+1)]}}" id="pin{{$i}}" type="hidden" name="pin[]">
+    </div>   
+    @endif
     @endfor
 
 <!-- end Action  -->
@@ -32,7 +49,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -47,10 +64,11 @@
                 <th scope="col">L.Xem</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
+            <?php $d = 1;?>
             @foreach ($p->where('type','ps') as $key=> $item)
                 <tr onclick="add_data('{{$item->id}}','{{$item->name}}','{{$item->summary}}')">
-                    <td>{{$key+1}}</td>
+                    <td>{{$d++}}</td>
                     <td >
                         <div class="td_co">
                             {{$item->name}}
@@ -68,8 +86,7 @@
           </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>

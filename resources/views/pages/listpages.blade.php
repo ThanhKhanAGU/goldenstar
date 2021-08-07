@@ -31,7 +31,7 @@
                                 <div class="img-6-9" >
                                     <img src="post/{{$item->image}}" alt="{{$item->image}}" />
                                 </div>
-                                <h5 class="font-weight-bold">{{$item->name}}</h5>
+                                <h5 style="height: 3em; overflow: hidden;" class="font-weight-bold">{{$item->name}}</h5>
                                 <p style="color:gray; height: 5em; overflow: hidden; text-overflow: ellipsis;">{{$item->summary}}</p>
                                 <p class="post-meta text-right">
                                     <span class="post-meta-date">

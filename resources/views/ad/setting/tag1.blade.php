@@ -23,42 +23,49 @@
                     </div>
                 </div>
             </div>
-            @for ($i = 1; $i < 4; $i++)
-            <div class="col-12 col-sm-4 col-lg-4">
+            @foreach (\App\Card::all()->where('id_tag',\App\Information::all()
+            ->where('Ten','tag1')->first()->id)->sortBy('id') as $i=>$item)
+            <div id="card_{{$i+1}}" class="col-sx-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12">
-                                <h4>Dữ Liệu thứ {{$i}}</h4>
+                            <div class="col-12" style="position: relative">
+                                <button onclick="close_tag(card_{{$i+1}})" style="position: absolute; z-index: 20; right: -10%; top:-15%; border: none; background: rgb(185, 8, 8); color: white; border-radius: 5px">
+                                    <i class="fas fa-window-close"></i>
+                                </button>
                                 <div class="form-group row">
                                     <label class="col-6 col-form-label">Biểu Tượng</label>
                                     <div class="col-6">
-                                        <button style="font-size: 1.3em" onclick="resource_value(icon_sele{{$i}},{{'tag1_'.$i.'_icon'}})" type="button" data-toggle="modal" data-target="#mess" class="w-100 btn btn-icon waves-effect waves-light btn-primary"> 
-                                        <i id="icon_sele{{$i}}" class="{{$dt['tag1_'.$i.'_icon']}}"></i> </button>
-                                        <input id="{{'tag1_'.$i.'_icon'}}" type="hidden" name="{{'tag1_'.$i.'_icon'}}" value="{{$dt['tag1_'.$i.'_icon']}}">
+                                        <button style="font-size: 1.3em" onclick="resource_value(icon_sele{{($i+1)}},{{'tag1_'.($i+1).'_icon'}})" type="button" data-toggle="modal" data-target="#mess" class="w-100 btn btn-icon waves-effect waves-light btn-primary"> 
+                                        <i id="icon_sele{{($i+1)}}" class="{{$item->img}}"></i> </button>
+                                        <input id="{{'tag1_'.($i+1).'_icon'}}" type="hidden" name="img[]" value="{{$item->img}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-8 col-form-label">Tiêu Đề</label>
                                     <div class="col-12 ">
-                                        <input type="text" name="{{'tag1_'.$i.'_title'}}" class="form-control font-weight-bold" value="{{$dt['tag1_'.$i.'_title']}}">
+                                        <input type="text" name="title[]" class="form-control font-weight-bold" value="{{$item->title}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-8 col-form-label">Nội Dung</label>
                                     <div class="col-12">
-                                        <input type="text" name="{{'tag1_'.$i.'_ct'}}" class="form-control" value="{{$dt['tag1_'.$i.'_ct']}}">
+                                        <input type="text" name="content[]" class="form-control" value="{{$item->content}}">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            @endfor
+            </div>    
+            @endforeach
+            <div id="addtag"></div>
             <div class="container">
-                <button type="submit" data-toggle="modal" data-target=".view_home_demo" style="font-size: 1.5em" class="font-weight-bold text-uppercase float-right btn btn-primary">
+                <button  type="submit" data-toggle="modal" data-target=".view_home_demo" style="font-size: 1.5em; margin-left: 10px" class="font-weight-bold text-uppercase float-right btn btn-primary">
                     <i class="fas fa-save"></i> LƯU THAY ĐỔI
+                </button>
+                <button onclick="addtag()" type="button"  style="font-size: 1.5em" class="font-weight-bold text-uppercase float-right btn btn-primary">
+                    <i class="fas fa-plus-square"></i>
                 </button>
             </div>
             <!-- end col -->
@@ -79,6 +86,60 @@
         fr.readAsDataURL(f.files[0]);
         console.log("Đã Thực hiện");
     }
+    var sl = parseInt("{{count(\App\Card::all()->where('id_tag',\App\Information::all()
+            ->where('Ten','tag1')->first()->id))}}")
+    function close_tag(id)
+    {
+        id.outerHTML =""
+    }
+    function addtag()
+    {
+        console.log(123);
+        var a = document.getElementById('addtag');
+        sl++;
+        a.outerHTML =`
+        <div id="card_${sl}" class="col-sx-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12" style="position: relative">
+                                <button onclick="close_tag(card_${sl})" 
+                                style="position: absolute; z-index: 20; right: -10%;
+                                top:-15%; border: none; background: rgb(185, 8, 8);
+                                color: white; border-radius: 5px">
+                                    <i class="fas fa-window-close"></i>
+                                </button>
+                                <div class="form-group row">
+                                    <label class="col-6 col-form-label">Biểu Tượng</label>
+                                    <div class="col-6">
+                                        <button style="font-size: 1.3em" 
+                                        onclick="resource_value(icon_sele${sl},tag1_${sl}_icon)" type="button" data-toggle="modal" data-target="#mess" class="w-100 btn btn-icon waves-effect waves-light btn-primary"> 
+                                        <i id="icon_sele${sl}" class="fa fa-star"></i> </button>
+                                        <input id="tag1_${sl}_icon" type="hidden" 
+                                        name="img[]" value="fa fa-star">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-8 col-form-label">Tiêu Đề</label>
+                                    <div class="col-12 ">
+                                        <input type="text" name="title[]"
+                                        class="form-control font-weight-bold" value="DEMO">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-8 col-form-label">Nội Dung</label>
+                                    <div class="col-12">
+                                        <input type="text" name="content[]" class="form-control" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit.">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div id="addtag"></div>
+        `;
+    }
 </script>
 <div class="modal fade view_home_demo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -90,4 +151,5 @@
 @endsection
 @section('css')
 <link href="assets\libs\summernote\summernote-bs4.css" rel="stylesheet" type="text/css">
+
 @endsection

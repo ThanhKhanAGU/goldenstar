@@ -49,7 +49,7 @@ class ActionController extends Controller
                 //upload images to server
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
-                $file->move('action',$image);
+                $file->move('action/',$image);
                 //create row of table images
                 $images = new Images();
                 $images->id_post = $action->id;
@@ -93,14 +93,20 @@ class ActionController extends Controller
 
         if($request->hasFile('img')){
             foreach ($action->images as $value){
-                unlink('action/'.$value->img);
+                
+                try {
+                    unlink('action/'.$value->img);
+                } catch (\Throwable $th) {
+                   
+                }
+                $value->delete();
             } 
             foreach($request->file("img") as $file)
             {
                 //upload images to server
                 $name = $file->getClientOriginalName();
                 $image = time()."_".$name;
-                $file->move('post',$image);
+                $file->move('action/',$image);
 
                 //create row of table images
                 $images = new images();
@@ -117,7 +123,12 @@ class ActionController extends Controller
         $action = posts::find($id);
         $action->delete();
         foreach($action->images as $img){
-            unlink('action/'.$img->img);
+            try {
+                unlink('action/'.$img->img);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+           
             $img->delete();
             
         }

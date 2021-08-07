@@ -136,69 +136,134 @@
 <!-- Service box start -->
 <div style="height: 30px"></div>
 <!-- Service box start -->
-<section id="service" class="service angle">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 heading">
-                <span class="title-icon pull-left"><i class="fa fa-cogs"></i></span>
-                <h2 class="title">{{$data['tag1']}}<span class="title-desc"></span></h2>
-            </div>
-        </div><!-- Title row end -->
-        <div >
-            <div class="row" >
-                <?php $wow= 0 ?>
-                @for ($i = 0; $i < $dt['tag1_sl']; $i++)
-                    <div class="row wow fadeInDown" data-wow-delay="<?php echo $wow+=0.3?>s">
-                        <div class="service-content text-center">
-                            <span class="service-icon icon-pentagon">
-                                <i class="{{$data['tag1_'.$i.'_icon']}}" aria-hidden="true"></i>
-                            </span>
-                            <h3>{{$data['tag1_'.$i.'_title']}}</h3>
-                            <p>{{$data['tag1_'.$i.'_ct']}}</p>
-                        </div>
-                    </div>
-                @endfor
-            </div>
-        </div><!-- Content row end -->
-    </div>
-    <!--/ Container end -->
-</section>
-<!--/ Service box end -->
-
+<!--/ Team end -->
 <!-- Team start -->
-<section id="team" class="team">
+<section id="news" class="team service angle">
     <div class="container">
         <div class="row">
             <div class="col-md-12 heading">
-                <span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
-                <h2 class="title">{{$data['tag2']}}<span class="title-desc"></span></h2>
+                <span class="title-icon pull-left">
+                <i class="fa fa-spinner fa-spin"></i>
+                </span>
+                <h2 class="title">TIN TỨC MỚI NHẤT<span class="title-desc"></span></h2>
             </div>
         </div><!-- Title row end -->
         
         <div class="row text-center">
-        @for ($i = 1; $i < 5; $i++)
-        <div class="col-md-3 col-sm-6">
-                <?php
-                    if($i<=2)
-                        echo '<div class="team wow slideInLeft">'; 
-                    else {
-                        echo '<div class="team wow slideInRight">'; 
-                    }   
-                ?>
-                <div class="img-hexagon">
-                    <img src="assets_pages/images/img/{{$data['tag2_'.$i.'_icon']}}" alt="">
-                    <span class="img-top"></span>
-                    <span class="img-bottom"></span>
+        <?php $dem = 0; ?>
+        @foreach ($post as $item)
+        <?php $dem += 3; ?>
+        <a href="page/{{$item->id}}/{{\App\Http\Controllers\Controller::changeTitle($item->name,0,100)}}.html">
+            <div class="col-md-4 col-sm-4 wow 
+            <?php
+                if($dem==3) echo "fadeInLeft" ;
+                elseif($dem==6) echo "fadeInDown";
+                else echo "fadeInRight";
+            ?>
+            " data-wow-delay=".3s">
+                <div class="service-image card-img" >
+                    <div class="img-6-9" >
+                        <img src="post/{{$item->image}}" alt="{{$item->image}}" />
+                    </div>
+                    <h5 style="height: 3em; overflow: hidden;" class="font-weight-bold">{{$item->name}}</h5>
+                    <p class="text-left" style="padding: 0 10px; color:gray; height: 5em; overflow: hidden; text-overflow: ellipsis;">
+                    {{$item->summary}}
+                    </p>
+                    <p class="post-meta text-right">
+                        <span class="post-meta-date">
+                            <i class="fa fa-clock-o"></i> {{$item->created_at}}
+                             - <i class="fa fa-eye"></i> {{$item->view}}
+                        </span>
+                    </p>
                 </div>
-                <div class="team-content">
-                    <h3>{{$data['tag2_'.$i.'_title']}}</h3>
-                    <p>{{$data['tag2_'.$i.'_ct']}}</p>
+            </div><!--/ End first service -->
+        </a>   
+        @endforeach 
+        </div>
+        
+        <div class="container wow fadeInLeft" data-wow-delay=".6s">
+
+            <a href="pages">
+                <div style="width:140px; float:right;" class="text-center service-image card-img " >
+                <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Xem Thêm
                 </div>
+            </a>
+            <hr>
+        </div>
+        <script>size()</script>
+        <!--/ Content row end -->
+    </div>
+    <!--/ Container end -->
+</section>
+<!--/ Team end -->
+
+<!-- Team start -->
+<section id="product" class="team ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 heading">
+                <span class="title-icon pull-left">
+                <i class="fa fa-star fa-spin" aria-hidden="true"></i>
+                </span>
+                <h2 class="title">SẢN PHẨM CẬP NHẬT<span class="title-desc"></span></h2>
             </div>
+        </div><!-- Title row end -->
+        
+        <div class="row text-center">
+        <?php $dem = 0; ?>
+        @foreach ($sp as $key=>$i)
+        <div  id="k_{{$key}}" 
+        class=" col-lg-3 col-sm-3 col-xs-6 portfolio-static-item 
+        product tr_{{$i->id_trademark}}
+        di_{{$i->id_distributor}} <?php
+            if($dem<2) echo "fadeInLeft";
+            else echo "fadeInRight";
+            $dem++;
+        ?> wow" data-wow-delay=".3s">
+            <div class="grid ">
+                <figure class="effect-oscar img-9-9">
+                        @if (count(\App\Images::where(['id_post' => $i->id])->get()))
+                        <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/{{\App\Images::where(['id_post' => $i->id])->pluck('img')->first()}}" alt="">
+                        @else
+                        <img id="img_{{$i->id}}" style="width: 100%;height: 100%;" src="product/default.jpg" alt="">
+                        @endif
+                        <figcaption>
+                            <div onclick="img_load(img_{{$i->id}})">
+                            <a class="link icon-pentagon" data-toggle="modal"
+                            data-target="#viewimg" >
+                                <i class="fa fa-search"></i>                              
+                            </a> 
+                            <a href="products/{{$i->id}}" class="link icon-pentagon"  >
+                                <i class="fa fa-link"></i>                              
+                            </a> 
+                            </div>            
+                        </figcaption>			
+                </figure>
+                <a href="products/{{$i->id}}" class="portfolio-static-desc">
+                    <h3 style="height: 3.5rem; overflow: hidden;">{{$i->name}}</h3>
+                    @if ($i->promotion_price)
+                    <p style="height: 1rem;" class="text-right price-old">@money($i->price) VND</p>
+                    <p class="price text-right" >@money($i->promotion_price) VND</p>
+                    @else
+                    <p style="height: 1rem;"></p>
+                    <p class="price text text-right">@money($i->price) VND</p> 
+                    @endif
+                </a>					
+            </div><!--/ grid end -->
+        </div><!--/ item 1 end -->
+        @endforeach
         </div>
-        <!--/ Team 1 end -->
-        @endfor
+        
+        <div class="container wow fadeInLeft" data-wow-delay=".6s">
+
+            <a href="products">
+                <div style="width:140px; float:right;" class="text-center service-image card-img " >
+                <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Xem Thêm
+                </div>
+            </a>
+            <hr>
         </div>
+        <script>size()</script>
         <!--/ Content row end -->
     </div>
     <!--/ Container end -->
@@ -206,8 +271,7 @@
 <!--/ Team end -->
 
 <!-- Counter Strat -->
-<div id="gioithieu" style="height: 65px;"></div>
-<section class="ts_counter no-padding">
+<section id="gioithieu" class="ts_counter no-padding">
     <div class="container-fluid">
         <div class="row facts-wrapper wow fadeInLeft text-center">
             @for ($i = 1; $i < 5; $i++)
@@ -249,8 +313,97 @@
         </div>    
     </div>
 </section>
-<!--/ Image block end -->
 
+
+<section id="team" class="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 heading">
+                <span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
+                <h2 class="title">{{$data['tag2']}}<span class="title-desc"></span></h2>
+            </div>
+        </div><!-- Title row end -->
+        
+        <div class="row text-center">
+        <?php $dem =0; ?>
+        @if (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag2')->first()->id))
+        @foreach (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag2')->first()->id)->sortBy('id') as $item)
+        <div class="col-md-3 col-sm-6">
+            @if (($dem++)%2)
+            <div class="team wow fadeInDown">
+            @else
+            <div class="team wow fadeInUp"> 
+            @endif          
+            <div class="img-hexagon">
+                <img src="assets_pages/images/img/{{$item->img}}" alt="">
+                <span class="img-top"></span>
+                <span class="img-bottom"></span>
+            </div>
+            <div class="team-content">
+                <h3>{{$item->title}}</h3>
+                <p>{{$item->content}}</p>
+            </div>
+        </div>
+    </div>
+        @endforeach
+        @endif
+
+        </div>
+        <!--/ Content row end -->
+    </div>
+    <!--/ Container end -->
+</section>
+
+<section id="service" class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 heading">
+                <span class="title-icon pull-left"><i class="fa fa-cogs"></i></span>
+                <h2 class="title">{{$data['tag1']}}<span class="title-desc"></span></h2>
+            </div>
+        </div><!-- Title row end -->
+        <div >
+            @if (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag1')->first()->id))
+            <div class="cnm" >
+                <?php $wow= 0 ?>
+                @foreach (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag1')->first()->id)->sortBy('id') as $item)
+                <div class="col-k wow fadeInDown" data-wow-delay="<?php echo $wow+=0.3?>s">
+                    <div class="service-content text-center">
+                        <span class="service-icon icon-pentagon">
+                            <i class="{{$item->img}}" aria-hidden="true"></i>
+                        </span>
+                        <h3>{{$item->title}}</h3>
+                        <p>{{$item->content}}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>  
+            @endif
+        </div><!-- Content row end -->
+    </div>
+    <!--/ Container end -->
+</section>
+<!--/ Service box end -->
+
+<!-- Team start -->
+
+
+<!--/ Image block end -->
+<div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-lg">
+        <div style="border: none" class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <img id="img" style="margin: auto" width="100%" src="" alt="">
+        </div>
+    </div>
+    </div>
+</div>
 <style>
 
 .text-justify p{
@@ -263,6 +416,23 @@
     font-weight: bold;
     text-shadow: 1px 1px 2px rgb(27, 27, 27)
 }
-
-</style>    
+.price{
+          font-size: 1.6rem;
+          color: #f71b10;
+      }
+      .price-old{
+          color:#555; 
+          font-size: .9em; 
+          height: 1rem; 
+          text-decoration: line-through;
+          font-style: italic;
+          overflow: visible
+      }
+</style>  
+<script>
+    function img_load(url)
+    {
+        document.getElementById('img').src = url.src;
+    }
+</script>  
 @endsection
