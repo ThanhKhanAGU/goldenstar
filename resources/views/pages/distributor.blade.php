@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             </div><!--/ row end -->
-            <h4> <i class="fa fa-th-list"></i> Danh Sách nhà phân phối <span class="title-desc"></span></h4>
+            <h4> <i class="fa fa-th-list"></i>Nhà phân phối <span class="title-desc"></span></h4>
             <hr>
             <div class="container">
                 

@@ -79,7 +79,7 @@
                 </div>
             </div>
             </div><!--/ row end -->
-            <h4> <i class="fa fa-th-list"></i> Danh Sách Bài Viết <span class="title-desc"></span></h4>
+            <h4> <i class="fa fa-th-list"></i>Bài Viết <span class="title-desc"></span></h4>
             <hr>
             <div class="container">
                 <div class="row">

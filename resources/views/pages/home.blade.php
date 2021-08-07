@@ -4,9 +4,9 @@
     Goldenstar Corp
 @endsection
 @section('content')
-<section id="home" class="no-padding wow fadeInDown">
+{{--<section id="home" class="no-padding wow fadeInDown">
     <div id="main-slide" class="cd-hero img-3-9 side-cd">
-        <ul class="cd-hero-slider">
+        <ul class="cd-hero-slider slides">
             @if ($pin[1])
             <li class="selected" >
                 <div class="overlay2">
@@ -130,8 +130,71 @@
 
     </div>
     <!--/ Main slider end -->
-</section>
+</section>--}}
 <!--/ Slider end -->
+
+<section id="home" class="no-padding">	
+
+    <div id="main-slide" class="ts-flex-slider">
+
+        <div class="flexSlideshow flexslider">
+            <ul class="slides">
+                <li>
+                    <div class="overlay2">
+                        <img class="" src="post/{{$pin[1]->image}}" alt="slider">
+                    </div>
+                    <div class="flex-caption slider-content">
+                        <a href="page/{{$pin[1]->id}}/{{\App\Http\Controllers\Controller::changeTitle($pin[1]->name,0,100)}}.html">
+                            <div class="col-md-12 text-center">
+                                <h2 style="padding: 20px; line-height:1.2em" class="animated2">
+                                    {{$pin[1]->name}}
+                                </h2>
+                                <h3 style="overflow: hidden; height: 4em;" class="animated3 hidden-xs">
+                                    {{$pin[1]->summary}}
+                                </h3>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="overlay2">
+                        <img class="" src="post/{{$pin[2]->image}}" alt="slider">
+                    </div>
+                    <div class="flex-caption slider-content">
+                        <a href="page/{{$pin[2]->id}}/{{\App\Http\Controllers\Controller::changeTitle($pin[2]->name,0,100)}}.html">
+                            <div class="col-md-12 text-center">
+                                <h2 style="padding: 20px; line-height:1.2em" class="animated4 hidden-xs">
+                                    {{$pin[2]->name}}
+                                </h2>
+                                <h3 class="animated5 hidden-sx" style="overflow: hidden; height: 4em;">
+                                    {{$pin[2]->summary}}
+                                </h3>			     
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="overlay2">
+                        <img class="" src="post/{{$pin[3]->image}}" alt="slider">
+                    </div>
+                    <div class="flex-caption slider-content">
+                        <a href="page/{{$pin[2]->id}}/{{\App\Http\Controllers\Controller::changeTitle($pin[2]->name,0,100)}}.html">
+                            <div class="col-md-12 text-center">
+                                <h2 style="padding: 20px; line-height:1.2em" class="animated7 hidden-xs">
+                                    {{$pin[3]->name}}
+                                </h2>
+                                <h3 class="animated8 hidden-sx" style="overflow: hidden; height: 4em; padding: 20px 0">
+                                    {{$pin[3]->summary}}
+                                </h3>     
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div><!--/ Main slider end -->    	
+</section> <!--/ Slider end -->
+
 
 <!-- Service box start -->
 <div style="height: 30px"></div>
@@ -145,7 +208,7 @@
                 <span class="title-icon pull-left">
                 <i class="fa fa-spinner fa-spin"></i>
                 </span>
-                <h2 class="title">TIN TỨC MỚI NHẤT<span class="title-desc"></span></h2>
+                <h2 class="title">TIN TỨC<span class="title-desc"></span></h2>
             </div>
         </div><!-- Title row end -->
         
@@ -205,7 +268,7 @@
                 <span class="title-icon pull-left">
                 <i class="fa fa-star fa-spin" aria-hidden="true"></i>
                 </span>
-                <h2 class="title">SẢN PHẨM CẬP NHẬT<span class="title-desc"></span></h2>
+                <h2 class="title">SẢN PHẨM<span class="title-desc"></span></h2>
             </div>
         </div><!-- Title row end -->
         
