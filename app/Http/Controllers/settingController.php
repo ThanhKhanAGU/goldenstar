@@ -68,8 +68,6 @@ class settingController extends Controller
         return view('ad.setting.communications',['dt'=>$data,'p'=>$p])->with('thongbao','Lưu thành công');
     }
 
-
-
     public function post_side(Request $request){
          $data = Information::all();
          foreach ($request->pin as $i => $value) {
@@ -77,7 +75,8 @@ class settingController extends Controller
              $dt->NoiDung = $value;
              $dt->save();
          }
-        return redirect('/')->with('thongbao','Lưu thành công');
+        // return redirect('/')->with('thongbao','Lưu thành công');
+        return '<p style="color: green">Thành công</p>';
     }
     public function post_tag1(Request $request){
         $data = Information::where("Ten",'tag1')->first();
@@ -99,7 +98,8 @@ class settingController extends Controller
             $card->id_tag = $data->id;
             $card->save();
         }
-        return redirect('/')->with('thongbao','Lưu thành công'); 
+        // return redirect('/')->with('thongbao','Lưu thành công');
+        return '<p style="color: green">Thành công</p>';
     }
     public function post_tag2(Request $request){
         $data = Information::where("Ten",'tag2')->first();
@@ -156,7 +156,8 @@ class settingController extends Controller
             $card->save();
         }
         
-        return redirect('/')->with('thongbao','Lưu thành công');  
+        // return redirect('/')->with('thongbao','Lưu thành công');  
+        return 'Thành công';
     }
     public function post_tag3(Request $request){
         for($i=1;$i<5;$i++)
@@ -172,7 +173,8 @@ class settingController extends Controller
             $data->save();
         }
 
-        return redirect('/')->with('thongbao','Lưu thành công');  
+        // return redirect('/')->with('thongbao','Lưu thành công');  
+        return '<p style="color: green">Thành công</p>';
     }
     public function post_policy(Request $request){
         $post = Posts::find($request->id);
@@ -208,7 +210,8 @@ class settingController extends Controller
             $post->image = $image;
         }
         $post->save();
-        return redirect('/')->with('thongbao','Lưu thành công');  
+        // return redirect('/')->with('thongbao','Lưu thành công');  
+        return '<p style="color: green">Thành công</p>';
     }
     public function post_communications(Request $request){
         $data = Information::where("Ten",'dc')->first();
@@ -222,7 +225,8 @@ class settingController extends Controller
         $data = Information::where("Ten",'sdt')->first();
         $data->NoiDung = $request->sdt;
         $data->save();
-        return redirect('/')->with('thongbao','Lưu thành công');  
+        // return redirect('/')->with('thongbao','Lưu thành công');  
+        return '<p style="color: green">Thành công</p>';
     }
     
 }
