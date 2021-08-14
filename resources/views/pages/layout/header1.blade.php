@@ -1,35 +1,42 @@
 <!-- Header start -->
 
-<header id="header" class="header" role="banner" style="background: #000000;">
+<header id="header" class="header" role="banner">
     <div class="hr-he"></div>
     <div class="container">
         <div class="row">
-            
-           <!-- Logo start -->
-							
-			<div class="navbar-brand">
-				<a href="{{asset('/')}}" style>
-					
-					<img class="img-responsive" src="logo2.png" style="height: 30px; margin: -10px -10px -10px 0px !important;" alt="logo">
-				</a> 
-			</div>                   
-			<!--/ Logo end -->
-            
-            <nav class="collapse navbar-collapse clearfix" role="navigation">
-                <ul class="nav navbar-nav navbar-left">
-                    
+            <!-- Logo start -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand navbar-bg">
+                    <a href="home">
+                        <img style="height: 100%"class="img-responsive" src="logo_main.png" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <!--/ Logo end -->
+            <nav class="collapse navbar-collapse " role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown <?php if($s == 'home') echo 'active' ?>">
+                        <a href="{{asset('/')}}" class="dropdown-toggle "> Trang chủ </a>
+                    </li>
+
                     <li class="dropdown">
                         <a class="dropdown-toggle " data-toggle="dropdown"> Giới thiệu <i class="fa fa-angle-down"></i> </a>
-                        <div class="dropdown-menu"  style="z-index: 500000">
+                        <div class="dropdown-menu">
                             <ul>
-                                <li><a href="#gioithieu">Giới thiệu công ty</a></li>
+                                <li><a href="{{asset('#gioithieu')}}">Giới thiệu công ty</a></li>
                                 <li><a href="page/2/Bai_viet_gioi_thieu_chinh_sach_chat_luong.html">Chính sách chất lượng</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="dropdown <?php if($s == 'pages'||$s == 'actions') echo 'active' ?>">
-                        <a href="home" class="dropdown-toggle" data-toggle="dropdown">Truyền thông <i class="fa fa-angle-down"></i></a>
-                        <div class="dropdown-menu"  style="z-index: 500000">
+                        <a href="home" class="dropdown-toggle" data-toggle="dropdown">Truyền thông<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu">
                             <ul>
                                 <li class="<?php if($s == 'pages') echo 'active' ?>"><a href="pages">Tin tức & thông báo</a></li>
                                 <li class="<?php if($s == 'actions') echo 'active' ?>"><a  href="actions">Chia sẽ cộng đồng</a></li>

@@ -93,9 +93,9 @@ class settingController extends Controller
         foreach($request->img as $key=>$img)
         {
             $card = new Card;
-            $card->img = $request->img[$key];
-            $card->title = $request->title[$key];
-            $card->content = $request->content[$key];
+            $card->img = $request->img[$key] ?? ' ';
+            $card->title = $request->title[$key] ?? ' ';
+            $card->content = $request->content[$key] ?? ' ';
             $card->id_tag = $data->id;
             $card->save();
         }
@@ -112,8 +112,8 @@ class settingController extends Controller
         { 
             if( isset($request->id[$i->id]) )
             {
-                $i->title = $request->title[$i->id];
-                $i->content = $request->content[$i->id];
+                $i->title = $request->title[$i->id] ?? ' ';
+                $i->content = $request->content[$i->id] ?? ' ';
 
                 if( isset($request->img[$i->id])){
                     $name = $request->img[$i->id]->getClientOriginalName();

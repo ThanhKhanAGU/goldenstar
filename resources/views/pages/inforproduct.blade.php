@@ -49,10 +49,7 @@
                     <div class="portfolio-desc" style="margin-top: 2.5rem">
                         <br/>
                         <h2 class="widget-title" style="color: #111; margin-bottom: 0">{{$product->name}}</h2>
-                        <hr>
-                        <div class="content-product">
-                            {!! $product->content !!}
-                        </div>    
+                          
                         @if ($product->promotion_price>0)
                             <p style="height: 1rem;" class="price-old">@money($product->price) VND</p>
                             <p class="price" >@money($product->promotion_price) VND</p>
@@ -60,7 +57,6 @@
                             <p style="height: 1rem;"></p>
                             <p class="price text ">@money($product->price) VND</p> 
                         @endif
-                        <p><a href="products/{{$product->id}}/#description-product" class="project-btn btn btn-primary">Xem chi tiết</a></p>
                     </div>
                 </div>
             </div>

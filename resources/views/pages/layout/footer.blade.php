@@ -3,18 +3,28 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 footer-widget footer-about-us">
-                <h3 class="widget-title">Goldenstar Corp</h3>
+                <h3 class="widget-title">Công ty TNHH QUỐC TẾ GOLDEN STAR</h3>
                 <!-- <p>We are a awward winning multinational company. We believe in quality and standard worldwide.</p> -->
-                <h4>Địa chỉ</h4>
-                <p>{{$dt['dc']}}</p>
+                <h4>Trụ sở chính</h4>
+                <p>109/14/3A Trương Phước phan, Khu phố 8, P. Bình Trị Đông, Q. Bình Tân, TP. HCM</p>
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Email:</h4>
-                        <p>{{$dt['mail']}}</p>
+                        <h4>Hotline: </h4>
+                        <p>090712.33.44</p>
                     </div>
                     <div class="col-md-6">
-                        <h4>Phone No.</h4>
-                        <p>{{$dt['sdt']}}</p>
+                        <h4>Gmail: </h4>
+                        <p>goldenstarcorp2021@gmail.com</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Nhà máy 1</h4>
+                        <p>A1/66A Hoàng Phan Thái, ấp 1, xã bình chánh, H. Bình Chánh, TP. HCM</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Nhà máy 2</h4>
+                        <p>Vàm cống , H. Lấp Vò, Tỉnh đồng tháp</p>
                     </div>
                 </div>
             </div>
@@ -31,35 +41,25 @@
             <div class="col-md-12 text-center">
                 <ul class="footer-social unstyled">
                     <li>
-                        <a title="Twitter" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">G</span>
+                        <a title="Twitter" href="https://twitter.com/">
+                            <span class="icon-pentagon wow bounceIn">
+                                <i class="fa fa-twitter"></i>
+                            </span>
                         </a>
-                        <a title="Facebook" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">O</span>
+                        <a title="Facebook" href="https://www.youtube.com/watch?v=ahn39A6ITwg">
+                            <span class="icon-pentagon wow bounceIn">
+                                <i class="fa fa-youtube-play"></i>
+                            </span>
                         </a>
-                        <a title="Google+" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">L</span>
+                        <a title="Google+" href="https://www.facebook.com/">
+                            <span class="icon-pentagon wow bounceIn">
+                                <i class="fa fa-facebook-official"></i>
+                            </span>
                         </a>
-                        <a title="linkedin" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">D</span>
-                        </a>
-                        <a title="Pinterest" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">E</span>
-                        </a>
-                        <a title="Skype" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">N</span>
-                        </a>
-                        <a title="Dribble" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">S</span>
-                        </a>
-                        <a title="Dribble" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">T</span>
-                        </a>
-                        <a title="Dribble" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">A</span>
-                        </a>
-                        <a title="Dribble" href="{{asset('/')}}">
-                            <span class="icon-pentagon wow bounceIn">R</span>
+                        <a title="Google+" href="https://www.google.com.vn/">
+                            <span class="icon-pentagon wow bounceIn">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </span>
                         </a>
                     </li>
                 </ul>

@@ -12,7 +12,7 @@
         <h2>{!!$data->name!!}</h2>
         <p class="breadcrumb" style="color">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            {{$data->created_at}}
+            {{date("d/m/Y", strtotime($data->created_at))}}
         </p>
     </div>
 <section id="main-container">
@@ -48,7 +48,7 @@
                                         <p style="height: 3.5em;overflow: hidden; color:gray" class=" hidden-md  hidden-lg">{{$tt->summary}}</p>
                                         <p class="post-meta">
                                             <span class="post-meta-date">
-                                                <i class="fa fa-clock-o"></i> {{$tt->created_at}}
+                                                <i class="fa fa-clock-o"></i> {{date("d/m/Y", strtotime($tt->created_at))}}
                                                 <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>
@@ -76,7 +76,7 @@
                                         <h5 style="height: 3em;overflow: hidden;" class="font-weight-bold">{{$tt->name}}</h5>
                                         <p class="post-meta">
                                             <span class="post-meta-date">
-                                                <i class="fa fa-clock-o"></i> {{$tt->created_at}}
+                                                <i class="fa fa-clock-o"></i> {{date("d/m/Y", strtotime($tt->created_at))}}
                                                 <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>

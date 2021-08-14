@@ -143,11 +143,11 @@
 		#back-to-top * {
 			display: none;	
 			
-		}
-		
-		
+		}	
+		.header{
+      background: black;
+    	}
 	</style>
-	
 	@yield('css')
 <link rel="stylesheet" href="assets_pages/css/baiviet.css">
 <script>
@@ -176,48 +176,50 @@
 	window.addEventListener("resize",size);
 </script>
 </head>
-<body onload="size()">
+<body onload="size()" style=" margin: 0 auto; overflow: auto" >
 
-	<div class="body-inner">
+	<div class="all" style="margin: 0 auto;">
+		<div class="body-inner">
 
-        @include('pages.layout.header')
-
-        @yield('content')
-
-        @include('pages.layout.footer')
-
-		<!-- Javascript Files
-	================================================== -->
-
-	<!-- initialize jQuery Library -->
-	<script type="text/javascript" src="assets_pages/js/jquery.js"></script>
-	<!-- Bootstrap jQuery -->
-	<script type="text/javascript" src="assets_pages/js/bootstrap.min.js"></script>
-	<!-- Style Switcher -->
-	<script type="text/javascript" src="assets_pages/js/style-switcher.js"></script>
-	<!-- Owl Carousel -->
-	<script type="text/javascript" src="assets_pages/js/owl.carousel.js"></script>
-	<!-- PrettyPhoto -->
-	<script type="text/javascript" src="assets_pages/js/jquery.prettyPhoto.js"></script>
-	<!-- Bxslider -->
-	<script type="text/javascript" src="assets_pages/js/jquery.flexslider.js"></script>
-	<!-- CD Hero slider -->
-	<script type="text/javascript" src="assets_pages/js/cd-hero.js"></script>
-	<!-- Isotope -->
-	<script type="text/javascript" src="assets_pages/js/isotope.js"></script>
-	<script type="text/javascript" src="assets_pages/js/ini.isotope.js"></script>
-	<!-- Wow Animation -->
-	<script type="text/javascript" src="assets_pages/js/wow.min.js"></script>
-	<!-- SmoothScroll -->
-	<script type="text/javascript" src="assets_pages/js/smoothscroll.js"></script>
-	<!-- Eeasing -->
-	<script type="text/javascript" src="assets_pages/js/jquery.easing.1.3.js"></script>
-	<!-- Counter -->
-	<script type="text/javascript" src="assets_pages/js/jquery.counterup.min.js"></script>
-	<!-- Waypoints -->
-	<script type="text/javascript" src="assets_pages/js/waypoints.min.js"></script>
-	<!-- Template custom -->
-	<script type="text/javascript" src="assets_pages/js/custom.js"></script>
+			@include('pages.layout.header')
+	
+			@yield('content')
+	
+			@include('pages.layout.footer')
+	
+			<!-- Javascript Files
+		================================================== -->
+	
+		<!-- initialize jQuery Library -->
+		<script type="text/javascript" src="assets_pages/js/jquery.js"></script>
+		<!-- Bootstrap jQuery -->
+		<script type="text/javascript" src="assets_pages/js/bootstrap.min.js"></script>
+		<!-- Style Switcher -->
+		<script type="text/javascript" src="assets_pages/js/style-switcher.js"></script>
+		<!-- Owl Carousel -->
+		<script type="text/javascript" src="assets_pages/js/owl.carousel.js"></script>
+		<!-- PrettyPhoto -->
+		<script type="text/javascript" src="assets_pages/js/jquery.prettyPhoto.js"></script>
+		<!-- Bxslider -->
+		<script type="text/javascript" src="assets_pages/js/jquery.flexslider.js"></script>
+		<!-- CD Hero slider -->
+		<script type="text/javascript" src="assets_pages/js/cd-hero.js"></script>
+		<!-- Isotope -->
+		<script type="text/javascript" src="assets_pages/js/isotope.js"></script>
+		<script type="text/javascript" src="assets_pages/js/ini.isotope.js"></script>
+		<!-- Wow Animation -->
+		<script type="text/javascript" src="assets_pages/js/wow.min.js"></script>
+		<!-- SmoothScroll -->
+		<script type="text/javascript" src="assets_pages/js/smoothscroll.js"></script>
+		<!-- Eeasing -->
+		<script type="text/javascript" src="assets_pages/js/jquery.easing.1.3.js"></script>
+		<!-- Counter -->
+		<script type="text/javascript" src="assets_pages/js/jquery.counterup.min.js"></script>
+		<!-- Waypoints -->
+		<script type="text/javascript" src="assets_pages/js/waypoints.min.js"></script>
+		<!-- Template custom -->
+		<script type="text/javascript" src="assets_pages/js/custom.js"></script>
+		</div>
 	</div>
 	@yield('js')
 	<!-- Messenger Plugin chat Code -->

@@ -18,12 +18,11 @@
     <div class="container">
         <div class="row">
             </div><!--/ row end -->
-            <h4> <i class="fa fa-th-list"></i>Nhà phân phối <span class="title-desc"></span></h4>
+            <h4> <i class="fa fa-th-list"></i> Nhà phân phối <span class="title-desc"></span></h4>
             <hr>
-            <div class="container">
-                
+            <div class="container">       
                 <div class="row">
-                    <div class="card col-md-9">
+                    <div class="card col-md-12">
                         @foreach ($di as $i)
                             <a href="distributors/{{$i->id}}">
                                 <div class="row g-0 card-w card-img">

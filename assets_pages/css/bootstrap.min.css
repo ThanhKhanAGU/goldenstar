@@ -5067,13 +5067,3 @@ th.hidden-print, td.hidden-print {
 	display:none!important
 }
 }
-
-.cnm{
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-.cnm .col-k{
-	margin: auto;
-	width: 320px;
-}

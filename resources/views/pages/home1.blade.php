@@ -195,71 +195,7 @@
     </div><!--/ Main slider end -->    	
 </section> <!--/ Slider end -->
 
-<section id="team" class="team">
-    <div class="container">
-        
-        <div class="row">
-            <div class="col-md-12 heading">
-                <span class="title-icon pull-left">
-                    <div class="testimonial-thumb text-center">
-            			<img src="logo_256.png" style="width: 50px; height: 50px;" alt="testimonial">
-            		</div>
-                    
-                    <!-- <i class="fa fa-weixin"></i> -->
-                </span>
-                <h2 class="title">{{$data['tag2']}}<span class="title-desc"></span></h2>
-            </div>
-        </div><!-- Title row end -->
-        
-        <div class="row text-center cnm">
-        <?php $dem =0; ?>
-        @if (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag2')->first()->id))
-        @foreach (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag2')->first()->id)->sortBy('id') as $item)
-        <div class="col-k">
-            @if (($dem++)%2)
-            <div class=" team wow fadeInDown">
-            @else
-            <div class="team wow fadeInUp"> 
-            @endif          
-            <div class="img-hexagon">
-                <img src="assets_pages/images/img/{{$item->img}}" alt="">
-                <span class="img-top"></span>
-                <span class="img-bottom"></span>
-            </div>
-            <div class="team-content">
-                <h3>{{$item->title}}</h3>
-                <p>{{$item->content}}</p>
-            </div>
-        </div>
-    </div>
-        @endforeach
-        @endif
 
-        </div>
-        <!--/ Content row end -->
-    </div>
-    <!--/ Container end -->
-</section>
-
-<section id="clients" class="clients">
-    <div class="container">
-        <div class="row wow fadeInLeft">
-            <div id="client-carousel" class="col-sm-12 owl-carousel owl-theme text-center client-carousel">
-                @foreach (glob('logo/*') as $item)              
-                <figure  class="item client_logo">
-                    <a href="#">
-                        <img style="width: 100%" src="{{$item}}" alt="client">
-                    </a>
-                </figure>
-                @endforeach
-            </div><!-- Owl carousel end -->
-        </div><!-- Main row end -->
-    </div>
-    <!--/ Container end -->
-</section>
-<script>
-    size();
-</script>
 <!-- Service box start -->
 <div style="height: 30px"></div>
 <!-- Service box start -->
@@ -415,7 +351,7 @@
     <!--/ Container end -->
 </section>
 <!--/ Counter end -->
-<div id="gioithieu"></div>
+
 <section id="image-block" class="image-block no-padding">
     <div class="container">
         <div class="baiviet">
@@ -437,15 +373,49 @@
                     <br>
                 </div>
             </div>
-        </div>
-        <div class="testimonial-thumb text-center">
-			<img src="logo_256.png" alt="testimonial">
-		</div>
+        </div>    
     </div>
 </section>
 
 
+<section id="team" class="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 heading">
+                <span class="title-icon pull-left"><i class="fa fa-weixin"></i></span>
+                <h2 class="title">{{$data['tag2']}}<span class="title-desc"></span></h2>
+            </div>
+        </div><!-- Title row end -->
+        
+        <div class="row text-center">
+        <?php $dem =0; ?>
+        @if (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag2')->first()->id))
+        @foreach (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag2')->first()->id)->sortBy('id') as $item)
+        <div class="col-md-3 col-sm-6">
+            @if (($dem++)%2)
+            <div class="team wow fadeInDown">
+            @else
+            <div class="team wow fadeInUp"> 
+            @endif          
+            <div class="img-hexagon">
+                <img src="assets_pages/images/img/{{$item->img}}" alt="">
+                <span class="img-top"></span>
+                <span class="img-bottom"></span>
+            </div>
+            <div class="team-content">
+                <h3>{{$item->title}}</h3>
+                <p>{{$item->content}}</p>
+            </div>
+        </div>
+    </div>
+        @endforeach
+        @endif
 
+        </div>
+        <!--/ Content row end -->
+    </div>
+    <!--/ Container end -->
+</section>
 
 <section id="service" class="">
     <div class="container">
@@ -456,6 +426,17 @@
             </div>
         </div><!-- Title row end -->
         <div >
+            <style>
+                .cnm{
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                }
+                .cnm .col-k{
+                    margin: auto;
+                    width: 320px;
+                }
+            </style>
             @if (\App\Card::all()->where('id_tag',\App\Information::all()->where('Ten','tag1')->first()->id))
             <div class="cnm" >
                 <?php $wow= 0 ?>
@@ -478,7 +459,7 @@
 </section>
 
 
-{{-- <div>
+<div>
     <div style="display: flex; width: auto; animation: run 10s linear infinite">
         @foreach (glob('trademark/*') as $item)
         @if($item != 'trademark/default.jpg')
@@ -495,13 +476,28 @@
         0%{transform: translateX(100%)}
         100%{transform: translateX(-100%)}
     }
-</style> --}}
+</style>
 <!--/ Service box end -->
 
 <!-- Team start -->
 
 
 <!--/ Image block end -->
+<div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-lg">
+        <div style="border: none" class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <img id="img" style="margin: auto" width="100%" src="" alt="">
+        </div>
+    </div>
+    </div>
+</div>
 <style>
 
 .text-justify p{
@@ -515,7 +511,7 @@
     text-shadow: 1px 1px 2px rgb(27, 27, 27)
 }
 .price{
-          font-size: 1.6rem;    
+          font-size: 1.6rem;
           color: #f71b10;
       }
       .price-old{
@@ -526,15 +522,6 @@
           font-style: italic;
           overflow: visible
       }
-.cnm{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.cnm .col-k{
-    margin: auto;
-    width: 320px;
-}
 </style>  
 <script>
     function img_load(url)

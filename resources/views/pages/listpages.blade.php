@@ -35,7 +35,7 @@
                                 <p style="color:gray; height: 5em; overflow: hidden; text-overflow: ellipsis;">{{$item->summary}}</p>
                                 <p class="post-meta text-right">
                                     <span class="post-meta-date">
-                                        <i class="fa fa-clock-o"></i> {{$item->created_at}}
+                                        <i class="fa fa-clock-o"></i> {{date("d/m/Y", strtotime($item->created_at))}}
                                         <i class="fa fa-eye"></i> {{$item->view}}
                                     </span>
                                 </p>
@@ -66,7 +66,7 @@
                                         <p style="height: 3.5em;overflow: hidden; color:gray" class=" hidden-md  hidden-lg">{{$tt->summary}}</p>
                                         <p class="post-meta">
                                             <span class="post-meta-date">
-                                                <i class="fa fa-clock-o"></i> {{$tt->created_at}}
+                                                <i class="fa fa-clock-o"></i> {{date("d/m/Y", strtotime($tt->created_at))}}
                                                 <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>
@@ -100,7 +100,7 @@
                                         </p>
                                         <p class="post-meta">
                                             <span class="post-meta-date">
-                                                <i class="fa fa-clock-o"></i> {{$tt->created_at}}
+                                                <i class="fa fa-clock-o"></i> {{date("d/m/Y", strtotime($tt->created_at))}}
                                                 <i class="fa fa-eye"></i> {{$tt->view}}
                                             </span>
                                         </p>
