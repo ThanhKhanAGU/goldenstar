@@ -76,7 +76,13 @@ class settingController extends Controller
              $dt->save();
          }
         // return redirect('/')->with('thongbao','Lưu thành công');
-        return '<p style="color: green; font-size: 20px; text-transform: uppercase; text-align: center">Đã cập nhật thành công</p>';
+        return '<p style="color: green; 
+        font-size: 20px; 
+        text-transform: uppercase; 
+        text-align: center;
+        background: #cbffcb;
+        padding: .5rem;
+        border: .5px solid #8fd98f;">Đã cập nhật thành công</p>';
     }
     public function post_tag1(Request $request){
         $data = Information::where("Ten",'tag1')->first();
@@ -99,7 +105,13 @@ class settingController extends Controller
             $card->save();
         }
         // return redirect('/')->with('thongbao','Lưu thành công');
-        return '<p style="color: green; font-size: 20px; text-transform: uppercase; text-align: center">Đã cập nhật thành công</p>';
+        return '<p style="color: green; 
+        font-size: 20px; 
+        text-transform: uppercase; 
+        text-align: center;
+        background: #cbffcb;
+        padding: .5rem;
+        border: .5px solid #8fd98f;">Đã cập nhật thành công</p>';
     }
     public function post_tag2(Request $request){
         $data = Information::where("Ten",'tag2')->first();
@@ -157,7 +169,13 @@ class settingController extends Controller
         }
         
         // return redirect('/')->with('thongbao','Lưu thành công');  
-        return '<p style="color: green; font-size: 20px; text-transform: uppercase; text-align: center">Đã cập nhật thành công</p>';
+        return '<p style="color: green; 
+        font-size: 20px; 
+        text-transform: uppercase; 
+        text-align: center;
+        background: #cbffcb;
+        padding: .5rem;
+        border: .5px solid #8fd98f;">Đã cập nhật thành công</p>';
     }
     public function post_tag3(Request $request){
         for($i=1;$i<5;$i++)
@@ -174,7 +192,13 @@ class settingController extends Controller
         }
 
         // return redirect('/')->with('thongbao','Lưu thành công');  
-        return '<p style="color: green; font-size: 20px; text-transform: uppercase; text-align: center">Đã cập nhật thành công</p>';
+        return '<p style="color: green; 
+        font-size: 20px; 
+        text-transform: uppercase; 
+        text-align: center;
+        background: #cbffcb;
+        padding: .5rem;
+        border: .5px solid #8fd98f;">Đã cập nhật thành công</p>';
     }
     public function post_policy(Request $request){
         $post = Posts::find($request->id);
@@ -211,7 +235,13 @@ class settingController extends Controller
         }
         $post->save();
         // return redirect('/')->with('thongbao','Lưu thành công');  
-        return '<p style="color: green; font-size: 20px; text-transform: uppercase; text-align: center">Đã cập nhật thành công</p>';
+        return '<p style="color: green; 
+        font-size: 20px; 
+        text-transform: uppercase; 
+        text-align: center;
+        background: #cbffcb;
+        padding: .5rem;
+        border: .5px solid #8fd98f;">Đã cập nhật thành công</p>';
     }
     public function post_communications(Request $request){
         $data = Information::where("Ten",'dc')->first();
@@ -226,7 +256,13 @@ class settingController extends Controller
         $data->NoiDung = $request->sdt;
         $data->save();
         // return redirect('/')->with('thongbao','Lưu thành công');  
-        return '<p style="color: green; font-size: 20px; text-transform: uppercase; text-align: center">Đã cập nhật thành công</p>';
+        return '<p style="color: green; 
+        font-size: 20px; 
+        text-transform: uppercase; 
+        text-align: center;
+        background: #cbffcb;
+        padding: .5rem;
+        border: .5px solid #8fd98f;">Đã cập nhật thành công</p>';
     }
     
 }
