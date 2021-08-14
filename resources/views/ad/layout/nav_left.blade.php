@@ -18,7 +18,7 @@
                             <li><a href="ad/set/tag3">Thành Tựu</a></li>
                             <li><a href="ad/set/intr">Bài viết giới thiệu</a></li>
                             <li><a href="ad/set/policy">Chính Sách công ty</a></li>
-                            <li><a href="ad/set/com">Thông tin liên hệ</a></li>
+                            {{-- <li><a href="ad/set/com">Thông tin liên hệ</a></li> --}}
                         </ul>
                     </li>
                 @endif

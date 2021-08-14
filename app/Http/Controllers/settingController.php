@@ -18,7 +18,7 @@ class settingController extends Controller
             $data[$item->Ten] = $item->NoiDung;
         }
         $p = Posts::all();
-        return view('ad.setting.side',['dt'=>$data,'p'=>$p]);
+        return view('ad.setting.side',['dt'=>$data,'p'=>$p])->with('thongbao','Lưu thành công');
     }
     public function get_tag1(){
         $dt = Information::all();
@@ -27,7 +27,7 @@ class settingController extends Controller
             $data[$item->Ten] = $item->NoiDung;
         }
         $p = Posts::all();
-        return view('ad.setting.tag1',['dt'=>$data,'p'=>$p]);
+        return view('ad.setting.tag1',['dt'=>$data,'p'=>$p])->with('thongbao','Lưu thành công');
     }
     public function get_tag2(){
         $dt = Information::all();
@@ -36,7 +36,7 @@ class settingController extends Controller
             $data[$item->Ten] = $item->NoiDung;
         }
         $p = Posts::all();
-        return view('ad.setting.tag2',['dt'=>$data,'p'=>$p]);
+        return view('ad.setting.tag2',['dt'=>$data,'p'=>$p])->with('thongbao','Lưu thành công');
     }
     public function get_tag3(){
         $dt = Information::all();
@@ -45,18 +45,18 @@ class settingController extends Controller
             $data[$item->Ten] = $item->NoiDung;
         }
         $p = Posts::all();
-        return view('ad.setting.tag3',['dt'=>$data,'p'=>$p]);
+        return view('ad.setting.tag3',['dt'=>$data,'p'=>$p])->with('thongbao','Lưu thành công');
     }
     public function get_introduce(){
         $id = Information::where('Ten','id_gt')->first()->NoiDung;
         $p = Posts::find($id);
-        return view('ad.setting.introduce',['p'=>$p]);
+        return view('ad.setting.introduce',['p'=>$p])->with('thongbao','Lưu thành công');
     }
 
     public function get_policy(){
         $id = Information::where('Ten','id_cl')->first()->NoiDung;
         $p = Posts::find($id);
-        return view('ad.setting.policy',['p'=>$p]);
+        return view('ad.setting.policy',['p'=>$p])->with('thongbao','Lưu thành công');
     }
     public function get_communications(){
         $dt = Information::all();
@@ -65,7 +65,7 @@ class settingController extends Controller
             $data[$item->Ten] = $item->NoiDung;
         }
         $p = Posts::all();
-        return view('ad.setting.communications',['dt'=>$data,'p'=>$p]);
+        return view('ad.setting.communications',['dt'=>$data,'p'=>$p])->with('thongbao','Lưu thành công');
     }
 
 
@@ -77,7 +77,7 @@ class settingController extends Controller
              $dt->NoiDung = $value;
              $dt->save();
          }
-        return redirect('/');
+        return redirect('/')->with('thongbao','Lưu thành công');
     }
     public function post_tag1(Request $request){
         $data = Information::where("Ten",'tag1')->first();
@@ -99,7 +99,7 @@ class settingController extends Controller
             $card->id_tag = $data->id;
             $card->save();
         }
-        return redirect('/'); 
+        return redirect('/')->with('thongbao','Lưu thành công'); 
     }
     public function post_tag2(Request $request){
         $data = Information::where("Ten",'tag2')->first();
@@ -156,7 +156,7 @@ class settingController extends Controller
             $card->save();
         }
         
-        return redirect('/');  
+        return redirect('/')->with('thongbao','Lưu thành công');  
     }
     public function post_tag3(Request $request){
         for($i=1;$i<5;$i++)
@@ -172,7 +172,7 @@ class settingController extends Controller
             $data->save();
         }
 
-        return redirect('/');  
+        return redirect('/')->with('thongbao','Lưu thành công');  
     }
     public function post_policy(Request $request){
         $post = Posts::find($request->id);
@@ -208,7 +208,7 @@ class settingController extends Controller
             $post->image = $image;
         }
         $post->save();
-        return redirect('/');  
+        return redirect('/')->with('thongbao','Lưu thành công');  
     }
     public function post_communications(Request $request){
         $data = Information::where("Ten",'dc')->first();
@@ -222,7 +222,7 @@ class settingController extends Controller
         $data = Information::where("Ten",'sdt')->first();
         $data->NoiDung = $request->sdt;
         $data->save();
-        return redirect('/');  
+        return redirect('/')->with('thongbao','Lưu thành công');  
     }
     
 }

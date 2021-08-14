@@ -137,6 +137,12 @@
 
     <div id="main-slide" class="ts-flex-slider">
 
+        @if (session('thongbao'))
+            <div class="alert alert-danger" role="alert">
+                {{session('thongbao')}}
+            </div>
+        @endif
+
         <div class="flexSlideshow flexslider">
             <ul class="slides">
                 <li>
